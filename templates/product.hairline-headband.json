@@ -46,6 +46,15 @@
           "disabled": true,
           "settings": {}
         },
+        "launch-terms": {
+          "type": "availability_note",
+          "settings": {
+            "text": "<p><strong>Available on demand.</strong> Please allow 5-10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
+            "background_color": "#f4eee6",
+            "border_color": "#ded5cc",
+            "text_color": "#241c16"
+          }
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -53,17 +62,16 @@
             "show_gift_card_recipient": false
           }
         },
-        "launch-terms": {
-          "type": "availability_note",
+        "cta_button_EFPwmX": {
+          "type": "cta_button",
           "settings": {
-            "text": "<p><strong>Available on demand.</strong> Please allow 5-10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
-            "background_color": "#F4EEE6",
-            "border_color": "#DED5CC",
-            "text_color": "#241C16"
+            "text": "Not sure on shade? Book a 15-minute color match",
+            "link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd"
           }
         },
         "icon_with_text_gychT4": {
           "type": "icon-with-text",
+          "disabled": true,
           "settings": {
             "layout": "vertical",
             "icon_1": "none",
@@ -86,8 +94,9 @@
         "price_TMzTCx",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
         "launch-terms",
+        "buy_buttons",
+        "cta_button_EFPwmX",
         "icon_with_text_gychT4",
         "description"
       ],
@@ -296,7 +305,11 @@
       ],
       "name": "Studio Zeal FAQ Dev",
       "settings": {
-        "heading": "Shipping,  <br>\nreturns\nand care"
+        "heading": "Shipping,  <br>\nreturns\nand care",
+        "padding_top": 84,
+        "padding_bottom": 20,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 20
       }
     }
   },
