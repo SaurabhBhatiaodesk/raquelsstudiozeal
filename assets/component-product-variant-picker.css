@@ -378,7 +378,7 @@ variant-selects.variant-selected {
 
 @media screen and (max-width: 749px) {
   .product-form__input--powder-swatch {
-    grid-template-columns: repeat(3,minmax(0,1fr));
+    grid-template-columns: repeat(5,minmax(0,1fr));
     gap: 0.9rem 0.6rem;
   }
 
@@ -390,7 +390,7 @@ variant-selects.variant-selected {
   }
 
   .powder-swatch__dot {
-    width: 4.8rem;
-    height: 4.8rem;
+    width: 3.8rem;
+    height: 3.8rem;
   }
 }
