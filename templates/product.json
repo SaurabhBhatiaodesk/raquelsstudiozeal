@@ -71,50 +71,6 @@
         "description": {
           "type": "description",
           "settings": {}
-        },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care and storage",
-            "icon": "none",
-            "content": "<p>Keep the compact closed, dry, and away from excessive heat. Use clean applicators and follow the directions provided with the product.</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Shade and application help",
-            "icon": "none",
-            "content": "<p>Start with a small amount and build coverage where needed. Screens, lighting, hair color, and application can change how a shade appears. For personal guidance, <a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">book a Studio Zeal consultation</a> before checkout.</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Processing and shipping",
-            "icon": "none",
-            "content": "<p>This item is sourced on demand, received, and inspected by Studio Zeal before shipping from Phoenix, Arizona. Please allow 5–10 business days for processing before carrier transit begins. U.S. standard shipping is free. The optional $15 express service changes carrier transit only and does not shorten processing.</p><p>International customers pay the carrier-calculated rate at checkout. International orders ship Delivered at Place (DAP), so the customer is responsible for duties, import taxes, brokerage fees, and destination-country charges.</p>",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "disabled": true,
-          "settings": {
-            "heading": "Care",
-            "icon": "washing",
-            "content": "<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.</p>",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "disabled": true,
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -126,12 +82,7 @@
         "buy_buttons",
         "launch-terms",
         "icon_with_text_gychT4",
-        "description",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-0",
-        "collapsible-row-3",
-        "share"
+        "description"
       ],
       "settings": {
         "enable_sticky_info": true,
