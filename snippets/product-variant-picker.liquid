@@ -26,11 +26,19 @@
             assign picker_type = 'swatch'
           endif
         endif
+
+        if product.handle == 'hairline-headband' and option.name == 'Shade'
+          assign picker_type = 'hairline_swatch'
+        endif
       -%}
-      {%- if picker_type == 'swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch">
+      {%- if picker_type == 'swatch' or picker_type == 'hairline_swatch' -%}
+        <fieldset class="js product-form__input product-form__input--swatch{% if picker_type == 'hairline_swatch' %} product-form__input--hairline-swatch{% endif %}">
           <legend class="form__label">
-            {{ option.name }}:
+            {%- if picker_type == 'hairline_swatch' -%}
+              <span>{{ option.name }} - {{ option.values.size }} options</span>
+            {%- else -%}
+              {{ option.name }}:
+            {%- endif -%}
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>

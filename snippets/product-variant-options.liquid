@@ -24,6 +24,19 @@
   {%- liquid
     assign swatch_focal_point = null
     assign custom_swatch_color = null
+    assign hairline_variant = null
+    assign hairline_swatch_image = null
+
+    if picker_type == 'hairline_swatch'
+      assign hairline_variant = value.variant
+
+      if hairline_variant.featured_media.preview_image
+        assign hairline_swatch_image = hairline_variant.featured_media.preview_image
+      elsif hairline_variant.featured_image
+        assign hairline_swatch_image = hairline_variant.featured_image
+      endif
+    endif
+
     if value.swatch.image
       assign image_url = value.swatch.image | image_url: width: 50
       assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -81,7 +94,41 @@
 
   {% assign escaped_value = value | escape %}
 
-  {%- if picker_type == 'swatch' -%}
+  {%- if picker_type == 'hairline_swatch' -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ escaped_value }}"
+      form="{{ product_form_id }}"
+      class="hairline-swatch__input{% if option_disabled %} visually-disabled{% endif %}"
+      {% if value.selected %}
+        checked
+      {% endif %}
+      {{ input_dataset }}
+    >
+    <label for="{{ input_id }}" class="hairline-swatch__label" title="{{ escaped_value }}">
+      <span class="hairline-swatch__media" aria-hidden="true">
+        {%- if hairline_swatch_image -%}
+          {{
+            hairline_swatch_image
+            | image_url: width: 180
+            | image_tag:
+              loading: 'lazy',
+              widths: '90, 140, 180',
+              class: 'hairline-swatch__image',
+              alt: ''
+          }}
+        {%- elsif value.swatch.image or value.swatch.color -%}
+          {% render 'swatch', swatch: value.swatch, shape: 'square' %}
+        {%- else -%}
+          <span class="hairline-swatch__fallback">{{ value | slice: 0, 1 }}</span>
+        {%- endif -%}
+      </span>
+      <span class="hairline-swatch__name">{{ value }}</span>
+      {{ label_unavailable }}
+    </label>
+  {%- elsif picker_type == 'swatch' -%}
     {%- capture help_text -%}
       <span class="visually-hidden">{{ escaped_value }}</span>
       {{ label_unavailable }}
