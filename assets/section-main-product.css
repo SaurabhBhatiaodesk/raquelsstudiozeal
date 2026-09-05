@@ -1600,4 +1600,7 @@ a.product__text {
     padding: 1.4rem;
     font-size: 13px;
   }
+  .product.grid {
+    gap: 40px;
+  }
 }
