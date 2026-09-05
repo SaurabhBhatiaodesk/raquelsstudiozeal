@@ -312,21 +312,31 @@ product-info {
 .product__description ul {
     margin: 0;
     padding: 0;
+    list-style: none;
     font-weight:400;
 }
 .product__description ul li {
+    display: grid;
+    grid-template-columns: 12px minmax(0, 1fr);
+    gap: 20px;
+    align-items: start;
     border-top: 1px solid #241c1624;
-    padding: 13px 0;
+    padding: 12px 0;
     color: #241c16;
-    font-size: 15px;
+    font-size: 14px;
     font-family: 'Karla';
+    line-height: 1.55;
 }
 .product__description ul li:last-child{
   border-bottom: 1px solid #241c1624;
 }
-.product__description ul li::marker{
-  color:rgb(140, 99, 87);
-  font-size: 1.3em;
+.product__description ul li::before{
+  content: '';
+  width: 9px;
+  height: 9px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: rgb(140, 99, 87);
 }
 .product__info-container .product-form,
 .product__info-container .product__description,
