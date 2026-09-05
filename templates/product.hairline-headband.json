@@ -209,7 +209,7 @@
           "settings": {
             "heading": "Confidence first",
             "text": "The goal is not to change who you are. It is to stop making your hair the first thing on your mind.",
-            "dark_card": true
+            "dark_card": false
           }
         }
       },
