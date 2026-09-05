@@ -23,7 +23,7 @@
         "product_meta_description_9BMDk9": {
           "type": "product_meta_description",
           "settings": {
-            "description_color": "#4A403A",
+            "description_color": "#4a403a",
             "font_size": 17,
             "line_height": 1.6
           }
@@ -87,7 +87,7 @@
         "constrain_to_viewport": true,
         "media_fit": "cover",
         "gallery_layout": "thumbnail",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "media_position": "left",
         "image_zoom": "none",
         "hide_variants": false,
@@ -121,36 +121,36 @@
         "step_Ug33b7": {
           "type": "step",
           "settings": {
-            "step_label": "STEP 01",
-            "title": "Book a 15-minute call",
-            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "step_label": "01",
+            "title": "Refresh root color",
+            "description": "<p>Stretch the weeks between color appointments without touching the rest of your hair.</p>",
             "card_style": "light"
           }
         },
         "step_BgU7pg": {
           "type": "step",
           "settings": {
-            "step_label": "STEP 01",
-            "title": "Book a 15-minute call",
-            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "step_label": "02",
+            "title": "Soften regrowth lines",
+            "description": "<p>Shadow a hard grow-out line so the transition reads as depth, not a stripe.</p>",
             "card_style": "light"
           }
         },
         "step_Bq3WCC": {
           "type": "step",
           "settings": {
-            "step_label": "STEP 02",
-            "title": "Get color matched",
-            "description": "<p>Your set is chosen from the Remy range and can be permed for texture. Toppers available too.</p>",
+            "step_label": "03",
+            "title": "Fill sparse areas",
+            "description": "<p>Add pigment at the temples and part so the scalp stops catching the light.</p>",
             "card_style": "light"
           }
         },
         "step_xhFwLi": {
           "type": "step",
           "settings": {
-            "step_label": "STEP 03",
-            "title": "Wear it out the same day",
-            "description": "<p>Fitted, cut and blended in the chair. You leave knowing exactly how to put it on at home.</p>",
+            "step_label": "04",
+            "title": "Blend to a hairpiece",
+            "description": "<p>Where your own hair meets the headband hairline, powder closes the gap at the part.</p>",
             "card_style": "dark"
           }
         }
@@ -163,9 +163,9 @@
       ],
       "name": "Studio Zeal How It Works",
       "settings": {
-        "heading": "How it works",
+        "heading": "Four ways clients use it",
         "desktop_columns": 4,
-        "card_gap": 22,
+        "card_gap": 16,
         "mobile_card_gap": 16,
         "card_radius": 14,
         "card_padding_top": 30,
@@ -177,22 +177,22 @@
         "card_title_size": 24,
         "mobile_card_title_size": 23,
         "description_size": 15,
-        "heading_spacing": 34,
+        "heading_spacing": 28,
         "mobile_heading_spacing": 26,
         "padding_top": 60,
         "padding_bottom": 0,
-        "mobile_padding_top": 60,
+        "mobile_padding_top": 0,
         "mobile_padding_bottom": 0,
-        "background_color": "#FAF6F0",
-        "text_color": "#241C16",
-        "secondary_text_color": "#5A4E45",
-        "accent_color": "#8C6357",
-        "card_background": "#F3EDE4",
-        "card_border_color": "#E4DCD3",
-        "dark_card_background": "#241C16",
-        "dark_card_text": "#FAF6F0",
-        "dark_secondary_text": "#D8CEC6",
-        "dark_accent_color": "#C99B7A",
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#4a403a",
+        "accent_color": "#8c6357",
+        "card_background": "#f3ede4",
+        "card_border_color": "#f3ede4",
+        "dark_card_background": "#241c16",
+        "dark_card_text": "#faf6f0",
+        "dark_secondary_text": "#d8cec6",
+        "dark_accent_color": "#c99b7a",
         "enable_hover": false
       }
     },
@@ -206,17 +206,17 @@
         "card_text": "Compare the product photos and shade names before ordering. If you are between shades or want a second opinion, book a Studio Zeal consultation before checkout. Shade guidance helps narrow the choice but cannot guarantee an exact match across every screen, lighting condition, or hair color.",
         "review": "Pick the shade closest to your root",
         "review_author": "Powder is buildable, so a slightly deeper shade reads as shadow rather than a mismatch. If you are covering grey through the front, match the root you want, not the grey you have.",
-        "section_background": "#FAF6F0",
-        "heading_color": "#241C16",
-        "description_color": "#4A403A",
+        "section_background": "#faf6f0",
+        "heading_color": "#241c16",
+        "description_color": "#4a403a",
         "card_background": "#ffffff",
         "card_border": "#e4ddd3",
-        "card_heading_color": "#241C16",
+        "card_heading_color": "#241c16",
         "card_text_color": "#806f61",
-        "review_background": "#eee2d2",
-        "review_text_color": "#241C16",
-        "review_author_color": "#241C16",
-        "padding_top": 80,
+        "review_background": "#f3ede4",
+        "review_text_color": "#241c16",
+        "review_author_color": "#241c16",
+        "padding_top": 70,
         "padding_bottom": 0,
         "mobile_padding_top": 50,
         "mobile_padding_bottom": 0
@@ -266,11 +266,39 @@
       ],
       "name": "Studio Zeal FAQ Dev",
       "settings": {
-        "heading": "Questions we get<br>on every call",
+        "heading": "Shipping,<br>returns and care",
         "padding_top": 84,
-        "padding_bottom": 20,
+        "padding_bottom": 0,
         "mobile_padding_top": 56,
-        "mobile_padding_bottom": 20
+        "mobile_padding_bottom": 0
+      }
+    },
+    "studio_zeal_final_cta_HU8qy8": {
+      "type": "studio-zeal-final-cta",
+      "name": "Studio Zeal Hairline CTA",
+      "settings": {
+        "desktop_margin_top": 84,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 20,
+        "mobile_margin_top": 56,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 12,
+        "heading": "Let's look at your hairline together",
+        "text": "<p>When powder stops keeping up with the thinning, the Hairline Headband covers the whole perimeter in 100% Remy human hair.</p>",
+        "primary_button_label": "See the Hairline Headband",
+        "primary_button_link": "shopify://products/hairline-headband",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "background_color": "#241c16",
+        "heading_color": "#faf6f0",
+        "text_color": "#f3ede4",
+        "primary_button_bg": "#faf6f0",
+        "primary_button_text": "#241c16",
+        "primary_button_hover_bg": "#f3ede4",
+        "secondary_button_text": "#241c16",
+        "secondary_button_hover_border": "#241c16",
+        "sub_heading": "<p><a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\" target=\"_blank\">Or book a color match first</a></p>",
+        "sub_heading_color": "#f3ede4"
       }
     }
   },
@@ -279,6 +307,7 @@
     "related-products",
     "studio_zeal_how_it_works_xeKwQB",
     "who_this_helps_mnVqQK",
-    "raquel_faq_dycQRR"
+    "raquel_faq_dycQRR",
+    "studio_zeal_final_cta_HU8qy8"
   ]
 }
