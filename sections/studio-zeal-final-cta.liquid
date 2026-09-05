@@ -9,7 +9,9 @@
 
 <style>
   #StudioZealCTA-{{ section.id }} {
-    margin-top: 84px;
+    margin-top: {{ section.settings.desktop_margin_top }}px;
+    padding-top: {{ section.settings.desktop_padding_top }}px;
+    padding-bottom: {{ section.settings.desktop_padding_bottom }}px;
   }
 
   #StudioZealCTA-{{ section.id }} *,
@@ -146,8 +148,10 @@
 
   @media screen and (max-width: 749px) {
     #StudioZealCTA-{{ section.id }} {
-      margin-top: 56px;
-    }
+        margin-top: {{ section.settings.mobile_margin_top }}px;
+        padding-top: {{ section.settings.mobile_padding_top }}px;
+        padding-bottom: {{ section.settings.mobile_padding_bottom }}px;
+      }
 
     #StudioZealCTA-{{ section.id }} .studio-zeal-cta__box {
       padding: 44px 22px;
@@ -227,7 +231,61 @@
   "settings": [
     {
       "type": "header",
-      "content": "Content"
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "desktop_margin_top",
+      "label": "Desktop Top Margin",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 84
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_top",
+      "label": "Desktop Top Padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "desktop_padding_bottom",
+      "label": "Desktop Bottom Padding",
+      "min": 0,
+      "max": 200,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_margin_top",
+      "label": "Mobile Top Margin",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 56
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Top Padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Bottom Padding",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "default": 0
     },
     {
       "type": "text",
