@@ -41,37 +41,20 @@
             "swatch_shape": "circle"
           }
         },
-        "quantity_selector": {
-          "type": "quantity_selector",
-          "disabled": true,
-          "settings": {}
+        "availability_note_nMtwhp": {
+          "type": "availability_note",
+          "settings": {
+            "text": "<p><strong>Available on demand.</strong> Please allow 5-10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
+            "background_color": "#f4eee6",
+            "border_color": "#ded5cc",
+            "text_color": "#241c16"
+          }
         },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
             "show_dynamic_checkout": false,
             "show_gift_card_recipient": false
-          }
-        },
-        "launch-terms": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "<strong>Available on demand.</strong> Please allow 5–10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.",
-            "text_style": "body"
-          }
-        },
-        "icon_with_text_gychT4": {
-          "type": "icon-with-text",
-          "disabled": true,
-          "settings": {
-            "layout": "vertical",
-            "icon_1": "none",
-            "heading_1": "Not sure if the hairline headband is for you. <a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\" target=\"_blank\" title=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">Book a 15-minute consultation </a>with Raquel",
-            "icon_2": "none",
-            "heading_2": "",
-            "icon_3": "none",
-            "heading_3": ""
           }
         },
         "description": {
@@ -85,10 +68,8 @@
         "product_meta_description_9BMDk9",
         "price_erzJHR",
         "variant_picker",
-        "quantity_selector",
+        "availability_note_nMtwhp",
         "buy_buttons",
-        "launch-terms",
-        "icon_with_text_gychT4",
         "description"
       ],
       "settings": {
