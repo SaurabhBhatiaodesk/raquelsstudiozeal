@@ -100,60 +100,9 @@
         "padding_bottom": 12
       }
     },
-    "trust": {
-      "type": "raquel-product-confidence",
-      "blocks": {
-        "trust_1": {
-          "type": "item",
-          "settings": {
-            "title": "Natural coverage",
-            "text": "Adds fullness where thinning shows most, while still looking like your own hair."
-          }
-        },
-        "trust_2": {
-          "type": "item",
-          "settings": {
-            "title": "Made for real days",
-            "text": "For work, photos, errands, events, and the rooms where you do not want to think about your hair."
-          }
-        },
-        "trust_3": {
-          "type": "item",
-          "settings": {
-            "title": "Confidence first",
-            "text": "The goal is not to change who you are. It is to stop making your hair the first thing on your mind."
-          }
-        }
-      },
-      "block_order": [
-        "trust_1",
-        "trust_2",
-        "trust_3"
-      ],
-      "settings": {}
-    },
-    "studio_zeal_final_cta_qn63PH": {
-      "type": "studio-zeal-final-cta",
-      "name": "Studio Zeal Hairline CTA",
-      "settings": {
-        "heading": "Let's look at your hairline together",
-        "text": "<p>Fifteen minutes, free, no pressure to buy. Pick a time that works and Raquel will call you.</p>",
-        "primary_button_label": "Book now",
-        "primary_button_link": "",
-        "secondary_button_label": "Get the guide instead",
-        "secondary_button_link": "",
-        "background_color": "#efe4d6",
-        "heading_color": "#241c16",
-        "text_color": "#4a403a",
-        "primary_button_bg": "#241c16",
-        "primary_button_text": "#faf6f0",
-        "primary_button_hover_bg": "#3d2e24",
-        "secondary_button_text": "#241c16",
-        "secondary_button_hover_border": "#241c16"
-      }
-    },
     "related-products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "heading": "More coverage options",
         "heading_size": "h2",
@@ -169,54 +118,10 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "waitlist": {
-      "type": "raquel-waitlist",
-      "disabled": true,
-      "settings": {
-        "color_scheme": "",
-        "kicker": "Need shade guidance?",
-        "heading": "Stay close to Studio Zeal.",
-        "text": "<p>Get shade help, care tips, and product updates from Raquel.</p>",
-        "placeholder": "Email address",
-        "button_label": "Join the Studio Zeal list",
-        "tags": "waitlist,email_signup,product_interest",
-        "success_text": "You are on the list.",
-        "note": "No spam. Just shade help, care tips, and Studio Zeal updates.",
-        "secondary_label": "Continue shopping →",
-        "secondary_link": "/#products"
-      }
-    },
-    "rich_text_HiK4w8": {
-      "type": "rich-text",
-      "blocks": {
-        "text_rjWHzG": {
-          "type": "text",
-          "settings": {
-            "text": "<h3>Final sale and damage claims</h3><p>All sales are final. If the item arrives damaged or defective, email <a href=\"mailto:support@raquelsstudiozeal.com\">support@raquelsstudiozeal.com</a> within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label. Do not discard packaging or return the item without written authorization. Read the full <a href=\"/policies/refund-policy\">refund policy</a> and <a href=\"/policies/shipping-policy\">shipping policy</a> before ordering.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "text_rjWHzG"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52
-      }
     }
   },
   "order": [
     "main",
-    "trust",
-    "studio_zeal_final_cta_qn63PH",
-    "related-products",
-    "waitlist",
-    "rich_text_HiK4w8"
+    "related-products"
   ]
 }
