@@ -94,7 +94,25 @@
 
   {% assign escaped_value = value | escape %}
 
-  {%- if picker_type == 'hairline_swatch' -%}
+  {%- if picker_type == 'powder_swatch' -%}
+    <input
+      type="radio"
+      id="{{ input_id }}"
+      name="{{ input_name | escape }}"
+      value="{{ escaped_value }}"
+      form="{{ product_form_id }}"
+      class="powder-swatch__input{% if option_disabled %} visually-disabled{% endif %}"
+      {% if value.selected %}
+        checked
+      {% endif %}
+      {{ input_dataset }}
+    >
+    <label for="{{ input_id }}" class="powder-swatch__label" title="{{ escaped_value }}">
+      <span class="powder-swatch__dot" style="--powder-swatch-color: {{ custom_swatch_color | default: '#ded5cc' }}" aria-hidden="true"></span>
+      <span class="powder-swatch__name">{{ value }}</span>
+      {{ label_unavailable }}
+    </label>
+  {%- elsif picker_type == 'hairline_swatch' -%}
     <input
       type="radio"
       id="{{ input_id }}"

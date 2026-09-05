@@ -29,11 +29,15 @@
         if product.handle == 'hairline-headband' and option.name == 'Shade' and block.settings.picker_type == 'dropdown'
           assign picker_type = 'hairline_swatch'
         endif
+
+        if product.handle == 'colored-hairline-powder' and option.name == 'Shade'
+          assign picker_type = 'powder_swatch'
+        endif
       -%}
-      {%- if picker_type == 'swatch' or picker_type == 'hairline_swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch{% if picker_type == 'hairline_swatch' %} product-form__input--hairline-swatch{% endif %}">
+      {%- if picker_type == 'swatch' or picker_type == 'hairline_swatch' or picker_type == 'powder_swatch' -%}
+        <fieldset class="js product-form__input product-form__input--swatch{% if picker_type == 'hairline_swatch' %} product-form__input--hairline-swatch{% endif %}{% if picker_type == 'powder_swatch' %} product-form__input--powder-swatch{% endif %}">
           <legend class="form__label">
-            {%- if picker_type == 'hairline_swatch' -%}
+            {%- if picker_type == 'hairline_swatch' or picker_type == 'powder_swatch' -%}
               <span>{{ option.name }} - {{ option.values.size }} options</span>
             {%- else -%}
               {{ option.name }}:
