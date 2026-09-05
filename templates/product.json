@@ -115,6 +115,87 @@
         "padding_bottom": 28
       }
     },
+    "studio_zeal_how_it_works_xeKwQB": {
+      "type": "studio-zeal-how-it-works",
+      "blocks": {
+        "step_Ug33b7": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 01",
+            "title": "Book a 15-minute call",
+            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_BgU7pg": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 01",
+            "title": "Book a 15-minute call",
+            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_Bq3WCC": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 02",
+            "title": "Get color matched",
+            "description": "<p>Your set is chosen from the Remy range and can be permed for texture. Toppers available too.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_xhFwLi": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 03",
+            "title": "Wear it out the same day",
+            "description": "<p>Fitted, cut and blended in the chair. You leave knowing exactly how to put it on at home.</p>",
+            "card_style": "dark"
+          }
+        }
+      },
+      "block_order": [
+        "step_Ug33b7",
+        "step_BgU7pg",
+        "step_Bq3WCC",
+        "step_xhFwLi"
+      ],
+      "name": "Studio Zeal How It Works",
+      "settings": {
+        "heading": "How it works",
+        "desktop_columns": 4,
+        "card_gap": 22,
+        "mobile_card_gap": 16,
+        "card_radius": 14,
+        "card_padding_top": 30,
+        "card_padding_horizontal": 28,
+        "card_padding_bottom": 34,
+        "heading_size": 38,
+        "mobile_heading_size": 32,
+        "step_size": 10,
+        "card_title_size": 24,
+        "mobile_card_title_size": 23,
+        "description_size": 15,
+        "heading_spacing": 34,
+        "mobile_heading_spacing": 26,
+        "padding_top": 84,
+        "padding_bottom": 0,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 0,
+        "background_color": "#FAF6F0",
+        "text_color": "#241C16",
+        "secondary_text_color": "#5A4E45",
+        "accent_color": "#8C6357",
+        "card_background": "#F3EDE4",
+        "card_border_color": "#E4DCD3",
+        "dark_card_background": "#241C16",
+        "dark_card_text": "#FAF6F0",
+        "dark_secondary_text": "#D8CEC6",
+        "dark_accent_color": "#C99B7A",
+        "enable_hover": false
+      }
+    },
     "who_this_helps_mnVqQK": {
       "type": "who-this-helps",
       "name": "Who This Helps",
@@ -196,6 +277,7 @@
   "order": [
     "main",
     "related-products",
+    "studio_zeal_how_it_works_xeKwQB",
     "who_this_helps_mnVqQK",
     "raquel_faq_dycQRR"
   ]
