@@ -2,7 +2,7 @@
   Studio Zeal - Who This Helps Section
 {% endcomment %}
 
-<section class="who-helps-section-{{ section.id }}">
+<section class="who-helps-section-{{ section.id }} {{ page.handle }}">
 
   <div class="page-width">
     <div class="who-helps-grid">
@@ -54,7 +54,7 @@
 
 
           {% if section.settings.review_author != blank %}
-            <span class="review-author">
+            <span class="review-author" id="review-author-{{ section.id }}">
               {{ section.settings.review_author }}
             </span>
           {% endif %}
