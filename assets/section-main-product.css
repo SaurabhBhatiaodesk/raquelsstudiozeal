@@ -1602,5 +1602,7 @@ a.product__text {
   }
   .product.grid {
     gap: 40px;
+    padding-top: 16px;
+    overflow: hidden;
   }
 }
