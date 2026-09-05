@@ -257,7 +257,7 @@ variant-selects.variant-selected {
 
 .hairline-swatch__input:checked + .hairline-swatch__label .hairline-swatch__media {
   border-color: rgb(var(--color-foreground));
-  box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
+  /* box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground)); */
 }
 
 .hairline-swatch__input:focus-visible + .hairline-swatch__label .hairline-swatch__media {
