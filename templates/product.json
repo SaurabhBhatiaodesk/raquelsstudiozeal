@@ -44,7 +44,7 @@
         "availability_note_nMtwhp": {
           "type": "availability_note",
           "settings": {
-            "text": "<p><strong>Available on demand.</strong> Please allow 5-10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
+            "text": "<p><strong>Available on demand.</strong> Please allow 5–10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
             "background_color": "#f4eee6",
             "border_color": "#ded5cc",
             "text_color": "#241c16"
