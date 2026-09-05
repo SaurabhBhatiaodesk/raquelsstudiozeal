@@ -358,7 +358,6 @@ variant-selects.variant-selected {
     overflow-wrap: anywhere;
     white-space: nowrap;
 }
-
 .powder-swatch__input:not(.visually-disabled) + .powder-swatch__label .label-unavailable {
   display: none;
 }
