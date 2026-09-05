@@ -355,7 +355,8 @@ variant-selects.variant-selected {
 }
 
 .powder-swatch__name {
-  overflow-wrap: anywhere;
+    overflow-wrap: anywhere;
+    white-space: nowrap;
 }
 
 .powder-swatch__input:not(.visually-disabled) + .powder-swatch__label .label-unavailable {
