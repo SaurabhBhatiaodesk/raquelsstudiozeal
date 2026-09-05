@@ -237,10 +237,11 @@ product-info {
 }
 
 .product__price-note {
-  color: rgba(var(--color-foreground), 0.86);
-  font-size: 1.4rem;
-  line-height: 1.4;
-  letter-spacing: 0.02rem;
+    color: rgb(90, 78, 69);
+    font-size: 13px;
+    line-height: 1.4;
+    font-family: Karla,sans-serif;
+    letter-spacing: .02rem;
 }
 
 .product__price-note::before {
