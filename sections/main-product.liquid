@@ -113,6 +113,12 @@
                   </a>
                 </div>
               {%- when 'price' -%}
+                {%- liquid
+                  assign price_note = block.settings.price_note
+                  if price_note == blank and product.handle == 'hairline-headband'
+                    assign price_note = 'free standard shipping in the US'
+                  endif
+                -%}
                 <div id="price-{{ section.id }}" class="product__price-row" role="status" {{ block.shopify_attributes }}>
                   <div class="product__price-main">
                     {%- render 'price',
@@ -122,9 +128,9 @@
                       price_class: 'price--large'
                     -%}
                   </div>
-                  {%- if block.settings.price_note != blank -%}
+                  {%- if price_note != blank -%}
                     <div class="product__price-note rte">
-                      {{ block.settings.price_note }}
+                      {{ price_note }}
                     </div>
                   {%- endif -%}
                 </div>
@@ -849,7 +855,7 @@
           "type": "inline_richtext",
           "id": "price_note",
           "label": "Text after price",
-          "default": ""
+          "default": "free standard shipping in the US"
         }
       ]
     },
