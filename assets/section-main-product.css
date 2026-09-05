@@ -324,6 +324,9 @@ product-info {
     padding:13px 0;
     color:#241C16
 }
+.product__description ul li:last-child{
+  border-bottom: 1px solid #241c1624;
+}
 .product__description ul li::marker{
   color:rgb(140, 99, 87);
 }
