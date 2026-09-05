@@ -1,1 +1,501 @@
-{"sections":{"studio_zeal_hero_74pCkX":{"type":"studio-zeal-hero","name":"Studio Zeal Hero","settings":{"hero_image":"shopify:\/\/shop_images\/99bd12b2-cc6a-4e11-8775-c8420878614a.webp","image_position":"64% 20%","mobile_image_position":"65% center","overlay_opacity":75,"badge_text":"19M VIEWS ON INSTAGRAM","heading":"A fuller hairline,\nin minutes.","description":"<p>The Hairlosophy Headband Hairline is hand-tied on lightweight lace with 100% Remy human hair, made for the part that frames your face. No surgery, no downtime, no commitment.<\/p>","primary_button_text":"Book a 15-minute color match","primary_button_link":"https:\/\/raquelviara.glossgenius.com\/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd","show_secondary_link":true,"secondary_link_text":"Shop the hairline — from $725","secondary_link_url":"shopify:\/\/products\/hairline-headband","show_reel":true,"reel_image":"shopify:\/\/shop_images\/5d876d03-4d15-429f-837a-5f1f7fb2d5bd.jpg","reel_image_position":"74% 30%","reel_url":"https:\/\/www.instagram.com\/reel\/DYngn0yBJr_\/","reel_caption":"HERO REEL · AUTOPLAYS MUTED\n@RAQUELS_STUDIOZEAL","desktop_height":660,"container_width":1240,"heading_size":66,"mobile_heading_size":44,"reel_width":250,"padding_top":70,"padding_bottom":70,"background_color":"#241c16","text_color":"#faf6f0","accent_color":"#c99b7a","button_background":"#faf6f0","button_hover_background":"#ffffff","button_text_color":"#241c16"}},"raquel_marquee_UKz6Uh":{"type":"raquel-marquee","name":"Studio Zeal Marquee","settings":{"text":"Nearly 20 years behind the chair|100% Remy human hair|Color-matched by Raquel, in person or virtually|2–3 new clients matched every week","bg_color":"#f3ede4","text_color":"#5a4e45","speed":40}},"studio_zeal_social_reels_wmnJiC":{"type":"studio-zeal-social-reels","blocks":{"reel_Q4g3tc":{"type":"reel","settings":{"reel_id":"DYngn0yBJr_","accessibility_title":"Studio Zeal reel one"}},"reel_kVG8aX":{"type":"reel","settings":{"reel_id":"DbEOOL9PZmm","accessibility_title":"Studio Zeal reel two"}},"reel_WaLTdy":{"type":"reel","settings":{"reel_id":"DaBtjd8vB-l","accessibility_title":"Studio Zeal reel three"}}},"block_order":["reel_Q4g3tc","reel_kVG8aX","reel_WaLTdy"],"name":"Studio Zeal Reels","settings":{"heading":"See why everyone's talking about it","instagram_text":"@raquels_studiozeal","instagram_url":"https:\/\/www.instagram.com\/raquels_studiozeal\/","desktop_columns":3,"card_gap":20,"card_radius":14,"enable_card_hover":false,"heading_size":38,"mobile_heading_size":32,"heading_bottom_spacing":26,"padding_top":84,"padding_bottom":0,"mobile_padding_top":60,"mobile_padding_bottom":0,"background_color":"#faf6f0","text_color":"#241c16","link_color":"#8c6357","link_border_color":"#c9aaa1","link_hover_color":"#241c16","card_background":"#ffffff","card_border_color":"#ddd5cd","aspect_ratio":"9 \/ 16"}},"studio_zeal_results_tcMq36":{"type":"studio-zeal-results","blocks":{"client_4dAQM6":{"type":"client","settings":{"before_image":"shopify:\/\/shop_images\/d5159a52-2aa2-4b6e-b79d-7064aa6a594c.webp","after_image":"shopify:\/\/shop_images\/e996c6d1-d5a9-45a2-a9a4-f441b257772c.webp","kicker":"CLIENT 01 · BRUNETTE","title":"Density at the part, front to crown","note":"<p>She came in hiding a widening part under a middle section. The headband sits behind it, so the part reads full without any tape or glue.<\/p>","wearing":"Headband hairline","chair_time":"90 minutes","powder_shade":"Dark brown"}},"client_GmqUqY":{"type":"client","settings":{"before_image":"shopify:\/\/shop_images\/Screenshot_29.png","after_image":"shopify:\/\/shop_images\/Screenshot_30.png","kicker":"CLIENT 02 · BLONDE","title":"Fullness around the face","note":"<p>Fine blonde hair that had thinned at the temples. Cut and blended in the chair, then finished with powder on the lace part.<\/p>","wearing":"Headband hairline + powder","chair_time":"2 hours","powder_shade":"Light blonde"}}},"block_order":["client_4dAQM6","client_GmqUqY"],"name":"Studio Zeal Results","settings":{"heading":"Two clients, two hairlines","description":"<p>Every set is cut, colored and blended in the chair. Photos shared with client permission.<\/p>","card_radius":16,"heading_size":38,"mobile_heading_size":32,"padding_top":84,"padding_bottom":64,"mobile_padding_top":60,"mobile_padding_bottom":40,"background_color":"#faf6f0","text_color":"#241c16","secondary_text_color":"#5a4e45","accent_color":"#8c6357","details_background":"#f3ede4","border_color":"#ded5cc","arrow_border_color":"#b9aea5","active_dot_color":"#241c16","inactive_dot_color":"#d8d0c8"}},"studio_zeal_how_it_works_W8XbEP":{"type":"studio-zeal-how-it-works","blocks":{"step_97QzCD":{"type":"step","settings":{"step_label":"STEP 01","title":"Book a 15-minute call","description":"<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.<\/p>","card_style":"light"}},"step_bjGcB9":{"type":"step","settings":{"step_label":"STEP 02","title":"Get color matched","description":"<p>Your set is chosen from the Remy range and can be permed for texture. Toppers available too.<\/p>","card_style":"light"}},"step_yKrM3L":{"type":"step","settings":{"step_label":"STEP 03","title":"Wear it out the same day","description":"<p>Fitted, cut and blended in the chair. You leave knowing exactly how to put it on at home.<\/p>","card_style":"dark"}}},"block_order":["step_97QzCD","step_bjGcB9","step_yKrM3L"],"name":"Studio Zeal How It Works","settings":{"heading":"How it works","desktop_columns":3,"card_gap":22,"mobile_card_gap":16,"card_radius":14,"card_padding_top":30,"card_padding_horizontal":28,"card_padding_bottom":34,"heading_size":38,"mobile_heading_size":32,"step_size":10,"card_title_size":24,"mobile_card_title_size":23,"description_size":14,"heading_spacing":34,"mobile_heading_spacing":26,"padding_top":0,"padding_bottom":80,"mobile_padding_top":0,"mobile_padding_bottom":0,"background_color":"#faf6f0","text_color":"#241c16","secondary_text_color":"#5a4e45","accent_color":"#8c6357","card_background":"#f3ede4","card_border_color":"#e4dcd3","dark_card_background":"#241c16","dark_card_text":"#faf6f0","dark_secondary_text":"#d8cec6","dark_accent_color":"#c99b7a","enable_hover":false}},"studio_zeal_pricing_guide_NKedwh":{"type":"studio-zeal-pricing-guide","name":"Studio Zeal Pricing Guide","settings":{"kicker":"NOT READY FOR A CALL YET?","heading":"Get the pricing & color guide","description":"<p>A short PDF with what each set costs, how the seven powder shades map to your color, and the questions to ask before you buy any hairpiece.<\/p>","form_label":"EMAIL","email_placeholder":"you@email.com","button_text":"Send me the guide","form_note":"<p>One email with the guide, then a few notes on choosing a hairline. Unsubscribe any time.<\/p>","success_heading":"Check your inbox.","success_text":"Thanks. Your email has been received.","column_gap":64,"card_radius":16,"card_padding":34,"mobile_card_padding":24,"heading_size":42,"mobile_heading_size":34,"description_size":16,"margin_top":0,"padding_top":70,"padding_bottom":70,"mobile_margin_top":60,"mobile_padding_top":50,"mobile_padding_bottom":50,"background_color":"#241c16","text_color":"#faf6f0","secondary_text_color":"#d8cec6","accent_color":"#c99b7a","card_background":"#31251d","card_border_color":"#55473d","label_color":"#afa39b","input_background":"#241c16","input_border_color":"#61544b","focus_border_color":"#c99b7a","input_text_color":"#faf6f0","placeholder_color":"#a99d95","button_background":"#faf6f0","button_hover_background":"#ffffff","button_text_color":"#241c16","note_color":"#afa39b","input_radius":10,"button_radius":10}},"raquel_about_WaRL7V":{"type":"raquel-about","blocks":{"stat_zBDY6A":{"type":"stat","settings":{"number":"20","label":"years behind the chair"}},"stat_Ten9RW":{"type":"stat","settings":{"number":"15 min","label":"free color-match call"}},"stat_HGn9k6":{"type":"stat","settings":{"number":"100%","label":"Remy human hair"}}},"block_order":["stat_zBDY6A","stat_Ten9RW","stat_HGn9k6"],"name":"Studio Zeal Meet Raquel","settings":{"image":"shopify:\/\/shop_images\/9c3a865c-228d-4864-96c4-d69d10fccb41.webp","image_width":440,"image_radius":16,"kicker":"MEET RAQUEL","heading":"Nearly 20 years of hands on hairlines","first_text":"<p>Salon Studio Zeal specializes in non-surgical hair solutions for women with thinning hair. Most of my clients have tried extensions, halos and volumizers that add length everywhere except the place they actually notice — the hairline that frames their face.<\/p>","second_text":"<p>That is what the Hairlosophy Headband Hairline was made for. Every set I sell is sourced from a professional hair company I trust, and I match it to you myself.<\/p>","content_width":620,"heading_size":40,"mobile_heading_size":32,"description_size":17,"stat_number_size":34,"mobile_stat_number_size":30,"container_width":1240,"column_gap":56,"stat_gap":36,"padding_top":84,"padding_bottom":64,"mobile_padding_top":60,"mobile_padding_bottom":36,"background_color":"#faf6f0","text_color":"#241c16","secondary_text_color":"#4a403a","accent_color":"#8c6357","image_border_color":"#ded5cc"}},"studio_zeal_testimonials_K6qCW7":{"type":"studio-zeal-testimonials","blocks":{"testimonial_ziKFYd":{"type":"testimonial","settings":{"quote":"<p>I stopped parting my hair on the side to hide it. First time in years.<\/p>","author":"Client, headband hairline"}},"testimonial_nwX8gB":{"type":"testimonial","settings":{"quote":"<p>The call sold me. She told me what would not work for my hair, not just what to buy.<\/p>","author":"Consult, then fitting"}},"testimonial_c4i7yi":{"type":"testimonial","settings":{"quote":"<p>I use the powder on my roots between color appointments. Did not expect that.<\/p>","author":"Powder customer"}}},"block_order":["testimonial_ziKFYd","testimonial_nwX8gB","testimonial_c4i7yi"],"name":"Studio Zeal Testimonials","settings":{"heading":"","subheading":"","desktop_columns":3,"card_gap":22,"mobile_card_gap":16,"card_padding":30,"mobile_card_padding":24,"card_radius":14,"show_quote_mark":false,"enable_hover":false,"heading_size":38,"mobile_heading_size":32,"quote_size":18,"mobile_quote_size":18,"author_size":13,"heading_spacing":30,"padding_top":0,"padding_bottom":0,"mobile_padding_top":0,"mobile_padding_bottom":0,"show_note":true,"note":"","background_color":"#faf6f0","text_color":"#241c16","secondary_text_color":"#5a4e45","accent_color":"#8c6357","card_background":"#f3ede4","card_border_color":"#e3dad1","note_color":"#9a8b7e"}},"raquel_faq_XR6TVK":{"type":"raquel-faq","blocks":{"faq_NwKEUT":{"type":"faq","settings":{"question":"Will it look obvious?","answer":"<p>The lace is hand-tied and sits flat under a headband, and we blend the part with hairline powder at your fitting, or walk you through it on video if you are ordering from out of state. Most clients wear theirs to work the same day.<\/p>","open_by_default":true}},"faq_Nyq6aP":{"type":"faq","settings":{"question":"Why do I need a consult before buying?","answer":"<p>Color is the whole game at this price. Fifteen minutes on video saves a return, and it tells us whether a hairline, a topper or just the powder is right for you.<\/p>","open_by_default":false}},"faq_wjxPhp":{"type":"faq","settings":{"question":"Does it come in curly or wavy?","answer":"<p>It arrives straight and can be permed to match your texture. We talk through that on the call.<\/p>","open_by_default":false}},"faq_7yDCYb":{"type":"faq","settings":{"question":"How long does a set last?","answer":"<p>With the aftercare we show you, a Remy set holds its color and shine for months of regular wear and tangles far less than synthetic alternatives.<\/p>","open_by_default":false}}},"block_order":["faq_NwKEUT","faq_Nyq6aP","faq_wjxPhp","faq_7yDCYb"],"name":"Studio Zeal FAQ Dev","settings":{"heading":"Questions we get<br>on every call"}},"studio_zeal_final_cta_3TfE8R":{"type":"studio-zeal-final-cta","name":"Studio Zeal Final CTA","settings":{"heading":"Let's look at your hairline together","text":"<p>Fifteen minutes, free, no pressure to buy. Pick a time that works and Raquel will call you.<\/p>","primary_button_label":"Book now","primary_button_link":"https:\/\/raquelviara.glossgenius.com\/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd","secondary_button_label":"Get the guide instead","secondary_button_link":"https:\/\/raquelsstudiozeal.com\/#shopify-section-template--20926398300296__studio_zeal_pricing_guide_NKedwh","background_color":"#efe4d6","heading_color":"#241c16","text_color":"#4a403a","primary_button_bg":"#241c16","primary_button_text":"#faf6f0","primary_button_hover_bg":"#3d2e24","secondary_button_text":"#241c16","secondary_button_hover_border":"#241c16"}}},"order":["studio_zeal_hero_74pCkX","raquel_marquee_UKz6Uh","studio_zeal_social_reels_wmnJiC","studio_zeal_results_tcMq36","studio_zeal_how_it_works_W8XbEP","studio_zeal_pricing_guide_NKedwh","raquel_about_WaRL7V","studio_zeal_testimonials_K6qCW7","raquel_faq_XR6TVK","studio_zeal_final_cta_3TfE8R"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "studio_zeal_hero_74pCkX": {
+      "type": "studio-zeal-hero",
+      "name": "Studio Zeal Hero",
+      "settings": {
+        "hero_image": "shopify://shop_images/99bd12b2-cc6a-4e11-8775-c8420878614a.webp",
+        "image_position": "64% 20%",
+        "mobile_image_position": "65% center",
+        "overlay_opacity": 75,
+        "badge_text": "19M VIEWS ON INSTAGRAM",
+        "heading": "A fuller hairline,\nin minutes.",
+        "description": "<p>The Hairlosophy Headband Hairline is hand-tied on lightweight lace with 100% Remy human hair, made for the part that frames your face. No surgery, no downtime, no commitment.</p>",
+        "primary_button_text": "Book a 15-minute color match",
+        "primary_button_link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd",
+        "show_secondary_link": true,
+        "secondary_link_text": "Shop the hairline — from $725",
+        "secondary_link_url": "shopify://products/hairline-headband",
+        "show_reel": true,
+        "reel_image": "shopify://shop_images/5d876d03-4d15-429f-837a-5f1f7fb2d5bd.jpg",
+        "reel_image_position": "74% 30%",
+        "reel_url": "https://www.instagram.com/reel/DYngn0yBJr_/",
+        "reel_caption": "HERO REEL · AUTOPLAYS MUTED\n@RAQUELS_STUDIOZEAL",
+        "desktop_height": 660,
+        "container_width": 1240,
+        "heading_size": 66,
+        "mobile_heading_size": 44,
+        "reel_width": 250,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "background_color": "#241c16",
+        "text_color": "#faf6f0",
+        "accent_color": "#c99b7a",
+        "button_background": "#faf6f0",
+        "button_hover_background": "#ffffff",
+        "button_text_color": "#241c16"
+      }
+    },
+    "raquel_marquee_UKz6Uh": {
+      "type": "raquel-marquee",
+      "name": "Studio Zeal Marquee",
+      "settings": {
+        "text": "Nearly 20 years behind the chair|100% Remy human hair|Color-matched by Raquel, in person or virtually|2–3 new clients matched every week",
+        "bg_color": "#f3ede4",
+        "text_color": "#5a4e45",
+        "speed": 40
+      }
+    },
+    "studio_zeal_social_reels_wmnJiC": {
+      "type": "studio-zeal-social-reels",
+      "blocks": {
+        "reel_Q4g3tc": {
+          "type": "reel",
+          "settings": {
+            "reel_id": "DYngn0yBJr_",
+            "accessibility_title": "Studio Zeal reel one"
+          }
+        },
+        "reel_kVG8aX": {
+          "type": "reel",
+          "settings": {
+            "reel_id": "DbEOOL9PZmm",
+            "accessibility_title": "Studio Zeal reel two"
+          }
+        },
+        "reel_WaLTdy": {
+          "type": "reel",
+          "settings": {
+            "reel_id": "DaBtjd8vB-l",
+            "accessibility_title": "Studio Zeal reel three"
+          }
+        }
+      },
+      "block_order": [
+        "reel_Q4g3tc",
+        "reel_kVG8aX",
+        "reel_WaLTdy"
+      ],
+      "name": "Studio Zeal Reels",
+      "settings": {
+        "heading": "See why everyone's talking about it",
+        "instagram_text": "@raquels_studiozeal",
+        "instagram_url": "https://www.instagram.com/raquels_studiozeal/",
+        "desktop_columns": 3,
+        "card_gap": 20,
+        "card_radius": 14,
+        "enable_card_hover": false,
+        "heading_size": 38,
+        "mobile_heading_size": 32,
+        "heading_bottom_spacing": 26,
+        "padding_top": 84,
+        "padding_bottom": 0,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 0,
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "link_color": "#8c6357",
+        "link_border_color": "#c9aaa1",
+        "link_hover_color": "#241c16",
+        "card_background": "#ffffff",
+        "card_border_color": "#ddd5cd",
+        "aspect_ratio": "9 / 16"
+      }
+    },
+    "studio_zeal_results_tcMq36": {
+      "type": "studio-zeal-results",
+      "blocks": {
+        "client_4dAQM6": {
+          "type": "client",
+          "settings": {
+            "before_image": "shopify://shop_images/d5159a52-2aa2-4b6e-b79d-7064aa6a594c.webp",
+            "after_image": "shopify://shop_images/e996c6d1-d5a9-45a2-a9a4-f441b257772c.webp",
+            "kicker": "CLIENT 01 · BRUNETTE",
+            "title": "Density at the part, front to crown",
+            "note": "<p>She came in hiding a widening part under a middle section. The headband sits behind it, so the part reads full without any tape or glue.</p>",
+            "wearing": "Headband hairline",
+            "chair_time": "90 minutes",
+            "powder_shade": "Dark brown"
+          }
+        },
+        "client_GmqUqY": {
+          "type": "client",
+          "settings": {
+            "before_image": "shopify://shop_images/Screenshot_29.png",
+            "after_image": "shopify://shop_images/Screenshot_30.png",
+            "kicker": "CLIENT 02 · BLONDE",
+            "title": "Fullness around the face",
+            "note": "<p>Fine blonde hair that had thinned at the temples. Cut and blended in the chair, then finished with powder on the lace part.</p>",
+            "wearing": "Headband hairline + powder",
+            "chair_time": "2 hours",
+            "powder_shade": "Light blonde"
+          }
+        }
+      },
+      "block_order": [
+        "client_4dAQM6",
+        "client_GmqUqY"
+      ],
+      "name": "Studio Zeal Results",
+      "settings": {
+        "heading": "Two clients, two hairlines",
+        "description": "<p>Every set is cut, colored and blended in the chair. Photos shared with client permission.</p>",
+        "card_radius": 16,
+        "heading_size": 38,
+        "mobile_heading_size": 32,
+        "padding_top": 84,
+        "padding_bottom": 64,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 40,
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#5a4e45",
+        "accent_color": "#8c6357",
+        "details_background": "#f3ede4",
+        "border_color": "#ded5cc",
+        "arrow_border_color": "#b9aea5",
+        "active_dot_color": "#241c16",
+        "inactive_dot_color": "#d8d0c8"
+      }
+    },
+    "studio_zeal_how_it_works_W8XbEP": {
+      "type": "studio-zeal-how-it-works",
+      "blocks": {
+        "step_97QzCD": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 01",
+            "title": "Book a 15-minute call",
+            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_bjGcB9": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 02",
+            "title": "Get color matched",
+            "description": "<p>Your set is chosen from the Remy range and can be permed for texture. Toppers available too.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_yKrM3L": {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 03",
+            "title": "Wear it out the same day",
+            "description": "<p>Fitted, cut and blended in the chair. You leave knowing exactly how to put it on at home.</p>",
+            "card_style": "light"
+          }
+        }
+      },
+      "block_order": [
+        "step_97QzCD",
+        "step_bjGcB9",
+        "step_yKrM3L"
+      ],
+      "name": "Studio Zeal How It Works",
+      "settings": {
+        "heading": "How it works",
+        "desktop_columns": 3,
+        "card_gap": 22,
+        "mobile_card_gap": 16,
+        "card_radius": 14,
+        "card_padding_top": 30,
+        "card_padding_horizontal": 28,
+        "card_padding_bottom": 34,
+        "heading_size": 38,
+        "mobile_heading_size": 32,
+        "step_size": 10,
+        "card_title_size": 24,
+        "mobile_card_title_size": 23,
+        "description_size": 14,
+        "heading_spacing": 34,
+        "mobile_heading_spacing": 26,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#5a4e45",
+        "accent_color": "#8c6357",
+        "card_background": "#f3ede4",
+        "card_border_color": "#e4dcd3",
+        "dark_card_background": "#241c16",
+        "dark_card_text": "#faf6f0",
+        "dark_secondary_text": "#d8cec6",
+        "dark_accent_color": "#c99b7a",
+        "enable_hover": false
+      }
+    },
+    "studio_zeal_pricing_guide_NKedwh": {
+      "type": "studio-zeal-pricing-guide",
+      "name": "Studio Zeal Pricing Guide",
+      "settings": {
+        "kicker": "NOT READY FOR A CALL YET?",
+        "heading": "Get the pricing & color guide",
+        "description": "<p>A short PDF with what each set costs, how the seven powder shades map to your color, and the questions to ask before you buy any hairpiece.</p>",
+        "form_label": "EMAIL",
+        "email_placeholder": "you@email.com",
+        "button_text": "Send me the guide",
+        "form_note": "<p>One email with the guide, then a few notes on choosing a hairline. Unsubscribe any time.</p>",
+        "success_heading": "Check your inbox.",
+        "success_text": "Thanks. Your email has been received.",
+        "column_gap": 64,
+        "card_radius": 16,
+        "card_padding": 34,
+        "mobile_card_padding": 24,
+        "heading_size": 42,
+        "mobile_heading_size": 34,
+        "description_size": 16,
+        "margin_top": 0,
+        "padding_top": 70,
+        "padding_bottom": 70,
+        "mobile_margin_top": 60,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50,
+        "background_color": "#241c16",
+        "text_color": "#faf6f0",
+        "secondary_text_color": "#d8cec6",
+        "accent_color": "#c99b7a",
+        "card_background": "#31251d",
+        "card_border_color": "#55473d",
+        "label_color": "#afa39b",
+        "input_background": "#241c16",
+        "input_border_color": "#61544b",
+        "focus_border_color": "#c99b7a",
+        "input_text_color": "#faf6f0",
+        "placeholder_color": "#a99d95",
+        "button_background": "#faf6f0",
+        "button_hover_background": "#ffffff",
+        "button_text_color": "#241c16",
+        "note_color": "#afa39b",
+        "input_radius": 10,
+        "button_radius": 10
+      }
+    },
+    "raquel_about_WaRL7V": {
+      "type": "raquel-about",
+      "blocks": {
+        "stat_zBDY6A": {
+          "type": "stat",
+          "settings": {
+            "number": "20",
+            "label": "years behind the chair"
+          }
+        },
+        "stat_Ten9RW": {
+          "type": "stat",
+          "settings": {
+            "number": "15 min",
+            "label": "free color-match call"
+          }
+        },
+        "stat_HGn9k6": {
+          "type": "stat",
+          "settings": {
+            "number": "100%",
+            "label": "Remy human hair"
+          }
+        }
+      },
+      "block_order": [
+        "stat_zBDY6A",
+        "stat_Ten9RW",
+        "stat_HGn9k6"
+      ],
+      "name": "Studio Zeal Meet Raquel",
+      "settings": {
+        "image": "shopify://shop_images/9c3a865c-228d-4864-96c4-d69d10fccb41.webp",
+        "image_width": 440,
+        "image_radius": 16,
+        "kicker": "MEET RAQUEL",
+        "heading": "Nearly 20 years of hands on hairlines",
+        "first_text": "<p>Salon Studio Zeal specializes in non-surgical hair solutions for women with thinning hair. Most of my clients have tried extensions, halos and volumizers that add length everywhere except the place they actually notice — the hairline that frames their face.</p>",
+        "second_text": "<p>That is what the Hairlosophy Headband Hairline was made for. Every set I sell is sourced from a professional hair company I trust, and I match it to you myself.</p>",
+        "content_width": 620,
+        "heading_size": 40,
+        "mobile_heading_size": 32,
+        "description_size": 17,
+        "stat_number_size": 34,
+        "mobile_stat_number_size": 30,
+        "container_width": 1240,
+        "column_gap": 56,
+        "stat_gap": 36,
+        "padding_top": 84,
+        "padding_bottom": 64,
+        "mobile_padding_top": 60,
+        "mobile_padding_bottom": 36,
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#4a403a",
+        "accent_color": "#8c6357",
+        "image_border_color": "#ded5cc"
+      }
+    },
+    "studio_zeal_testimonials_K6qCW7": {
+      "type": "studio-zeal-testimonials",
+      "blocks": {
+        "testimonial_ziKFYd": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>I stopped parting my hair on the side to hide it. First time in years.</p>",
+            "author": "Client, headband hairline"
+          }
+        },
+        "testimonial_nwX8gB": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The call sold me. She told me what would not work for my hair, not just what to buy.</p>",
+            "author": "Consult, then fitting"
+          }
+        },
+        "testimonial_c4i7yi": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>I use the powder on my roots between color appointments. Did not expect that.</p>",
+            "author": "Powder customer"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_ziKFYd",
+        "testimonial_nwX8gB",
+        "testimonial_c4i7yi"
+      ],
+      "name": "Studio Zeal Testimonials",
+      "settings": {
+        "heading": "",
+        "subheading": "",
+        "desktop_columns": 3,
+        "card_gap": 22,
+        "mobile_card_gap": 16,
+        "card_padding": 30,
+        "mobile_card_padding": 24,
+        "card_radius": 14,
+        "show_quote_mark": false,
+        "enable_hover": false,
+        "heading_size": 38,
+        "mobile_heading_size": 32,
+        "quote_size": 18,
+        "mobile_quote_size": 18,
+        "author_size": 13,
+        "heading_spacing": 30,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "show_note": true,
+        "note": "",
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#5a4e45",
+        "accent_color": "#8c6357",
+        "card_background": "#f3ede4",
+        "card_border_color": "#e3dad1",
+        "note_color": "#9a8b7e"
+      }
+    },
+    "raquel_faq_XR6TVK": {
+      "type": "raquel-faq",
+      "blocks": {
+        "faq_NwKEUT": {
+          "type": "faq",
+          "settings": {
+            "question": "Will it look obvious?",
+            "answer": "<p>The lace is hand-tied and sits flat under a headband, and we blend the part with hairline powder at your fitting, or walk you through it on video if you are ordering from out of state. Most clients wear theirs to work the same day.</p>",
+            "open_by_default": true
+          }
+        },
+        "faq_Nyq6aP": {
+          "type": "faq",
+          "settings": {
+            "question": "Why do I need a consult before buying?",
+            "answer": "<p>Color is the whole game at this price. Fifteen minutes on video saves a return, and it tells us whether a hairline, a topper or just the powder is right for you.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_wjxPhp": {
+          "type": "faq",
+          "settings": {
+            "question": "Does it come in curly or wavy?",
+            "answer": "<p>It arrives straight and can be permed to match your texture. We talk through that on the call.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_7yDCYb": {
+          "type": "faq",
+          "settings": {
+            "question": "How long does a set last?",
+            "answer": "<p>With the aftercare we show you, a Remy set holds its color and shine for months of regular wear and tangles far less than synthetic alternatives.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_NwKEUT",
+        "faq_Nyq6aP",
+        "faq_wjxPhp",
+        "faq_7yDCYb"
+      ],
+      "name": "Studio Zeal FAQ Dev",
+      "settings": {
+        "heading": "Questions we get<br>on every call",
+        "padding_top": 84,
+        "padding_bottom": 0,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "studio_zeal_final_cta_3TfE8R": {
+      "type": "studio-zeal-final-cta",
+      "name": "Studio Zeal Final CTA",
+      "settings": {
+        "desktop_margin_top": 84,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 0,
+        "mobile_margin_top": 56,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "heading": "Let's look at your hairline together",
+        "text": "<p>Fifteen minutes, free, no pressure to buy. Pick a time that works and Raquel will call you.</p>",
+        "primary_button_label": "Book now",
+        "primary_button_link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd",
+        "secondary_button_label": "Get the guide instead",
+        "secondary_button_link": "https://raquelsstudiozeal.com/#shopify-section-template--20926398300296__studio_zeal_pricing_guide_NKedwh",
+        "background_color": "#efe4d6",
+        "heading_color": "#241c16",
+        "text_color": "#4a403a",
+        "primary_button_bg": "#241c16",
+        "primary_button_text": "#faf6f0",
+        "primary_button_hover_bg": "#3d2e24",
+        "secondary_button_text": "#241c16",
+        "secondary_button_hover_border": "#241c16",
+        "sub_heading": "",
+        "sub_heading_color": "#4a403a"
+      }
+    }
+  },
+  "order": [
+    "studio_zeal_hero_74pCkX",
+    "raquel_marquee_UKz6Uh",
+    "studio_zeal_social_reels_wmnJiC",
+    "studio_zeal_results_tcMq36",
+    "studio_zeal_how_it_works_W8XbEP",
+    "studio_zeal_pricing_guide_NKedwh",
+    "raquel_about_WaRL7V",
+    "studio_zeal_testimonials_K6qCW7",
+    "raquel_faq_XR6TVK",
+    "studio_zeal_final_cta_3TfE8R"
+  ]
+}
