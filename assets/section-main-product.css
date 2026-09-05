@@ -1597,3 +1597,10 @@ a.product__text {
     border: none;
   }
 }
+
+
+@media all and (max-width:575px){
+  .product__info-container .studio-zeal-faq__cta{
+    padding:1.4rem 1.4rem;
+  }
+}
