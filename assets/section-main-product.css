@@ -314,10 +314,12 @@ product-info {
     padding: 0;
     font-weight:400;
 }
-.product__description ul li{
+.product__description ul li {
     border-top: 1px solid #241c1624;
-    padding:13px 0;
-    color:#241C16
+    padding: 13px 0;
+    color: #241c16;
+    font-size: 15px;
+    font-family: 'Karla';
 }
 .product__description ul li:last-child{
   border-bottom: 1px solid #241c1624;

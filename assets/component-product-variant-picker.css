@@ -326,30 +326,31 @@ variant-selects.variant-selected {
 }
 
 .powder-swatch__label {
-  display: grid;
-  min-width: 0;
-  min-height: 9.2rem;
-  grid-template-rows: 5.6rem auto;
-  gap: 0.7rem;
-  align-items: center;
-  justify-items: center;
-  padding: 0.9rem 0.8rem;
-  border: 1px solid transparent;
-  border-radius: 1.2rem;
-  color: rgb(var(--color-foreground));
-  font-size: 1.2rem;
-  line-height: 1.2;
-  text-align: center;
-  cursor: pointer;
+    display: grid;
+    min-width: 0;
+    min-height: 9.2rem;
+    grid-template-rows: 5.6rem auto;
+    gap: .7rem;
+    align-items: center;
+    justify-items: center;
+    padding: .9rem .8rem;
+    border: 1px solid transparent;
+    border-radius: 1.2rem;
+    color: rgb(var(--color-foreground));
+    font-size: 1.2rem;
+    font-family: 'Karla';
+    line-height: 1.2;
+    text-align: center;
+    cursor: pointer;
 }
 
 .powder-swatch__dot {
-  display: block;
-  width: 5.6rem;
-  height: 5.6rem;
-  border-radius: 50%;
-  background: var(--powder-swatch-color);
-  box-shadow: inset 0 0 0 1px rgba(36,28,22,.08);
+    display: block;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--powder-swatch-color);
+    box-shadow: inset 0 0 0 1px #241c1614;
 }
 
 .powder-swatch__name {
