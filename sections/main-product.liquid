@@ -131,7 +131,12 @@
                 {%- liquid
                   assign price_note = block.settings.price_note
                   if price_note == blank and product.handle == 'hairline-headband'
-                    assign price_note = 'free standard shipping in the US'
+                    assign price_note = 'USD · free standard shipping in the US'
+                  endif
+
+                  assign hide_price_currency_code = false
+                  if price_note != blank
+                    assign hide_price_currency_code = true
                   endif
                 -%}
                 <div id="price-{{ section.id }}" class="product__price-row" role="status" {{ block.shopify_attributes }}>
@@ -140,7 +145,8 @@
                       product: product,
                       use_variant: true,
                       show_badges: true,
-                      price_class: 'price--large'
+                      price_class: 'price--large',
+                      hide_currency_code: hide_price_currency_code
                     -%}
                   </div>
                   {%- if price_note != blank -%}
@@ -917,7 +923,7 @@
           "type": "inline_richtext",
           "id": "price_note",
           "label": "Text after price",
-          "default": "free standard shipping in the US"
+          "default": "USD · free standard shipping in the US"
         }
       ]
     },
