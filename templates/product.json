@@ -28,6 +28,12 @@
             "line_height": 1.6
           }
         },
+        "price_erzJHR": {
+          "type": "price",
+          "settings": {
+            "price_note": "USD · free standard shipping in the US"
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -77,6 +83,7 @@
         "vendor_based_product_834RXN",
         "title",
         "product_meta_description_9BMDk9",
+        "price_erzJHR",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
