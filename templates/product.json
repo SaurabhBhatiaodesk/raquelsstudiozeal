@@ -115,6 +115,32 @@
         "padding_bottom": 28
       }
     },
+    "who_this_helps_mnVqQK": {
+      "type": "who-this-helps",
+      "name": "Who This Helps",
+      "settings": {
+        "heading": "Who this helps",
+        "description": "Women who want natural-looking fullness, coverage in photos, and less daily worry about visible thinning.",
+        "card_heading": "Shade and fit support",
+        "card_text": "Compare the product photos and shade names before ordering. If you are between shades or want a second opinion, book a Studio Zeal consultation before checkout. Shade guidance helps narrow the choice but cannot guarantee an exact match across every screen, lighting condition, or hair color.",
+        "review": "Pick the shade closest to your root",
+        "review_author": "Powder is buildable, so a slightly deeper shade reads as shadow rather than a mismatch. If you are covering grey through the front, match the root you want, not the grey you have.",
+        "section_background": "#faf8f3",
+        "heading_color": "#241C16",
+        "description_color": "#806f61",
+        "card_background": "#ffffff",
+        "card_border": "#e4ddd3",
+        "card_heading_color": "#241C16",
+        "card_text_color": "#806f61",
+        "review_background": "#eee2d2",
+        "review_text_color": "#241C16",
+        "review_author_color": "#241C16",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 50
+      }
+    },
     "raquel_faq_dycQRR": {
       "type": "raquel-faq",
       "blocks": {
@@ -170,6 +196,7 @@
   "order": [
     "main",
     "related-products",
+    "who_this_helps_mnVqQK",
     "raquel_faq_dycQRR"
   ]
 }
