@@ -244,11 +244,6 @@ product-info {
     letter-spacing: .02rem;
 }
 
-.product__price-note::before {
-  content: '\00b7';
-  margin-right: 0.6rem;
-}
-
 .product__price-note p {
   display: inline;
   margin: 0;

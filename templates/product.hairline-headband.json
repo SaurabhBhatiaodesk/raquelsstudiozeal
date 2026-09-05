@@ -30,7 +30,9 @@
         },
         "price_TMzTCx": {
           "type": "price",
-          "settings": {}
+          "settings": {
+            "price_note": "USD · free standard shipping in the US"
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
