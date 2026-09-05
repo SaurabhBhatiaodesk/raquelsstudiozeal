@@ -23,9 +23,9 @@
         "product_meta_description_9BMDk9": {
           "type": "product_meta_description",
           "settings": {
-            "description_color": "#806f61",
-            "font_size": 16,
-            "line_height": 1.8
+            "description_color": "#4A403A",
+            "font_size": 17,
+            "line_height": 1.6
           }
         },
         "variant_picker": {
