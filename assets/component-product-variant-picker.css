@@ -252,7 +252,7 @@ variant-selects.variant-selected {
 
 .hairline-swatch__input:checked + .hairline-swatch__label {
   color: rgb(var(--color-foreground));
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 .hairline-swatch__input:checked + .hairline-swatch__label .hairline-swatch__media {
