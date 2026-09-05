@@ -157,7 +157,7 @@ variant-selects {
   gap: 1.6rem 1.2rem;
   margin: 2rem 0 2.4rem;
   padding-top: 2.4rem;
-  border-top: 0.1rem solid rgba(var(--color-foreground), 0.16);
+  border-top:1px solid rgba(36, 28, 22, 0.14);
 }
 
 .product-form__input--hairline-swatch .form__label {
