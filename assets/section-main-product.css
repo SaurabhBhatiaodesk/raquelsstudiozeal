@@ -280,18 +280,18 @@ product-info {
   border-color: rgba(36, 28, 22, 0.55);
   color: #241c16;
 }
-
 .product__availability-note {
-  width: 100%;
-  margin: 2.4rem 0;
-  padding: 2.4rem;
-  border: 0.1rem solid var(--availability-note-border, #ded5cc);
-  border-radius: 1.2rem;
-  background: var(--availability-note-bg, #f4eee6);
-  color: var(--availability-note-text, #241c16);
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.55;
+    width: 100%;
+    margin: 2.4rem 0;
+    font-family: 'Karla';
+    padding: 18px;
+    border: .1rem solid var(--availability-note-border, #ded5cc);
+    border-radius: 12px;
+    background: var(--availability-note-bg, #f4eee6);
+    color: var(--availability-note-text, #241c16);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.55;
 }
 
 .product__availability-note p {
