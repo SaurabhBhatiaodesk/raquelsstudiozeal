@@ -312,7 +312,7 @@ variant-selects.variant-selected {
     color: rgb(var(--color-foreground));
     font-family: Karla,sans-serif;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0;
     text-align: right;
     text-transform: none;
