@@ -114,10 +114,62 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "raquel_faq_dycQRR": {
+      "type": "raquel-faq",
+      "blocks": {
+        "faq_3rwLak": {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order ship?",
+            "answer": "<p>Orders are sourced on demand, received and inspected by Studio Zeal, then shipped from Phoenix, Arizona. Please allow 5–10 business days for processing before carrier transit begins.</p>",
+            "open_by_default": true
+          }
+        },
+        "faq_mBPNby": {
+          "type": "faq",
+          "settings": {
+            "question": "What does shipping cost?",
+            "answer": "<p>Standard shipping is free within the United States. Paid express shipping affects carrier transit only and does not shorten the processing period. International customers pay the carrier-calculated shipping rate shown at checkout. International orders are shipped DAP, and the customer is responsible for duties, taxes, brokerage fees, and other import charges collected by the destination country or carrier.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_kr99FD": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return it?",
+            "answer": "<p>All sales are final. If your order arrives damaged or has a product defect, contact Studio Zeal within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_6tVdMF": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I care for my piece?",
+            "answer": "<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_3rwLak",
+        "faq_mBPNby",
+        "faq_kr99FD",
+        "faq_6tVdMF"
+      ],
+      "name": "Studio Zeal FAQ Dev",
+      "settings": {
+        "heading": "Questions we get<br>on every call",
+        "padding_top": 84,
+        "padding_bottom": 20,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 20
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "raquel_faq_dycQRR"
   ]
 }
