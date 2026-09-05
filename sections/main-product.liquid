@@ -105,6 +105,17 @@
                 
               {%- when 'cta_button' -%}
                 {% render 'faq-cta-button', product: product, block: block %}
+
+              {%- when 'availability_note' -%}
+                {%- if block.settings.text != blank -%}
+                  <div
+                    class="product__availability-note rte"
+                    style="--availability-note-bg: {{ block.settings.background_color }}; --availability-note-border: {{ block.settings.border_color }}; --availability-note-text: {{ block.settings.text_color }};"
+                    {{ block.shopify_attributes }}
+                  >
+                    {{ block.settings.text }}
+                  </div>
+                {%- endif -%}
               
         
               {%- when 'title' -%}
@@ -787,6 +798,36 @@
           "type": "url",
           "id": "link",
           "label": "Link"
+        }
+      ]
+    },
+    {
+      "type": "availability_note",
+      "name": "Availability note",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p><strong>Available on demand.</strong> Please allow 5-10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>"
+        },
+        {
+          "type": "color",
+          "id": "background_color",
+          "label": "Background",
+          "default": "#F4EEE6"
+        },
+        {
+          "type": "color",
+          "id": "border_color",
+          "label": "Border",
+          "default": "#DED5CC"
+        },
+        {
+          "type": "color",
+          "id": "text_color",
+          "label": "Text",
+          "default": "#241C16"
         }
       ]
     },
