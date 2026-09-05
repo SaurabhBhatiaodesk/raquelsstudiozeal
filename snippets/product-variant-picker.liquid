@@ -27,7 +27,7 @@
           endif
         endif
 
-        if product.handle == 'hairline-headband' and option.name == 'Shade'
+        if product.handle == 'hairline-headband' and option.name == 'Shade' and block.settings.picker_type == 'dropdown'
           assign picker_type = 'hairline_swatch'
         endif
       -%}
