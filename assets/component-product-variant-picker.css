@@ -284,9 +284,10 @@ variant-selects.variant-selected {
 
 .product-form__input--powder-swatch {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(7.4rem,1fr));
-    gap: 1.2rem 0.9rem;
+    grid-template-columns: repeat(auto-fit,minmax(6.4rem,1fr));
+    gap: 1.2rem .9rem;
     margin: 2rem 0 2.4rem;
+    max-width: 100%;
     padding-top: 2.4rem;
     border-top: 1px solid rgba(36,28,22,.14);
 }
