@@ -57,6 +57,13 @@
             "show_gift_card_recipient": false
           }
         },
+        "cta_button_TeFcT4": {
+          "type": "cta_button",
+          "settings": {
+            "text": "Between two shades? Book a 15-minute color match",
+            "link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -70,6 +77,7 @@
         "variant_picker",
         "availability_note_nMtwhp",
         "buy_buttons",
+        "cta_button_TeFcT4",
         "description"
       ],
       "settings": {
