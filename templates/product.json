@@ -1,1 +1,271 @@
-{"sections":{"main":{"type":"main-product","blocks":{"vendor":{"type":"text","disabled":true,"settings":{"text":"{{ product.vendor }}","text_style":"uppercase"}},"title":{"type":"title","settings":{}},"variant_picker":{"type":"variant_picker","settings":{"picker_type":"button","swatch_shape":"circle"}},"quantity_selector":{"type":"quantity_selector","disabled":true,"settings":{}},"buy_buttons":{"type":"buy_buttons","settings":{"show_dynamic_checkout":false,"show_gift_card_recipient":false}},"launch-terms":{"type":"text","disabled":true,"settings":{"text":"<strong>Available on demand.<\/strong> Please allow 5–10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.","text_style":"body"}},"icon_with_text_gychT4":{"type":"icon-with-text","disabled":true,"settings":{"layout":"vertical","icon_1":"none","heading_1":"Not sure if the hairline headband is for you. <a href=\"https:\/\/raquelviara.glossgenius.com\/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\" target=\"_blank\" title=\"https:\/\/raquelviara.glossgenius.com\/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">Book a 15-minute consultation <\/a>with Raquel","icon_2":"none","heading_2":"","icon_3":"none","heading_3":""}},"description":{"type":"description","settings":{}},"collapsible-row-1":{"type":"collapsible_tab","settings":{"heading":"Care and storage","icon":"none","content":"<p>Keep the compact closed, dry, and away from excessive heat. Use clean applicators and follow the directions provided with the product.<\/p>","page":""}},"collapsible-row-2":{"type":"collapsible_tab","settings":{"heading":"Shade and application help","icon":"none","content":"<p>Start with a small amount and build coverage where needed. Screens, lighting, hair color, and application can change how a shade appears. For personal guidance, <a href=\"https:\/\/raquelviara.glossgenius.com\/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">book a Studio Zeal consultation<\/a> before checkout.<\/p>","page":""}},"collapsible-row-0":{"type":"collapsible_tab","settings":{"heading":"Processing and shipping","icon":"none","content":"<p>This item is sourced on demand, received, and inspected by Studio Zeal before shipping from Phoenix, Arizona. Please allow 5–10 business days for processing before carrier transit begins. U.S. standard shipping is free. The optional $15 express service changes carrier transit only and does not shorten processing.<\/p><p>International customers pay the carrier-calculated rate at checkout. International orders ship Delivered at Place (DAP), so the customer is responsible for duties, import taxes, brokerage fees, and destination-country charges.<\/p>","page":""}},"collapsible-row-3":{"type":"collapsible_tab","disabled":true,"settings":{"heading":"Care","icon":"washing","content":"<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.<\/p>","page":""}},"share":{"type":"share","disabled":true,"settings":{"share_label":"Share"}}},"block_order":["vendor","title","variant_picker","quantity_selector","buy_buttons","launch-terms","icon_with_text_gychT4","description","collapsible-row-1","collapsible-row-2","collapsible-row-0","collapsible-row-3","share"],"settings":{"enable_sticky_info":true,"color_scheme":"","media_size":"small","constrain_to_viewport":true,"media_fit":"cover","gallery_layout":"thumbnail","mobile_thumbnails":"hide","media_position":"left","image_zoom":"none","hide_variants":false,"enable_video_looping":false,"padding_top":100,"padding_bottom":12}},"trust":{"type":"raquel-product-confidence","blocks":{"trust_1":{"type":"item","settings":{"title":"Natural coverage","text":"Adds fullness where thinning shows most, while still looking like your own hair."}},"trust_2":{"type":"item","settings":{"title":"Made for real days","text":"For work, photos, errands, events, and the rooms where you do not want to think about your hair."}},"trust_3":{"type":"item","settings":{"title":"Confidence first","text":"The goal is not to change who you are. It is to stop making your hair the first thing on your mind."}}},"block_order":["trust_1","trust_2","trust_3"],"settings":{}},"studio_zeal_final_cta_qn63PH":{"type":"studio-zeal-final-cta","name":"Studio Zeal Hairline CTA","settings":{"heading":"Let's look at your hairline together","text":"<p>Fifteen minutes, free, no pressure to buy. Pick a time that works and Raquel will call you.<\/p>","primary_button_label":"Book now","primary_button_link":"","secondary_button_label":"Get the guide instead","secondary_button_link":"","background_color":"#EFE4D6","heading_color":"#241C16","text_color":"#4A403A","primary_button_bg":"#241C16","primary_button_text":"#FAF6F0","primary_button_hover_bg":"#3D2E24","secondary_button_text":"#241C16","secondary_button_hover_border":"#241C16"}},"related-products":{"type":"related-products","settings":{"heading":"More coverage options","heading_size":"h2","products_to_show":4,"columns_desktop":4,"columns_mobile":"2","color_scheme":"scheme-1","image_ratio":"adapt","image_shape":"default","show_secondary_image":true,"show_vendor":false,"show_rating":true,"padding_top":36,"padding_bottom":28}},"waitlist":{"type":"raquel-waitlist","disabled":true,"settings":{"color_scheme":"","kicker":"Need shade guidance?","heading":"Stay close to Studio Zeal.","text":"<p>Get shade help, care tips, and product updates from Raquel.<\/p>","placeholder":"Email address","button_label":"Join the Studio Zeal list","tags":"waitlist,email_signup,product_interest","success_text":"You are on the list.","note":"No spam. Just shade help, care tips, and Studio Zeal updates.","secondary_label":"Continue shopping →","secondary_link":"\/#products"}},"rich_text_HiK4w8":{"type":"rich-text","blocks":{"text_rjWHzG":{"type":"text","settings":{"text":"<h3>Final sale and damage claims<\/h3><p>All sales are final. If the item arrives damaged or defective, email <a href=\"mailto:support@raquelsstudiozeal.com\">support@raquelsstudiozeal.com<\/a> within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label. Do not discard packaging or return the item without written authorization. Read the full <a href=\"\/policies\/refund-policy\">refund policy<\/a> and <a href=\"\/policies\/shipping-policy\">shipping policy<\/a> before ordering.<\/p>"}}},"block_order":["text_rjWHzG"],"name":"t:sections.rich-text.presets.name","settings":{"desktop_content_position":"center","content_alignment":"center","color_scheme":"","full_width":true,"padding_top":40,"padding_bottom":52}}},"order":["main","trust","studio_zeal_final_cta_qn63PH","related-products","waitlist","rich_text_HiK4w8"]}
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor_based_product_834RXN": {
+          "type": "vendor_based_product",
+          "settings": {}
+        },
+        "vendor": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "disabled": true,
+          "settings": {}
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "launch-terms": {
+          "type": "text",
+          "disabled": true,
+          "settings": {
+            "text": "<strong>Available on demand.</strong> Please allow 5–10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.",
+            "text_style": "body"
+          }
+        },
+        "icon_with_text_gychT4": {
+          "type": "icon-with-text",
+          "disabled": true,
+          "settings": {
+            "layout": "vertical",
+            "icon_1": "none",
+            "heading_1": "Not sure if the hairline headband is for you. <a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\" target=\"_blank\" title=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">Book a 15-minute consultation </a>with Raquel",
+            "icon_2": "none",
+            "heading_2": "",
+            "icon_3": "none",
+            "heading_3": ""
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Care and storage",
+            "icon": "none",
+            "content": "<p>Keep the compact closed, dry, and away from excessive heat. Use clean applicators and follow the directions provided with the product.</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shade and application help",
+            "icon": "none",
+            "content": "<p>Start with a small amount and build coverage where needed. Screens, lighting, hair color, and application can change how a shade appears. For personal guidance, <a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">book a Studio Zeal consultation</a> before checkout.</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Processing and shipping",
+            "icon": "none",
+            "content": "<p>This item is sourced on demand, received, and inspected by Studio Zeal before shipping from Phoenix, Arizona. Please allow 5–10 business days for processing before carrier transit begins. U.S. standard shipping is free. The optional $15 express service changes carrier transit only and does not shorten processing.</p><p>International customers pay the carrier-calculated rate at checkout. International orders ship Delivered at Place (DAP), so the customer is responsible for duties, import taxes, brokerage fees, and destination-country charges.</p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-3": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Care",
+            "icon": "washing",
+            "content": "<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.</p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        }
+      },
+      "block_order": [
+        "vendor_based_product_834RXN",
+        "vendor",
+        "title",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "launch-terms",
+        "icon_with_text_gychT4",
+        "description",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "collapsible-row-0",
+        "collapsible-row-3",
+        "share"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail",
+        "mobile_thumbnails": "hide",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 12
+      }
+    },
+    "trust": {
+      "type": "raquel-product-confidence",
+      "blocks": {
+        "trust_1": {
+          "type": "item",
+          "settings": {
+            "title": "Natural coverage",
+            "text": "Adds fullness where thinning shows most, while still looking like your own hair."
+          }
+        },
+        "trust_2": {
+          "type": "item",
+          "settings": {
+            "title": "Made for real days",
+            "text": "For work, photos, errands, events, and the rooms where you do not want to think about your hair."
+          }
+        },
+        "trust_3": {
+          "type": "item",
+          "settings": {
+            "title": "Confidence first",
+            "text": "The goal is not to change who you are. It is to stop making your hair the first thing on your mind."
+          }
+        }
+      },
+      "block_order": [
+        "trust_1",
+        "trust_2",
+        "trust_3"
+      ],
+      "settings": {}
+    },
+    "studio_zeal_final_cta_qn63PH": {
+      "type": "studio-zeal-final-cta",
+      "name": "Studio Zeal Hairline CTA",
+      "settings": {
+        "heading": "Let's look at your hairline together",
+        "text": "<p>Fifteen minutes, free, no pressure to buy. Pick a time that works and Raquel will call you.</p>",
+        "primary_button_label": "Book now",
+        "primary_button_link": "",
+        "secondary_button_label": "Get the guide instead",
+        "secondary_button_link": "",
+        "background_color": "#efe4d6",
+        "heading_color": "#241c16",
+        "text_color": "#4a403a",
+        "primary_button_bg": "#241c16",
+        "primary_button_text": "#faf6f0",
+        "primary_button_hover_bg": "#3d2e24",
+        "secondary_button_text": "#241c16",
+        "secondary_button_hover_border": "#241c16"
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "settings": {
+        "heading": "More coverage options",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "waitlist": {
+      "type": "raquel-waitlist",
+      "disabled": true,
+      "settings": {
+        "color_scheme": "",
+        "kicker": "Need shade guidance?",
+        "heading": "Stay close to Studio Zeal.",
+        "text": "<p>Get shade help, care tips, and product updates from Raquel.</p>",
+        "placeholder": "Email address",
+        "button_label": "Join the Studio Zeal list",
+        "tags": "waitlist,email_signup,product_interest",
+        "success_text": "You are on the list.",
+        "note": "No spam. Just shade help, care tips, and Studio Zeal updates.",
+        "secondary_label": "Continue shopping →",
+        "secondary_link": "/#products"
+      }
+    },
+    "rich_text_HiK4w8": {
+      "type": "rich-text",
+      "blocks": {
+        "text_rjWHzG": {
+          "type": "text",
+          "settings": {
+            "text": "<h3>Final sale and damage claims</h3><p>All sales are final. If the item arrives damaged or defective, email <a href=\"mailto:support@raquelsstudiozeal.com\">support@raquelsstudiozeal.com</a> within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label. Do not discard packaging or return the item without written authorization. Read the full <a href=\"/policies/refund-policy\">refund policy</a> and <a href=\"/policies/shipping-policy\">shipping policy</a> before ordering.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "text_rjWHzG"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "trust",
+    "studio_zeal_final_cta_qn63PH",
+    "related-products",
+    "waitlist",
+    "rich_text_HiK4w8"
+  ]
+}
