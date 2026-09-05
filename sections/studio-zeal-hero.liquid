@@ -1,0 +1,1195 @@
+{% comment %}
+  Studio Zeal - Hero Section
+  File: sections/studio-zeal-hero.liquid
+{% endcomment %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500&family=Karla:wght@300;400;500&display=swap" rel="stylesheet">
+
+
+{% liquid
+  assign hero_background = ''
+  if section.settings.hero_image != blank
+    assign hero_background = section.settings.hero_image | image_url: width: 2400
+  endif
+%}
+
+<section
+  id="studio-zeal-hero-{{ section.id }}"
+  class="studio-zeal-hero"
+  {% if hero_background != blank %}
+    style="--hero-background-image: url('{{ hero_background }}');"
+  {% endif %}
+>
+  <div class="studio-zeal-hero__container">
+
+    <div class="studio-zeal-hero__content">
+
+      {% if section.settings.badge_text != blank %}
+        <div class="studio-zeal-hero__badge">
+          <span class="studio-zeal-hero__badge-dot"></span>
+
+          <span>
+            {{ section.settings.badge_text }}
+          </span>
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h1 class="studio-zeal-hero__heading">
+          {{ section.settings.heading | newline_to_br }}
+        </h1>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="studio-zeal-hero__description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+      <div class="studio-zeal-hero__buttons">
+
+        {% if section.settings.primary_button_text != blank %}
+          <a
+            href="{{ section.settings.primary_button_link | default: '#' }}"
+            class="studio-zeal-hero__primary-btn"
+          >
+            {{ section.settings.primary_button_text }}
+          </a>
+        {% endif %}
+
+        {% if section.settings.show_secondary_link
+          and section.settings.secondary_link_text != blank
+        %}
+          <a
+            href="{{ section.settings.secondary_link_url | default: '#' }}"
+            class="studio-zeal-hero__secondary-btn"
+          >
+            {{ section.settings.secondary_link_text }}
+          </a>
+        {% endif %}
+
+      </div>
+
+    </div>
+
+
+    {% if section.settings.show_reel %}
+      <div class="studio-zeal-hero__reel-column">
+
+        <a
+          href="{{ section.settings.reel_url | default: '#' }}"
+          class="studio-zeal-hero__reel"
+          {% if section.settings.reel_url != blank %}
+            target="_blank"
+            rel="noopener"
+          {% endif %}
+        >
+
+          <div class="studio-zeal-hero__reel-media">
+
+            {% if section.settings.reel_image != blank %}
+              {{
+                section.settings.reel_image
+                | image_url: width: 700
+                | image_tag:
+                  class: 'studio-zeal-hero__reel-image',
+                  loading: 'eager',
+                  widths: '300, 500, 700',
+                  sizes: '(max-width: 749px) 165px, 250px'
+              }}
+            {% else %}
+
+              <div class="studio-zeal-hero__reel-placeholder">
+                {{ 'image' | placeholder_svg_tag }}
+              </div>
+
+            {% endif %}
+
+          </div>
+
+          <div class="studio-zeal-hero__reel-shade"></div>
+
+          <div class="studio-zeal-hero__play">
+            <span class="studio-zeal-hero__play-icon">
+              ▶
+            </span>
+          </div>
+
+          {% if section.settings.reel_caption != blank %}
+            <div class="studio-zeal-hero__reel-caption">
+              {{ section.settings.reel_caption | newline_to_br }}
+            </div>
+          {% endif %}
+
+        </a>
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<style>
+
+  #studio-zeal-hero-{{ section.id }} {
+    font-family: Karla, sans-serif;
+  }
+
+  /* ================================
+     HERO ROOT
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }} {
+    --sz-light: {{ section.settings.text_color }};
+    --sz-dark: {{ section.settings.button_text_color }};
+    --sz-accent: {{ section.settings.accent_color }};
+
+    position: relative;
+    isolation: isolate;
+
+    min-height: {{ section.settings.desktop_height }}px;
+
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    background-color: {{ section.settings.background_color }};
+
+    {% if hero_background != blank %}
+      background-image: var(--hero-background-image);
+    {% endif %}
+
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: {{ section.settings.image_position }};
+  }
+
+
+  #studio-zeal-hero-{{ section.id }} *,
+  #studio-zeal-hero-{{ section.id }} *::before,
+  #studio-zeal-hero-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ================================
+     MAIN IMAGE OVERLAY
+
+     Absolute is intentionally used
+     only because overlay must cover
+     the complete hero background.
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+      linear-gradient(
+        102deg,
+        rgba(28, 20, 15, 0.98) 0%,
+        rgba(28, 20, 15, 0.78) 36%,
+        rgba(28, 20, 15, 0.22) 67%,
+        rgba(28, 20, 15, 0.40) 100%
+      );
+
+    opacity: {{ section.settings.overlay_opacity | divided_by: 100.0 }};
+    pointer-events: none;
+  }
+
+
+  /* ================================
+     CONTAINER
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__container {
+
+    width: 100%;
+    max-width: {{ section.settings.container_width }}px;
+
+    margin: 0 auto;
+    padding:
+      {{ section.settings.padding_top }}px
+      36px
+      {{ section.settings.padding_bottom }}px;
+
+    display: grid;
+    grid-template-columns:
+      minmax(0, 1fr)
+      {{ section.settings.reel_width }}px;
+
+    align-items: center;
+
+    gap: clamp(50px, 8vw, 130px);
+  }
+
+
+  /* ================================
+     CONTENT
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__content {
+
+    width: 100%;
+    max-width: 570px;
+
+    color: var(--sz-light);
+  }
+
+
+  /* Badge */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__badge {
+
+    width: fit-content;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 26px;
+    padding: 8px 13px;
+
+    border:
+      1px solid
+      rgba(250, 246, 240, 0.34);
+
+    border-radius: 999px;
+
+    color: #FAF6F0;
+    font-family: Karla, sans-serif;
+
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 1;
+
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__badge-dot {
+
+    width: 6px;
+    height: 6px;
+
+    flex: 0 0 6px;
+
+    display: block;
+
+    border-radius: 50%;
+
+    background: #C99B7A;
+  }
+
+
+  /* Heading */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__heading {
+
+    margin: 0 0 20px;
+    padding: 0;
+
+    color: #FAF6F0;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:64px;
+
+    font-weight: 500;
+
+    line-height: 1.02;
+
+    letter-spacing: -0.015em;
+  }
+
+
+  /* Description */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__description {
+
+    max-width: 460px;
+
+    margin-bottom: 32px;
+
+    color:
+      rgba(250, 246, 240, 0.87);
+
+    font-family: Karla, sans-serif;
+    font-size: 18px;
+    font-weight: 300;
+
+    line-height: 1.62;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__description p {
+
+    margin: 0;
+  }
+
+
+  /* ================================
+     BUTTONS
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__buttons {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 16px;
+  }
+
+
+  /* Primary */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__primary-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 52px;
+
+    padding: 16px 28px;
+
+    border-radius: 999px;
+
+    background: #FAF6F0;
+
+    color: #241C16;
+
+    font-family: Karla, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+
+    line-height: 1;
+
+    text-decoration: none;
+
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__primary-btn:hover {
+
+    transform: translateY(-2px);
+
+    background: #FFFFFF;
+  }
+
+
+  /* Secondary */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__secondary-btn {
+
+    display: inline-block;
+
+    padding-bottom: 3px;
+
+    border-bottom:
+      1px solid
+      rgba(250, 246, 240, 0.45);
+
+    color:
+      rgba(250, 246, 240, 0.85);
+
+    font-family: Karla, sans-serif;
+    font-size: 14.5px;
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    text-decoration: none;
+
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__secondary-btn:hover {
+
+    color: var(--sz-light);
+
+    border-bottom-color:
+      var(--sz-light);
+  }
+
+
+  /* ================================
+     REEL COLUMN
+
+     No absolute positioning here.
+     Reel sits naturally inside grid.
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-column {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    align-items: center;
+  }
+
+
+  /* ================================
+     REEL CARD
+
+     CSS grid is used for layering,
+     instead of absolute positioning.
+  ================================= */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel {
+
+    width: 100%;
+
+    aspect-ratio: 9 / 16;
+
+    display: grid;
+
+    overflow: hidden;
+
+    border:
+      1px solid
+      rgba(250, 246, 240, 0.30);
+
+    border-radius: 18px;
+
+    background: #1b1512;
+
+    box-shadow:
+      0 24px 60px
+      rgba(20, 14, 10, 0.5);
+
+    color: #faf6f0;
+
+    text-decoration: none;
+  }
+
+
+  /*
+   All reel layers occupy same
+   CSS grid cell.
+  */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-media,
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-shade,
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__play,
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-caption {
+
+    grid-area: 1 / 1;
+  }
+
+
+  /* Reel media */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-media {
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-image,
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-placeholder,
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-placeholder svg {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-image {
+
+    object-fit: cover;
+
+    object-position:
+      {{ section.settings.reel_image_position }};
+
+    transition:
+      transform 0.45s ease;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel:hover
+  .studio-zeal-hero__reel-image {
+
+    transform: scale(1.04);
+  }
+
+
+  /* Reel shade */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-shade {
+
+    z-index: 1;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(20,14,10,0.05) 45%,
+        rgba(20,14,10,0.82) 100%
+      );
+
+    pointer-events: none;
+  }
+
+
+  /* Play */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__play {
+
+    z-index: 2;
+
+    place-self: center;
+
+    display: grid;
+
+    place-items: center;
+
+    pointer-events: none;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__play-icon {
+
+    width: 66px;
+    height: 66px;
+
+    display: grid;
+
+    place-items: center;
+
+    padding-left: 4px;
+
+    border-radius: 50%;
+
+    background:
+      rgba(250, 246, 240, 0.92);
+
+    color: #241c16;
+
+    font-size: 15px;
+
+    line-height: 1;
+
+    transition:
+      transform 0.25s ease,
+      background-color 0.25s ease;
+  }
+
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel:hover
+  .studio-zeal-hero__play-icon {
+
+    transform: scale(1.08);
+
+    background: #ffffff;
+  }
+
+
+  /* Reel caption */
+
+  #studio-zeal-hero-{{ section.id }}
+  .studio-zeal-hero__reel-caption {
+
+    z-index: 3;
+
+    align-self: end;
+
+    padding: 46px 16px 14px;
+
+    background:
+      linear-gradient(
+        transparent,
+        rgba(20, 14, 10, 0.88)
+      );
+
+    color: #FAF6F0;
+
+    font-family: Karla, sans-serif;
+    font-size: 9.5px;
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    pointer-events: none;
+  }
+
+
+  /* ================================
+     TABLET
+  ================================= */
+
+  @media screen and (max-width: 990px) {
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__container {
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        200px;
+
+      gap: 40px;
+
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__heading {
+
+      font-size: 52px;
+    }
+
+  }
+
+
+  /* ================================
+     MOBILE
+  ================================= */
+
+  @media screen and (max-width: 749px) {
+
+    #studio-zeal-hero-{{ section.id }} {
+
+      min-height: auto;
+
+      background-position:
+        {{ section.settings.mobile_image_position }};
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}::before {
+
+      background:
+        linear-gradient(
+          180deg,
+          rgba(28, 20, 15, 0.30) 0%,
+          rgba(28, 20, 15, 0.68) 38%,
+          rgba(28, 20, 15, 0.96) 100%
+        );
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__container {
+
+      grid-template-columns: 1fr;
+
+      gap: 38px;
+
+      padding:
+        90px
+        20px
+        36px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__content {
+
+      max-width: 100%;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__badge {
+
+      margin-bottom: 18px;
+
+      font-size: 9px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__heading {
+
+      margin-bottom: 16px;
+
+      font-size: 44px;
+
+      line-height: 1.04;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__description {
+
+      max-width: 500px;
+
+      margin-bottom: 25px;
+
+      font-size: 15.5px;
+
+      line-height: 1.55;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__primary-btn {
+
+      min-height: 48px;
+
+      padding: 15px 22px;
+
+      font-size: 14px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__secondary-btn {
+
+      font-size: 13.5px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__reel-column {
+
+      justify-content: flex-start;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__reel {
+
+      width:100%;
+      border-radius: 14px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__play-icon {
+
+      width: 54px;
+      height: 54px;
+
+      font-size: 13px;
+    }
+
+
+    #studio-zeal-hero-{{ section.id }}
+    .studio-zeal-hero__reel-caption {
+
+      padding:
+        38px
+        12px
+        11px;
+
+      font-size: 8px;
+    }
+
+  }
+  h1.studio-zeal-hero__heading p {
+    margin: 0;
+}
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Hero",
+  "tag": "section",
+  "class": "studio-zeal-hero-section",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Background"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Background image"
+    },
+
+    {
+      "type": "select",
+      "id": "image_position",
+      "label": "Desktop image position",
+      "default": "64% 20%",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        },
+        {
+          "value": "64% 20%",
+          "label": "Original position"
+        }
+      ]
+    },
+
+    {
+      "type": "select",
+      "id": "mobile_image_position",
+      "label": "Mobile image position",
+      "default": "65% center",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "left center",
+          "label": "Left"
+        },
+        {
+          "value": "right center",
+          "label": "Right"
+        },
+        {
+          "value": "65% center",
+          "label": "Original mobile"
+        }
+      ]
+    },
+
+
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 20,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay strength",
+      "default": 100
+    },
+
+
+    {
+      "type": "header",
+      "content": "Content"
+    },
+
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge",
+      "default": "19M VIEWS ON INSTAGRAM"
+    },
+
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A fuller hairline,\nin minutes."
+    },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>The Hairlosophy Headband Hairline is hand-tied on lightweight lace with 100% Remy human hair, made for the part that frames your face. No surgery, no downtime, no commitment.</p>"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+
+    {
+      "type": "text",
+      "id": "primary_button_text",
+      "label": "Primary button text",
+      "default": "Book a 15-minute color match"
+    },
+
+    {
+      "type": "url",
+      "id": "primary_button_link",
+      "label": "Primary button link"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_secondary_link",
+      "label": "Show secondary link",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "secondary_link_text",
+      "label": "Secondary link text",
+      "default": "Shop the hairline — from $725"
+    },
+
+    {
+      "type": "url",
+      "id": "secondary_link_url",
+      "label": "Secondary link"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Reel card"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_reel",
+      "label": "Show reel",
+      "default": true
+    },
+
+    {
+      "type": "image_picker",
+      "id": "reel_image",
+      "label": "Reel cover image"
+    },
+
+    {
+      "type": "select",
+      "id": "reel_image_position",
+      "label": "Reel image position",
+      "default": "74% 30%",
+      "options": [
+        {
+          "value": "center center",
+          "label": "Center"
+        },
+        {
+          "value": "top center",
+          "label": "Top"
+        },
+        {
+          "value": "74% 30%",
+          "label": "Original position"
+        }
+      ]
+    },
+
+    {
+      "type": "url",
+      "id": "reel_url",
+      "label": "Instagram reel URL"
+    },
+
+    {
+      "type": "textarea",
+      "id": "reel_caption",
+      "label": "Reel caption",
+      "default": "HERO REEL · AUTOPLAYS MUTED\n@RAQUELS_STUDIOZEAL"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Sizing"
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_height",
+      "min": 500,
+      "max": 850,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop minimum height",
+      "default": 660
+    },
+
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1240
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 42,
+      "max": 90,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop heading",
+      "default": 66
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 32,
+      "max": 58,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile heading",
+      "default": 44
+    },
+
+    {
+      "type": "range",
+      "id": "reel_width",
+      "min": 180,
+      "max": 320,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop reel width",
+      "default": 250
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 20,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 70
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 160,
+      "step": 10,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 70
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent color",
+      "default": "#C99B7A"
+    },
+
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button hover background",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#241C16"
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Studio Zeal Hero"
+    }
+  ]
+}
+{% endschema %}

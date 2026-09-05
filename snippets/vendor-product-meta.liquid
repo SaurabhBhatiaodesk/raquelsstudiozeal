@@ -1,0 +1,46 @@
+{% comment %}
+  Vendor + Product Name Meta
+{% endcomment %}
+
+<div class="vendor-product-meta">
+  {% if product.vendor != blank %}
+    <span class="product-vendor">
+      {{ product.vendor }}
+    </span>
+  {% endif %}
+
+  {% if product.title != blank %}
+    <span class="meta-divider"> · </span>
+
+    <span class="product-name">
+      {{ product.title }}
+    </span>
+  {% endif %}
+</div>
+
+<style>
+  .vendor-product-meta{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:Karla, sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgb(140, 99, 87);
+
+  }
+
+
+  .vendor-product-meta .meta-divider{
+
+    color:#8b6f5c;
+
+  }
+
+
+  .vendor-product-meta .product-vendor,
+  .vendor-product-meta .product-name{
+    color:rgb(140, 99, 87);
+  }
+</style>

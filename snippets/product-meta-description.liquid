@@ -1,0 +1,19 @@
+{% comment %}
+  Product SEO Meta Description
+{% endcomment %}
+
+{% if page_description != blank %}
+  <div class="product-meta-description">
+    {{ page_description }}
+  </div>
+{% endif %}
+
+<style>
+  .product-meta-description{
+    color:{{ block.settings.description_color }};
+    font-family:Karla, sans-serif;
+    font-size:{{ block.settings.font_size }}px;
+    line-height:{{ block.settings.line_height }};
+    font-weight:300;
+  }
+</style>

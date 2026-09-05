@@ -1,0 +1,40 @@
+<section class="sz-section sz-testimonials color-{{ section.settings.color_scheme }}" aria-labelledby="TestimonialsHeading-{{ section.id }}">
+  <div class="sz-botanical sz-botanical--pattern" aria-hidden="true"></div>
+  <div class="sz-wrap">
+    <header class="sz-section-header sz-section-header--center">
+      <h2 id="TestimonialsHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.text != blank %}<div class="sz-copy sz-copy--center">{{ section.settings.text }}</div>{% endif %}
+    </header>
+    <div class="sz-card-grid sz-card-grid--three">
+      {% for block in section.blocks %}
+        <figure class="sz-quote" {{ block.shopify_attributes }}>
+          <div class="sz-stars" aria-label="Five stars">★★★★★</div>
+          <blockquote>“{{ block.settings.quote }}”</blockquote>
+          <figcaption>— {{ block.settings.author }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+    <div class="sz-actions sz-actions--center"><a class="sz-button sz-button--sage" href="{{ section.settings.button_link | default: '#products' }}">{{ section.settings.button_label }}</a></div>
+  </div>
+  <div class="sz-wave sz-wave--white" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal testimonials",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The reel resonated because it was real." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Nearly 3 out of 4 women with thinning hair say it impacts their confidence — not just their appearance.</p>" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop the Headband Hairline" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "blocks": [
+    { "type": "quote", "name": "Testimonial", "limit": 6, "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote", "default": "I stopped avoiding cameras after the first week. I genuinely forgot it was there." },
+      { "type": "text", "id": "author", "label": "Attribution", "default": "Studio Zeal Client" }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal testimonials", "blocks": [{ "type": "quote" }, { "type": "quote" }, { "type": "quote" }] }]
+}
+{% endschema %}

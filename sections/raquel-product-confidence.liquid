@@ -1,0 +1,68 @@
+{{ 'raquel-coverage.css' | asset_url | stylesheet_tag }}
+
+<section class="rc-product-confidence">
+  <div class="rc-wrap">
+    <div class="rc-product-confidence__grid">
+      {% for block in section.blocks %}
+        <article class="rc-product-confidence__item" {{ block.shopify_attributes }}>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Raquel product trust",
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Trust item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Natural coverage"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Designed to add fullness where thinning shows most, while still looking like your own hair."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Raquel product trust",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "title": "Natural coverage",
+            "text": "Adds fullness where thinning shows most, while still looking like your own hair."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Made for real days",
+            "text": "For work, photos, errands, events, and the rooms where you do not want to think about your hair."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "title": "Confidence first",
+            "text": "The goal is not to change who you are. It is to stop making your hair the first thing on your mind."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

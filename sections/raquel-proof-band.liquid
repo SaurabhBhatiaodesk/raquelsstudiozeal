@@ -1,0 +1,69 @@
+{{ 'raquel-coverage.css' | asset_url | stylesheet_tag }}
+
+<section class="rc-proof">
+  <div class="rc-wrap">
+    <div class="rc-proof__grid">
+      {% for block in section.blocks %}
+        <div class="rc-proof__item" {{ block.shopify_attributes }}>
+          <p class="rc-proof__label">{{ block.settings.label }}</p>
+          <p class="rc-proof__value">{{ block.settings.value }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Raquel proof band",
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "For"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "Women seeing scalp in photos"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Raquel proof band",
+      "blocks": [
+        {
+          "type": "proof",
+          "settings": {
+            "label": "For",
+            "value": "Thinning hair, hairline gaps, and visible part lines"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "label": "Best when",
+            "value": "You want fullness now, without surgery or medication"
+          }
+        },
+        {
+          "type": "proof",
+          "settings": {
+            "label": "Feel",
+            "value": "Lightweight, natural, and ready for real life"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

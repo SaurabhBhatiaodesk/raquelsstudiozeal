@@ -1,0 +1,1040 @@
+{% comment %}
+  Studio Zeal - Pricing & Color Guide
+  File: sections/studio-zeal-pricing-guide.liquid
+{% endcomment %}
+
+<section
+  id="studio-zeal-guide-{{ section.id }}"
+  class="studio-zeal-guide"
+>
+  <div class="page-width studio-zeal-guide__container">
+
+    <div class="studio-zeal-guide__content">
+
+      {% if section.settings.kicker != blank %}
+        <div class="studio-zeal-guide__kicker">
+          {{ section.settings.kicker }}
+        </div>
+      {% endif %}
+
+      {% if section.settings.heading != blank %}
+        <h2 class="studio-zeal-guide__heading">
+          {{ section.settings.heading }}
+        </h2>
+      {% endif %}
+
+      {% if section.settings.description != blank %}
+        <div class="studio-zeal-guide__description">
+          {{ section.settings.description }}
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    <div class="studio-zeal-guide__form-card">
+
+      {% form 'customer', id: 'StudioZealGuideForm' %}
+
+        <input
+          type="hidden"
+          name="contact[tags]"
+          value="studio-zeal-pricing-guide"
+        >
+
+        {% if form.posted_successfully? %}
+
+          <div class="studio-zeal-guide__success">
+            <strong>
+              {{ section.settings.success_heading }}
+            </strong>
+
+            {% if section.settings.success_text != blank %}
+              <p>
+                {{ section.settings.success_text }}
+              </p>
+            {% endif %}
+          </div>
+
+        {% else %}
+
+          {% if section.settings.form_label != blank %}
+            <label
+              class="studio-zeal-guide__label"
+              for="StudioZealGuideEmail-{{ section.id }}"
+            >
+              {{ section.settings.form_label }}
+            </label>
+          {% endif %}
+
+          <input
+            id="StudioZealGuideEmail-{{ section.id }}"
+            class="studio-zeal-guide__input"
+            type="email"
+            name="contact[email]"
+            value="{{ form.email }}"
+            placeholder="{{ section.settings.email_placeholder }}"
+            autocomplete="email"
+            autocorrect="off"
+            autocapitalize="off"
+            required
+          >
+
+          {% if form.errors %}
+            <div class="studio-zeal-guide__error">
+              {{ form.errors | default_errors }}
+            </div>
+          {% endif %}
+
+          {% if section.settings.button_text != blank %}
+            <button
+              type="submit"
+              class="studio-zeal-guide__button"
+            >
+              {{ section.settings.button_text }}
+            </button>
+          {% endif %}
+
+          {% if section.settings.form_note != blank %}
+            <div class="studio-zeal-guide__note">
+              {{ section.settings.form_note }}
+            </div>
+          {% endif %}
+
+        {% endif %}
+
+      {% endform %}
+
+    </div>
+
+  </div>
+</section>
+
+
+<style>
+
+  /* ==================================
+     SECTION
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }} {
+    width: 100%;
+
+    margin-top:
+      {{ section.settings.margin_top }}px;
+
+    background:
+      {{ section.settings.background_color }};
+
+    color:
+      {{ section.settings.text_color }};
+  }
+
+
+  #studio-zeal-guide-{{ section.id }} *,
+  #studio-zeal-guide-{{ section.id }} *::before,
+  #studio-zeal-guide-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ==================================
+     CONTAINER
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__container {
+
+    width: 100%;
+
+    /* Shopify page-width controls container width */
+
+    margin: 0 auto;
+
+    padding-top:
+      {{ section.settings.padding_top }}px;
+
+    padding-bottom:
+      {{ section.settings.padding_bottom }}px;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1.1fr)
+      minmax(340px, 1fr);
+
+    align-items: center;
+
+    gap:
+      {{ section.settings.column_gap }}px;
+  }
+
+
+  /* ==================================
+     CONTENT
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__content {
+
+    max-width: 560px;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__kicker {
+
+    margin-bottom: 20px;
+
+    color:
+      {{ section.settings.accent_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__heading {
+
+    max-width: 520px;
+
+    margin: 0 0 16px;
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:
+      {{ section.settings.heading_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.01em;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__description {
+
+    max-width: 440px;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size:
+      {{ section.settings.description_size }}px;
+
+    font-family: Karla, sans-serif;
+
+    font-weight: 300;
+
+    line-height: 1.65;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__description p {
+
+    margin: 0;
+  }
+
+
+  /* ==================================
+     FORM CARD
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__form-card {
+
+    width: 100%;
+
+    padding:
+      34px 32px;
+
+    border:
+      1px solid
+      {{ section.settings.card_border_color }};
+
+    border-radius:
+      {{ section.settings.card_radius }}px;
+
+    background:
+      {{ section.settings.card_background }};
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__form-card form {
+
+    width: 100%;
+
+    display: grid;
+
+    gap: 14px;
+  }
+
+
+  /* ==================================
+     LABEL
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__label {
+
+    display: block;
+
+    margin-bottom: -3px;
+
+    color:
+      {{ section.settings.label_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+  }
+
+
+  /* ==================================
+     INPUT
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__input {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin: 0;
+
+    padding: 15px 17px;
+
+    border:
+      1px solid
+      {{ section.settings.input_border_color }};
+
+    border-radius:
+      {{ section.settings.input_radius }}px;
+
+    outline: none;
+
+    box-shadow: none;
+
+    background:
+      {{ section.settings.input_background }};
+
+    color:
+      {{ section.settings.input_text_color }};
+
+    font-family: Karla, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 400;
+
+    line-height: 1.2;
+
+    transition:
+      border-color 0.25s ease,
+      box-shadow 0.25s ease;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__input::placeholder {
+
+    color:
+      {{ section.settings.placeholder_color }};
+
+    opacity: 1;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__input:focus {
+
+    border-color:
+      {{ section.settings.focus_border_color }};
+
+    box-shadow:
+      0 0 0 2px
+      rgba(250, 246, 240, 0.08);
+  }
+
+
+  /* ==================================
+     BUTTON
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__button {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 15px 20px;
+
+    border: 0;
+
+    border-radius:
+      {{ section.settings.button_radius }}px;
+
+    background:
+      {{ section.settings.button_background }};
+
+    color:
+      {{ section.settings.button_text_color }};
+
+    font-family: Karla, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__button:hover {
+
+    background:
+      {{ section.settings.button_hover_background }};
+
+    transform: translateY(-1px);
+  }
+
+
+  /* ==================================
+     NOTE
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__note {
+
+    color:
+      {{ section.settings.note_color }};
+
+    font-size: 12.5px;
+
+    font-weight: 300;
+
+    line-height: 1.5;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__note p {
+
+    margin: 0;
+  }
+
+
+  /* ==================================
+     SUCCESS
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__success {
+
+    padding: 8px 0;
+
+    color:
+      {{ section.settings.text_color }};
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__success strong {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__success p {
+
+    margin: 0;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    line-height: 1.6;
+  }
+
+
+  /* ==================================
+     ERROR
+  ================================== */
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__error {
+
+    color: #f1b6ad;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+  }
+
+
+  #studio-zeal-guide-{{ section.id }}
+  .studio-zeal-guide__error ul {
+
+    margin: 0;
+
+    padding-left: 18px;
+  }
+
+
+  /* ==================================
+     TABLET
+  ================================== */
+
+  @media screen and (max-width: 990px) {
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__container {
+
+      padding-left: 28px;
+      padding-right: 28px;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(320px, 0.9fr);
+
+      gap: 40px;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__heading {
+
+      font-size: 38px;
+    }
+
+  }
+
+
+  /* ==================================
+     MOBILE
+  ================================== */
+
+  @media screen and (max-width: 749px) {
+
+    #studio-zeal-guide-{{ section.id }} {
+
+      margin-top:
+        {{ section.settings.mobile_margin_top }}px;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__container {
+
+      padding-top:
+        {{ section.settings.mobile_padding_top }}px;
+
+      padding-bottom:
+        {{ section.settings.mobile_padding_bottom }}px;
+
+      grid-template-columns: 1fr;
+
+      gap: 34px;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__content {
+
+      max-width: 100%;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__heading {
+
+      max-width: 100%;
+
+      font-size:
+        {{ section.settings.mobile_heading_size }}px;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__description {
+
+      max-width: 100%;
+
+      font-size: 15px;
+    }
+
+
+    #studio-zeal-guide-{{ section.id }}
+    .studio-zeal-guide__form-card {
+
+      padding:
+        {{ section.settings.mobile_card_padding }}px;
+    }
+
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Pricing Guide",
+  "tag": "section",
+  "class": "studio-zeal-guide-section",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Content"
+    },
+
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Small heading",
+      "default": "NOT READY FOR A CALL YET?"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Get the pricing & color guide"
+    },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>A short PDF with what each set costs, how the seven powder shades map to your color, and the questions to ask before you buy any hairpiece.</p>"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Form"
+    },
+
+    {
+      "type": "text",
+      "id": "form_label",
+      "label": "Email label",
+      "default": "EMAIL"
+    },
+
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "you@email.com"
+    },
+
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button text",
+      "default": "Send me the guide"
+    },
+
+    {
+      "type": "richtext",
+      "id": "form_note",
+      "label": "Form note",
+      "default": "<p>One email with the guide, then a few notes on choosing a hairline. Unsubscribe any time.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "success_heading",
+      "label": "Success heading",
+      "default": "Check your inbox."
+    },
+
+    {
+      "type": "text",
+      "id": "success_text",
+      "label": "Success message",
+      "default": "Thanks. Your email has been received."
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 64
+    },
+
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Form card radius",
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Form card padding",
+      "default": 34
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "min": 18,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile card padding",
+      "default": 24
+    },
+
+
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 30,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop heading",
+      "default": 42
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 28,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile heading",
+      "default": 34
+    },
+
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 13,
+      "max": 22,
+      "step": 1,
+      "unit": "px",
+      "label": "Description",
+      "default": 17
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop top margin",
+      "default": 84
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 30,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 70
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 30,
+      "max": 140,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 70
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_margin_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top margin",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 30,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 50
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 30,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 50
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "secondary_text_color",
+      "label": "Secondary text",
+      "default": "#D8CEC6"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#C99B7A"
+    },
+
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Form card background",
+      "default": "#31251D"
+    },
+
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Form card border",
+      "default": "#55473D"
+    },
+
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Form label",
+      "default": "#AFA39B"
+    },
+
+    {
+      "type": "color",
+      "id": "input_background",
+      "label": "Input background",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border",
+      "default": "#61544B"
+    },
+
+    {
+      "type": "color",
+      "id": "focus_border_color",
+      "label": "Input focus border",
+      "default": "#C99B7A"
+    },
+
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Placeholder text",
+      "default": "#A99D95"
+    },
+
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button background",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button hover",
+      "default": "#FFFFFF"
+    },
+
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button text",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "note_color",
+      "label": "Small note",
+      "default": "#AFA39B"
+    },
+
+    {
+      "type": "range",
+      "id": "input_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Input radius",
+      "default": 10
+    },
+
+    {
+      "type": "range",
+      "id": "button_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Button radius",
+      "default": 10
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Studio Zeal Pricing Guide"
+    }
+  ]
+}
+{% endschema %}

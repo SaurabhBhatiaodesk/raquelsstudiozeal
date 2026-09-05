@@ -1,0 +1,107 @@
+<section class="sz-section sz-results color-{{ section.settings.color_scheme }}" aria-labelledby="ResultsHeading-{{ section.id }}">
+  <div class="sz-wrap">
+    <header class="sz-section-header sz-section-header--center">
+      {% if section.settings.eyebrow != blank %}<p class="sz-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h2 id="ResultsHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.text != blank %}<div class="sz-copy sz-copy--center">{{ section.settings.text }}</div>{% endif %}
+    </header>
+
+    <div class="sz-results__grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'pair' %}
+          <figure class="sz-result-card" {{ block.shopify_attributes }}>
+            <div class="sz-result-card__compare">
+              <div class="sz-result-card__image">
+                {% if block.settings.before_image != blank %}
+                  {{ block.settings.before_image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 28vw, 45vw', widths: '240, 360, 520, 760, 1000', alt: block.settings.before_alt }}
+                {% else %}
+                  <div class="sz-media-fallback" aria-hidden="true"><span></span></div>
+                {% endif %}
+                <span class="sz-result-card__label">{{ block.settings.before_label }}</span>
+              </div>
+              <div class="sz-result-card__image">
+                {% if block.settings.after_image != blank %}
+                  {{ block.settings.after_image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 28vw, 45vw', widths: '240, 360, 520, 760, 1000', alt: block.settings.after_alt }}
+                {% else %}
+                  <div class="sz-media-fallback" aria-hidden="true"><span></span></div>
+                {% endif %}
+                <span class="sz-result-card__label sz-result-card__label--after">{{ block.settings.after_label }}</span>
+              </div>
+            </div>
+            <figcaption class="sz-result-card__body">
+              <h3>{{ block.settings.title }}</h3>
+              {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+            </figcaption>
+          </figure>
+        {% elsif block.type == 'comparison' %}
+          <figure class="sz-result-card sz-result-card--wide" {{ block.shopify_attributes }}>
+            <div class="sz-result-card__composite">
+              {% if block.settings.image != blank %}
+                {{ block.settings.image | image_url: width: 1800 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 1180px, 100vw', widths: '480, 750, 1100, 1500, 1800', alt: block.settings.image_alt }}
+              {% else %}
+                <div class="sz-media-fallback" aria-hidden="true"><span></span></div>
+              {% endif %}
+              <span class="sz-result-card__label">{{ block.settings.label }}</span>
+            </div>
+            <figcaption class="sz-result-card__body">
+              <h3>{{ block.settings.title }}</h3>
+              {% if block.settings.text != blank %}<p>{{ block.settings.text }}</p>{% endif %}
+            </figcaption>
+          </figure>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    {% if section.settings.note != blank %}<p class="sz-results__note">{{ section.settings.note }}</p>{% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal results",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Real Studio Zeal results" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real clients. Visible change." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Thoughtful color matching, placement, and styling create a finish that still looks like you.</p>" },
+    { "type": "text", "id": "note", "label": "Results note", "default": "Individual results vary by client, hair, and service." }
+  ],
+  "blocks": [
+    {
+      "type": "pair",
+      "name": "Before and after pair",
+      "settings": [
+        { "type": "image_picker", "id": "before_image", "label": "Before image" },
+        { "type": "text", "id": "before_alt", "label": "Before image alt text", "default": "Client before Studio Zeal hair enhancement" },
+        { "type": "text", "id": "before_label", "label": "Before label", "default": "Before" },
+        { "type": "image_picker", "id": "after_image", "label": "After image" },
+        { "type": "text", "id": "after_alt", "label": "After image alt text", "default": "Client after Studio Zeal hair enhancement" },
+        { "type": "text", "id": "after_label", "label": "After label", "default": "After" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Client transformation" },
+        { "type": "textarea", "id": "text", "label": "Caption" }
+      ]
+    },
+    {
+      "type": "comparison",
+      "name": "Combined comparison image",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Comparison image" },
+        { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Studio Zeal client before and after hair enhancement" },
+        { "type": "text", "id": "label", "label": "Image label", "default": "Before and after" },
+        { "type": "text", "id": "title", "label": "Title", "default": "A natural-looking finish" },
+        { "type": "textarea", "id": "text", "label": "Caption" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio Zeal results",
+      "blocks": [
+        { "type": "pair" },
+        { "type": "pair" },
+        { "type": "comparison" }
+      ]
+    }
+  ]
+}
+{% endschema %}

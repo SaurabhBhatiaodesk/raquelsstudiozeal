@@ -1,0 +1,497 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,600&display=swap');
+
+  body.sz-custom-page .shopify-section-group-header-group,
+  body.sz-custom-page .shopify-section-group-footer-group { display: none !important; }
+  body.sz-custom-page #MainContent { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+  body.sz-custom-page { overflow-x: hidden; }
+
+  .sz-page {
+    --espresso: #2C1A0E;
+    --cream: #FAF5EF;
+    --blush: #E8D5C0;
+    --gold: #B8935A;
+    --white: #FFFFFF;
+    --charcoal: #3D3129;
+    --brown: #3D2B1F;
+    --green: #4F7658;
+    color: var(--charcoal);
+    background: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    overflow: clip;
+  }
+
+  .sz-page *, .sz-page *::before, .sz-page *::after { box-sizing: border-box; }
+  .sz-page h1, .sz-page h2, .sz-page h3, .sz-page p { margin-top: 0; }
+  .sz-page h1, .sz-page h2, .sz-page h3 { color: var(--espresso); font-family: 'Playfair Display', serif; line-height: 1.08; }
+  .sz-page h1 { font-size: clamp(3rem, 7vw, 6.8rem); font-weight: 600; letter-spacing: 0; }
+  .sz-page h2 { font-size: clamp(2.25rem, 4.5vw, 4.4rem); font-weight: 600; letter-spacing: 0; }
+  .sz-page h3 { font-size: clamp(1.35rem, 2.2vw, 2rem); font-weight: 600; letter-spacing: 0; }
+  .sz-page p { font-size: clamp(1rem, 1.25vw, 1.125rem); }
+  .sz-page a { color: inherit; }
+  .sz-page button, .sz-page input { font: inherit; }
+  .sz-page img { display: block; max-width: 100%; }
+  .sz-page :focus-visible { outline: 3px solid var(--gold); outline-offset: 4px; }
+
+  .sz-shell { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+  .sz-section { padding: clamp(72px, 9vw, 132px) 0; scroll-margin-top: 84px; }
+  .sz-eyebrow { margin-bottom: 18px; color: var(--gold); font-size: .75rem !important; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; }
+  .sz-intro { max-width: 720px; margin-bottom: 48px; }
+  .sz-intro.sz-centered { margin-right: auto; margin-left: auto; text-align: center; }
+  .sz-intro p { color: #66594F; }
+
+  .sz-button {
+    display: inline-flex;
+    min-height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 22px;
+    border: 1px solid var(--espresso);
+    border-radius: 2px;
+    background: var(--espresso);
+    color: var(--cream) !important;
+    font-size: .875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    text-decoration: none;
+    transition: background .2s ease, color .2s ease, border-color .2s ease, transform .2s ease;
+  }
+  .sz-button:hover { transform: translateY(-2px); background: #472A17; }
+  .sz-button--outline { background: transparent; color: var(--espresso) !important; }
+  .sz-button--outline:hover { background: var(--espresso); color: var(--cream) !important; }
+  .sz-button--gold { border-color: var(--gold); background: var(--gold); color: var(--espresso) !important; }
+  .sz-button--gold:hover { border-color: #D1AD72; background: #D1AD72; }
+  .sz-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  .sz-nav { position: sticky; z-index: 50; top: 0; background: var(--espresso); color: var(--cream); box-shadow: 0 8px 28px rgba(44, 26, 14, .14); }
+  .sz-nav__inner { display: grid; min-height: 76px; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
+  .sz-logo { color: var(--cream) !important; font-family: 'Playfair Display', serif; font-size: 1.55rem; font-weight: 600; text-decoration: none; }
+  .sz-logo span { color: var(--gold); }
+  .sz-nav__links { display: flex; align-items: center; gap: clamp(18px, 2.5vw, 36px); }
+  .sz-nav__links a { color: var(--cream); font-size: .8rem; font-weight: 600; text-decoration: none; }
+  .sz-nav__links a:hover { color: var(--gold); }
+  .sz-nav__cta { justify-self: end; min-height: 44px; padding: 11px 19px; }
+  .sz-menu-button { display: none; width: 44px; height: 44px; padding: 10px; border: 1px solid rgba(250,245,239,.3); background: transparent; color: var(--cream); cursor: pointer; }
+  .sz-menu-button span { display: block; height: 2px; margin: 5px 0; background: currentColor; transition: transform .2s ease, opacity .2s ease; }
+  .sz-menu-button[aria-expanded='true'] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .sz-menu-button[aria-expanded='true'] span:nth-child(2) { opacity: 0; }
+  .sz-menu-button[aria-expanded='true'] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .sz-mobile-menu { display: none; border-top: 1px solid rgba(250,245,239,.14); }
+  .sz-mobile-menu a { display: block; padding: 15px 20px; border-bottom: 1px solid rgba(250,245,239,.1); color: var(--cream); font-weight: 600; text-decoration: none; }
+  .sz-mobile-menu.is-open { display: block; }
+
+  .sz-hero { position: relative; min-height: min(850px, calc(100vh - 76px)); display: grid; align-items: center; background: linear-gradient(135deg, #FAF5EF, #F0E6D8, #E8D5C0); }
+  .sz-hero::after { position: absolute; right: 0; bottom: 0; width: min(34vw, 480px); height: 7px; background: var(--gold); content: ''; }
+  .sz-hero__content { max-width: 980px; padding: clamp(92px, 12vw, 170px) 0; }
+  .sz-hero h1 { max-width: 900px; margin-bottom: 28px; }
+  .sz-hero h1 em { display: block; color: var(--gold); font-weight: 600; }
+  .sz-hero__sub { max-width: 750px; margin-bottom: 36px; color: var(--charcoal); font-size: clamp(1.1rem, 2vw, 1.45rem) !important; }
+  .sz-trust { display: flex; flex-wrap: wrap; gap: 12px 28px; margin-top: 32px; }
+  .sz-trust span { font-size: .84rem; font-weight: 600; }
+  .sz-check { color: var(--gold); font-weight: 800; }
+
+  .sz-empathy { background: var(--blush); }
+  .sz-empathy__copy { max-width: 880px; }
+  .sz-empathy__copy > p:last-child { max-width: 820px; font-size: clamp(1.08rem, 1.8vw, 1.3rem); }
+  .sz-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 48px; }
+  .sz-pain-card { min-height: 240px; padding: clamp(26px, 3vw, 40px); border: 1px solid rgba(44,26,14,.08); border-radius: 6px; background: var(--white); }
+  .sz-pain-card__icon { display: block; margin-bottom: 32px; font-size: 1.65rem; }
+  .sz-pain-card h3 { margin-bottom: 12px; }
+  .sz-pain-card p { margin-bottom: 0; color: #685C53; font-size: .96rem; }
+
+  .sz-solution { background: var(--cream); }
+  .sz-split { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: clamp(42px, 8vw, 110px); }
+  .sz-placeholder { position: relative; display: grid; overflow: hidden; place-items: center; aspect-ratio: 4 / 5; border: 1px solid rgba(184,147,90,.35); background: linear-gradient(145deg, #E8D5C0, #F8EFE6 45%, #D9BFA5); color: var(--espresso); }
+  .sz-placeholder::before { position: absolute; inset: 22px; border: 1px solid rgba(44,26,14,.12); content: ''; }
+  .sz-placeholder span { position: relative; max-width: 210px; padding: 14px; font-family: 'Playfair Display', serif; font-size: 1rem; text-align: center; }
+  .sz-solution h2 { margin-bottom: 24px; }
+  .sz-checklist { display: grid; gap: 14px; margin: 30px 0 34px; padding: 0; list-style: none; }
+  .sz-checklist li { display: grid; grid-template-columns: 22px 1fr; gap: 10px; font-size: .98rem; }
+
+  .sz-products { background: var(--white); }
+  .sz-product-grid { display: grid; grid-template-columns: 1.15fr .85fr; align-items: start; gap: 22px; }
+  .sz-product-card { overflow: hidden; border: 1px solid #DFD5CB; border-radius: 6px; background: var(--cream); }
+  .sz-product-card--featured { border: 2px solid var(--gold); }
+  .sz-product-card__media { position: relative; display: grid; min-height: 390px; place-items: center; background: linear-gradient(145deg, #EAD7C4, #FAF5EF); }
+  .sz-product-card__media span { max-width: 190px; font-family: 'Playfair Display', serif; text-align: center; }
+  .sz-product-card__body { padding: clamp(28px, 4vw, 48px); }
+  .sz-product-badge { display: inline-block; margin-bottom: 20px; padding-bottom: 5px; border-bottom: 2px solid currentColor; color: var(--gold); font-size: .72rem; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+  .sz-product-badge--dark { color: var(--charcoal); }
+  .sz-product-head { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+  .sz-product-head h3 { margin-bottom: 10px; }
+  .sz-price { color: var(--espresso); font-family: 'Playfair Display', serif; font-size: 1.45rem; white-space: nowrap; }
+  .sz-product-points { margin: 24px 0 30px; padding-left: 20px; }
+  .sz-product-points li { margin-bottom: 8px; }
+  .sz-shades { display: flex; flex-wrap: wrap; gap: 11px; margin: 25px 0 32px; }
+  .sz-shade { width: 30px; height: 30px; border: 3px solid var(--white); border-radius: 50%; box-shadow: 0 0 0 1px rgba(44,26,14,.24); }
+
+  .sz-how { background: var(--espresso); color: var(--cream); }
+  .sz-how h2 { color: var(--cream); }
+  .sz-steps { display: grid; grid-template-columns: repeat(3, 1fr); margin: 54px 0 46px; border-top: 1px solid rgba(232,213,192,.28); border-bottom: 1px solid rgba(232,213,192,.28); }
+  .sz-step { padding: 40px clamp(20px, 3vw, 38px) 44px; border-right: 1px solid rgba(232,213,192,.22); }
+  .sz-step:first-child { padding-left: 0; }
+  .sz-step:last-child { padding-right: 0; border-right: 0; }
+  .sz-step__number { display: block; margin-bottom: 28px; color: var(--gold); font-family: 'Playfair Display', serif; font-size: 2rem; }
+  .sz-step h3 { color: var(--cream); }
+  .sz-step p { margin-bottom: 0; color: #DCCFC3; font-size: .96rem; }
+
+  .sz-lineup { background: var(--cream); }
+  .sz-table-wrap { overflow-x: auto; border: 1px solid #D9CCBF; background: var(--white); }
+  .sz-table { width: 100%; min-width: 680px; border-collapse: collapse; }
+  .sz-table th, .sz-table td { padding: 20px 24px; border-bottom: 1px solid #E7DDD4; text-align: left; }
+  .sz-table th { background: var(--espresso); color: var(--cream); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+  .sz-table tr:last-child td { border-bottom: 0; }
+  .sz-table .is-highlighted td { background: rgba(184,147,90,.09); font-weight: 700; }
+  .sz-table-note { margin: 22px 0 0; font-size: .92rem !important; }
+  .sz-table-note a { color: var(--espresso); font-weight: 700; }
+
+  .sz-about { background: var(--blush); }
+  .sz-about .sz-placeholder { aspect-ratio: 3 / 4; }
+  .sz-about__body { font-size: clamp(1.05rem, 1.5vw, 1.18rem) !important; }
+  .sz-signature { margin: 30px 0 24px; color: var(--espresso); font-family: 'Dancing Script', cursive; font-size: clamp(2.6rem, 5vw, 4.2rem); line-height: 1; }
+  .sz-pills { display: flex; flex-wrap: wrap; gap: 9px; }
+  .sz-pill { padding: 9px 15px; border-radius: 999px; background: var(--white); color: var(--espresso); font-size: .78rem; font-weight: 700; }
+
+  .sz-testimonials { background: var(--brown); color: var(--cream); }
+  .sz-testimonials h2 { color: var(--cream); }
+  .sz-testimonials .sz-intro p { color: var(--blush); }
+  .sz-testimonial-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: 38px; }
+  .sz-quote { min-height: 310px; padding: clamp(28px, 3.5vw, 42px); border-radius: 6px; background: var(--cream); color: var(--charcoal); }
+  .sz-stars { color: var(--gold); letter-spacing: .12em; }
+  .sz-quote blockquote { margin: 28px 0; color: var(--espresso); font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2vw, 1.6rem); font-style: italic; line-height: 1.45; }
+  .sz-quote cite { font-size: .82rem; font-style: normal; font-weight: 700; }
+
+  .sz-fit { background: var(--cream); }
+  .sz-fit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+  .sz-fit-card { padding: clamp(30px, 5vw, 58px); border-top: 5px solid var(--gold); border-radius: 6px; background: var(--white); box-shadow: 0 18px 55px rgba(44,26,14,.06); }
+  .sz-fit-card--muted { border-top-color: #B99C8B; }
+  .sz-fit-card ul { display: grid; gap: 15px; margin: 28px 0 0; padding: 0; list-style: none; }
+  .sz-fit-card li { display: grid; grid-template-columns: 24px 1fr; gap: 10px; }
+  .sz-fit-card--muted .sz-check { color: #927A6A; }
+
+  .sz-faq { background: var(--white); }
+  .sz-faq-list { max-width: 900px; margin: 0 auto; border-top: 1px solid #D9CCBF; }
+  .sz-faq-item { border-bottom: 1px solid #D9CCBF; }
+  .sz-faq-question { display: grid; width: 100%; grid-template-columns: 1fr 32px; align-items: center; gap: 20px; padding: 24px 0; border: 0; background: transparent; color: var(--espresso); font-family: 'Playfair Display', serif; font-size: clamp(1.15rem, 2vw, 1.5rem); text-align: left; cursor: pointer; }
+  .sz-faq-icon { color: var(--gold); font-family: 'Inter', sans-serif; font-size: 1.6rem; text-align: center; }
+  .sz-faq-answer { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .28s ease; }
+  .sz-faq-answer > div { overflow: hidden; }
+  .sz-faq-answer p { max-width: 790px; margin-bottom: 0; padding: 0 42px 24px 0; color: #66594F; }
+  .sz-faq-question[aria-expanded='true'] + .sz-faq-answer { grid-template-rows: 1fr; }
+
+  .sz-waitlist { background: var(--espresso); color: var(--cream); text-align: center; }
+  .sz-waitlist h2 { max-width: 850px; margin-right: auto; margin-left: auto; color: var(--cream); }
+  .sz-waitlist__sub { max-width: 740px; margin: 0 auto 32px; color: var(--blush); }
+  .sz-waitlist-form { display: flex; flex-wrap: wrap; max-width: 680px; margin: 0 auto; }
+  .sz-waitlist-form input { min-width: 0; min-height: 56px; flex: 1; padding: 14px 18px; border: 1px solid var(--gold); border-radius: 2px 0 0 2px; background: var(--white); color: var(--espresso); }
+  .sz-waitlist-form button { min-width: 190px; border-radius: 0 2px 2px 0; cursor: pointer; }
+  .sz-waitlist-form button.is-success { border-color: var(--green); background: var(--green); color: var(--white) !important; }
+  .sz-waitlist__note { margin: 16px 0 26px; color: #CBBCAE; font-size: .78rem !important; }
+  .sz-waitlist-form .sz-waitlist__note { width: 100%; flex-basis: 100%; margin-bottom: 0; }
+  .sz-waitlist__link { color: var(--cream) !important; font-weight: 700; text-underline-offset: 5px; }
+
+  .sz-footer { padding: 60px 0 24px; border-top: 1px solid rgba(184,147,90,.2); background: var(--espresso); color: var(--cream); }
+  .sz-footer__grid { display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 40px; align-items: start; }
+  .sz-footer__tagline { margin: 8px 0 0; color: #CBBCAE; font-size: .82rem !important; }
+  .sz-footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 13px 24px; }
+  .sz-footer__links a, .sz-footer__contact a { color: var(--cream); font-size: .82rem; text-decoration: none; }
+  .sz-footer__contact { text-align: right; }
+  .sz-footer__contact a { display: block; margin-bottom: 8px; }
+  .sz-footer__bottom { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-top: 46px; padding-top: 22px; border-top: 1px solid rgba(250,245,239,.12); }
+  .sz-footer__bottom p { margin: 0; color: #BFAE9F; font-size: .73rem !important; }
+  .sz-payments { display: flex; flex-wrap: wrap; gap: 6px; }
+  .sz-payments span { padding: 4px 7px; border: 1px solid rgba(250,245,239,.32); border-radius: 2px; color: var(--cream); font-size: .62rem; font-weight: 800; }
+
+  @media (max-width: 768px) {
+    .sz-shell { width: min(100% - 30px, 680px); }
+    .sz-section { padding: 76px 0; }
+    .sz-nav__inner { grid-template-columns: 1fr auto; }
+    .sz-nav__links, .sz-nav__cta { display: none; }
+    .sz-menu-button { display: block; }
+    .sz-hero { min-height: 0; }
+    .sz-card-grid, .sz-split, .sz-product-grid, .sz-testimonial-grid, .sz-fit-grid, .sz-footer__grid { grid-template-columns: 1fr; }
+    .sz-card-grid, .sz-testimonial-grid { gap: 14px; }
+    .sz-pain-card { min-height: 0; }
+    .sz-split { gap: 46px; }
+    .sz-placeholder { width: min(100%, 520px); justify-self: center; }
+    .sz-product-card__media { min-height: 310px; }
+    .sz-steps { grid-template-columns: 1fr; }
+    .sz-step, .sz-step:first-child, .sz-step:last-child { padding: 30px 0; border-right: 0; border-bottom: 1px solid rgba(232,213,192,.22); }
+    .sz-step:last-child { border-bottom: 0; }
+    .sz-step__number { margin-bottom: 14px; }
+    .sz-footer__links { justify-content: flex-start; }
+    .sz-footer__contact { text-align: left; }
+    .sz-footer__bottom { align-items: flex-start; flex-direction: column; }
+  }
+
+  @media (max-width: 480px) {
+    .sz-actions { align-items: stretch; flex-direction: column; }
+    .sz-actions .sz-button { width: 100%; }
+    .sz-trust { align-items: flex-start; flex-direction: column; gap: 10px; }
+    .sz-product-head { align-items: flex-start; flex-direction: column; gap: 4px; }
+    .sz-waitlist-form { flex-direction: column; gap: 10px; }
+    .sz-waitlist-form input, .sz-waitlist-form button { width: 100%; border-radius: 2px; }
+    .sz-fit-card { padding: 28px 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sz-page *, .sz-page *::before, .sz-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+  }
+</style>
+
+<div class="sz-page" id="sz-top">
+  <nav class="sz-nav" aria-label="Primary navigation">
+    <div class="sz-shell sz-nav__inner">
+      <a class="sz-logo" href="#sz-top">Studio <span>Zeal</span></a>
+      <div class="sz-nav__links">
+        <a href="#products">Products</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#about-raquel">About Raquel</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="sz-button sz-button--gold sz-nav__cta" href="/products/hairline-headband">Shop Now</a>
+      <button class="sz-menu-button" type="button" aria-expanded="false" aria-controls="sz-mobile-menu" aria-label="Open navigation menu"><span></span><span></span><span></span></button>
+    </div>
+    <div class="sz-mobile-menu" id="sz-mobile-menu">
+      <a href="#products">Products</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#about-raquel">About Raquel</a>
+      <a href="#faq">FAQ</a>
+      <a href="/products/hairline-headband">Shop Now</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="sz-hero">
+      <div class="sz-shell sz-hero__content">
+        <p class="sz-eyebrow">Studio Zeal by Raquel Viara</p>
+        <h1>The place you check first. <em>Finally covered.</em></h1>
+        <p class="sz-hero__sub">Natural-looking hairline coverage for women who are done managing the problem and ready to actually solve it.</p>
+        <div class="sz-actions">
+          <a class="sz-button" href="/products/hairline-headband">Shop the Headband Hairline</a>
+          <a class="sz-button sz-button--outline" href="#products">Add the Powder</a>
+        </div>
+        <div class="sz-trust" aria-label="Studio Zeal product assurances">
+          <span><b class="sz-check">✓</b> No Surgery</span>
+          <span><b class="sz-check">✓</b> No Medication</span>
+          <span><b class="sz-check">✓</b> Salon-Guided by Raquel Viara</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-empathy">
+      <div class="sz-shell">
+        <div class="sz-empathy__copy">
+          <p class="sz-eyebrow">You know the spot.</p>
+          <h2>Hair loss isn't vanity. It's identity.</h2>
+          <p>You've tried the powders. The sprays. Maybe even the supplements. And you still check the same spot in every mirror, avoid certain lighting, and style around it every single morning. That's not a vanity problem. That's a confidence problem. And it deserves a real solution.</p>
+        </div>
+        <div class="sz-card-grid">
+          <article class="sz-pain-card"><span class="sz-pain-card__icon" aria-hidden="true">☀️</span><h3>Bright light betrays you</h3><p>Part lines, hairline gaps, and thinning temples that show up in photos and overhead lighting.</p></article>
+          <article class="sz-pain-card"><span class="sz-pain-card__icon" aria-hidden="true">📷</span><h3>You avoid the camera</h3><p>Hats, angles, and strategic styling only go so far before it starts affecting how you move through life.</p></article>
+          <article class="sz-pain-card"><span class="sz-pain-card__icon" aria-hidden="true">🪞</span><h3>Nothing has worked</h3><p>Powders wash out. Sprays transfer. Supplements take months. You need something that works today.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-solution">
+      <div class="sz-shell sz-split">
+        <div class="sz-placeholder" role="img" aria-label="Lifestyle photo placeholder showing a natural hairline"><span>Lifestyle Photo — Natural Hairline</span></div>
+        <div>
+          <p class="sz-eyebrow">Introducing the solution</p>
+          <h2>Real hair. Right where yours has thinned.</h2>
+          <p>The Headband Hairline is a fully engineered 360-degree hairline enhancement system built specifically for the front perimeter — the hairline, temples, and edges where thinning shows first and where traditional extensions simply cannot safely attach. This is not a costume piece. Not a fashion clip-in. This is 100% Remy human hair, hand-knotted, designed to move and blend exactly like your own.</p>
+          <ul class="sz-checklist">
+            <li><b class="sz-check">✓</b><span><strong>100% Remy human hair</strong> — cuticle-aligned for a natural, tangle-free blend</span></li>
+            <li><b class="sz-check">✓</b><span><strong>360-degree coverage</strong> — addresses the full perimeter, not just the top</span></li>
+            <li><b class="sz-check">✓</b><span><strong>FlexibleComfortBand</strong> — comfortable enough to wear all day</span></li>
+            <li><b class="sz-check">✓</b><span><strong>14–16 inch natural taper</strong> — seamlessly transitions into your existing hair</span></li>
+            <li><b class="sz-check">✓</b><span><strong>Salon-engineered</strong> by a 20-year extensions specialist</span></li>
+          </ul>
+          <a class="sz-button" href="/products/hairline-headband">Shop the Headband Hairline — $725.92</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-products" id="products">
+      <div class="sz-shell">
+        <div class="sz-intro"><p class="sz-eyebrow">The System</p><h2>Start with the hairline. Keep the finish.</h2></div>
+        <div class="sz-product-grid">
+          <article class="sz-product-card sz-product-card--featured">
+            <div class="sz-product-card__media" role="img" aria-label="Headband Hairline product image placeholder"><span>Headband Hairline Product Image</span></div>
+            <div class="sz-product-card__body">
+              <span class="sz-product-badge">Hero Coverage</span>
+              <div class="sz-product-head"><h3>Headband Hairline</h3><span class="sz-price">$725.92</span></div>
+              <p>The complete 360-degree system for hairline, temple, and edge coverage. 100% Remy human hair. Wears all day.</p>
+              <ul class="sz-product-points"><li>Hand-knotted Remy hair</li><li>360-degree perimeter</li><li>FlexibleComfortBand</li><li>Shade options available</li></ul>
+              <a class="sz-button" href="/products/hairline-headband">Choose Your Shade</a>
+            </div>
+          </article>
+          <article class="sz-product-card">
+            <div class="sz-product-card__media" role="img" aria-label="Colored Hairline Powder product image placeholder"><span>Colored Hairline Powder Product Image</span></div>
+            <div class="sz-product-card__body">
+              <span class="sz-product-badge sz-product-badge--dark">Finishing Companion</span>
+              <div class="sz-product-head"><h3>Colored Hairline Powder</h3><span class="sz-price">$24.93</span></div>
+              <p>Ultra-fine, water-resistant pigment for root touch-ups, sparse areas, and transition blending. Travel-ready compact.</p>
+              <div class="sz-shades" aria-label="Available powder shades">
+                <span class="sz-shade" style="background:#1a1a1a" title="Black"></span><span class="sz-shade" style="background:#3B2314" title="Dark Brown"></span><span class="sz-shade" style="background:#6B3A2A" title="Brown"></span><span class="sz-shade" style="background:#9B6B4A" title="Light Brown"></span><span class="sz-shade" style="background:#C9A96E" title="Blonde"></span><span class="sz-shade" style="background:#8B3A2A" title="Auburn"></span><span class="sz-shade" style="background:#A8A8A8" title="Grey"></span>
+              </div>
+              <a class="sz-button" href="/products/colored-hairline-powder">Shop the Powder</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-how" id="how-it-works">
+      <div class="sz-shell">
+        <div class="sz-intro"><p class="sz-eyebrow">How it works</p><h2>Three steps to looking like yourself again.</h2></div>
+        <div class="sz-steps">
+          <article class="sz-step"><span class="sz-step__number">01</span><h3>Find where it shows</h3><p>Hairline, temples, part line, or crown — identify the area where thinning is most visible to you. For most women, it's the front perimeter.</p></article>
+          <article class="sz-step"><span class="sz-step__number">02</span><h3>Match your shade</h3><p>Use the product photos and shade names as a guide. Not sure? DM Raquel directly before you buy. Getting the shade right is the whole game.</p></article>
+          <article class="sz-step"><span class="sz-step__number">03</span><h3>Finish the blend</h3><p>Use the Colored Hairline Powder for touch-ups, regrowth lines, and sparse patches. Together, the system is seamless.</p></article>
+        </div>
+        <a class="sz-button sz-button--gold" href="/products/hairline-headband">Start with the Headband Hairline</a>
+      </div>
+    </section>
+
+    <section class="sz-section sz-lineup">
+      <div class="sz-shell">
+        <div class="sz-intro"><h2>Start where it shows. Add from there.</h2><p>Every piece is designed to work together. Start with the one that addresses your primary concern.</p></div>
+        <div class="sz-table-wrap">
+          <table class="sz-table">
+            <thead><tr><th scope="col">Product</th><th scope="col">Coverage Area</th><th scope="col">Price</th></tr></thead>
+            <tbody>
+              <tr><td>Full Coverage</td><td>Crown, part, and full perimeter</td><td>$1,029.60</td></tr>
+              <tr><td>Full Coverage Specialty Topper</td><td>Full perimeter with specialty fit</td><td>$1,050.40</td></tr>
+              <tr class="is-highlighted"><td>Hairline Headband ⭐</td><td>Front perimeter, temples, edges</td><td>$725.92</td></tr>
+              <tr><td>Hairline Specialty</td><td>Targeted hairline with added customization</td><td>$767.52</td></tr>
+              <tr><td>Colored Hairline Powder</td><td>Touch-up and blend companion</td><td>$24.93</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="sz-table-note">Not sure where to start? DM Raquel on Instagram <a href="https://instagram.com/raquelsstudiozeal">@raquelsstudiozeal</a></p>
+      </div>
+    </section>
+
+    <section class="sz-section sz-about" id="about-raquel">
+      <div class="sz-shell sz-split">
+        <div class="sz-placeholder" role="img" aria-label="Professional photo placeholder for Raquel Viara"><span>Professional Photo — Raquel Viara</span></div>
+        <div>
+          <p class="sz-eyebrow">Your guide</p>
+          <h2>Twenty years behind the chair.</h2>
+          <p class="sz-about__body">I have been doing hair for over two decades. And what I kept seeing — over and over, from the women sitting in my chair — was this: they would leave looking great, but still feeling self-conscious about the one spot they always checked. The hairline. The part. The temples. That gap between “your hair looks amazing” and actually feeling like yourself again? That is what the Headband Hairline closes. I built this system because I got tired of watching confident, beautiful women let one thin patch dictate how they showed up in the world. You deserve better than that.</p>
+          <div class="sz-signature">Raquel Viara</div>
+          <div class="sz-pills"><span class="sz-pill">20+ Years in Hair</span><span class="sz-pill">Extensions Specialist</span><span class="sz-pill">Scottsdale, AZ</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-testimonials">
+      <div class="sz-shell">
+        <div class="sz-intro"><h2>The reel resonated because it was real.</h2><p>Nearly 3 out of 4 women with thinning hair say it impacts their confidence — not just their appearance.</p></div>
+        <div class="sz-testimonial-grid">
+          <article class="sz-quote"><div class="sz-stars" aria-label="Five stars">★★★★★</div><blockquote>“I stopped avoiding cameras after the first week. I genuinely forgot it was there.”</blockquote><cite>Studio Zeal Client</cite></article>
+          <article class="sz-quote"><div class="sz-stars" aria-label="Five stars">★★★★★</div><blockquote>“I have tried every powder and spray on the market. Nothing came close to this. It actually looks like my hair.”</blockquote><cite>Verified Customer</cite></article>
+          <article class="sz-quote"><div class="sz-stars" aria-label="Five stars">★★★★★</div><blockquote>“Raquel walked me through the shade match personally. That level of care is rare.”</blockquote><cite>Studio Zeal Client</cite></article>
+        </div>
+        <a class="sz-button sz-button--gold" href="/products/hairline-headband">Shop the Headband Hairline</a>
+      </div>
+    </section>
+
+    <section class="sz-section sz-fit">
+      <div class="sz-shell sz-fit-grid">
+        <article class="sz-fit-card"><h2>This is for you if…</h2><ul><li><b class="sz-check">✓</b><span>Your hairline, temples, or part line is where thinning shows most</span></li><li><b class="sz-check">✓</b><span>You want an immediate visual change — not a 6-month supplement plan</span></li><li><b class="sz-check">✓</b><span>You have tried powders and sprays and want something that actually holds</span></li><li><b class="sz-check">✓</b><span>Surgery and medication are not on the table for you right now</span></li><li><b class="sz-check">✓</b><span>You want to look like yourself again — naturally</span></li></ul></article>
+        <article class="sz-fit-card sz-fit-card--muted"><h2>This is not for you if…</h2><ul><li><b class="sz-check">×</b><span>You are looking for a quick-fix with overnight miracle claims</span></li><li><b class="sz-check">×</b><span>You want a fashion clip-in for volume (this was engineered for thinning, not styling)</span></li><li><b class="sz-check">×</b><span>You are not willing to invest in a premium, salon-quality solution</span></li></ul></article>
+      </div>
+    </section>
+
+    <section class="sz-section sz-faq" id="faq">
+      <div class="sz-shell">
+        <div class="sz-intro sz-centered"><p class="sz-eyebrow">Questions, answered</p><h2>A calmer way to buy hair coverage online.</h2></div>
+        <div class="sz-faq-list">
+          <article class="sz-faq-item"><button class="sz-faq-question" type="button" aria-expanded="false"><span>How do I know which piece is right for me?</span><span class="sz-faq-icon" aria-hidden="true">+</span></button><div class="sz-faq-answer"><div><p>Start with where it shows most. Hairline and temples — Headband Hairline. Crown and part — Full Coverage options. Still unsure? DM Raquel directly.</p></div></div></article>
+          <article class="sz-faq-item"><button class="sz-faq-question" type="button" aria-expanded="false"><span>Is this for fashion volume or hair loss?</span><span class="sz-faq-icon" aria-hidden="true">+</span></button><div class="sz-faq-answer"><div><p>Designed for thinning and loss. 100% Remy hair, engineered for the front perimeter where traditional extensions can't anchor.</p></div></div></article>
+          <article class="sz-faq-item"><button class="sz-faq-question" type="button" aria-expanded="false"><span>What does 100% Remy hair mean?</span><span class="sz-faq-icon" aria-hidden="true">+</span></button><div class="sz-faq-answer"><div><p>Every strand is cuticle-aligned — moves naturally, doesn't tangle, blends like your own hair. No synthetic can replicate it.</p></div></div></article>
+          <article class="sz-faq-item"><button class="sz-faq-question" type="button" aria-expanded="false"><span>What happens after I order?</span><span class="sz-faq-icon" aria-hidden="true">+</span></button><div class="sz-faq-answer"><div><p>Order confirmation with care and shipping details. Studio Zeal supports you after checkout — reach out anytime.</p></div></div></article>
+          <article class="sz-faq-item"><button class="sz-faq-question" type="button" aria-expanded="false"><span>Can I get shade help before I buy?</span><span class="sz-faq-icon" aria-hidden="true">+</span></button><div class="sz-faq-answer"><div><p>Yes. DM @raquelsstudiozeal on Instagram or join the waitlist. Raquel will guide you before you order.</p></div></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sz-section sz-waitlist" id="waitlist">
+      <div class="sz-shell">
+        <h2>The reel brought you here. Do not leave without this.</h2>
+        <p class="sz-waitlist__sub">Join the waitlist for first access to availability, personal shade guidance from Raquel, and launch-only offers.</p>
+        {% form 'customer', class: 'sz-waitlist-form', id: 'sz-waitlist-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter,waitlist,email_signup">
+          <label class="visually-hidden" for="sz-waitlist-email">Email address</label>
+          <input id="sz-waitlist-email" type="email" name="contact[email]" value="{{ form.email }}" autocomplete="email" placeholder="Email address" required>
+          <button class="sz-button sz-button--gold{% if form.posted_successfully? %} is-success{% endif %}" type="submit"{% if form.posted_successfully? %} disabled{% endif %}>{% if form.posted_successfully? %}You're on the list ✓{% else %}Join the Waitlist{% endif %}</button>
+          {% if form.posted_successfully? %}<p class="sz-waitlist__note" role="status">Thanks. Watch your inbox for Studio Zeal updates.</p>{% elsif form.errors %}<div class="sz-waitlist__note" role="alert">{{ form.errors | default_errors }}</div>{% endif %}
+        {% endform %}
+        <p class="sz-waitlist__note" id="sz-waitlist-status">No spam. Just product drops, shade help, and Studio Zeal updates.</p>
+        <a class="sz-waitlist__link" href="/products/hairline-headband">Ready now? Shop the Headband Hairline →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="sz-footer">
+    <div class="sz-shell">
+      <div class="sz-footer__grid">
+        <div><a class="sz-logo" href="#sz-top">Studio <span>Zeal</span></a><p class="sz-footer__tagline">by Raquel Viara · Scottsdale, AZ</p></div>
+        <nav class="sz-footer__links" aria-label="Footer navigation"><a href="#products">Products</a><a href="#about-raquel">About</a><a href="#faq">FAQ</a><a href="mailto:support@raquelsstudiozeal.com">Contact</a><a href="https://instagram.com/raquelsstudiozeal">Instagram</a></nav>
+        <div class="sz-footer__contact"><a href="https://instagram.com/raquelsstudiozeal">@raquelsstudiozeal</a><a href="https://raquelsstudiozeal.com">raquelsstudiozeal.com</a></div>
+      </div>
+      <div class="sz-footer__bottom"><p>© 2026 Studio Zeal by Raquel Viara. All rights reserved.</p><div class="sz-payments" aria-label="Accepted payment methods"><span>VISA</span><span>MC</span><span>AMEX</span><span>DISC</span><span>PayPal</span></div></div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  (() => {
+    document.body.classList.add('sz-custom-page');
+    const page = document.querySelector('.sz-page');
+    if (!page) return;
+
+    const menuButton = page.querySelector('.sz-menu-button');
+    const mobileMenu = page.querySelector('.sz-mobile-menu');
+    menuButton?.addEventListener('click', () => {
+      const isOpen = menuButton.getAttribute('aria-expanded') === 'true';
+      menuButton.setAttribute('aria-expanded', String(!isOpen));
+      menuButton.setAttribute('aria-label', isOpen ? 'Open navigation menu' : 'Close navigation menu');
+      mobileMenu?.classList.toggle('is-open', !isOpen);
+    });
+
+    mobileMenu?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        menuButton?.setAttribute('aria-expanded', 'false');
+        menuButton?.setAttribute('aria-label', 'Open navigation menu');
+        mobileMenu.classList.remove('is-open');
+      });
+    });
+
+    page.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const target = document.querySelector(link.getAttribute('href'));
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      });
+    });
+
+    page.querySelectorAll('.sz-faq-question').forEach((button) => {
+      button.addEventListener('click', () => {
+        const isOpen = button.getAttribute('aria-expanded') === 'true';
+        button.setAttribute('aria-expanded', String(!isOpen));
+        const icon = button.querySelector('.sz-faq-icon');
+        if (icon) icon.textContent = isOpen ? '+' : '−';
+      });
+    });
+
+  })();
+</script>

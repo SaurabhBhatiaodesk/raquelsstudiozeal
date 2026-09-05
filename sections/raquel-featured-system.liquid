@@ -1,0 +1,101 @@
+{% liquid
+  assign headband = section.settings.headband_product
+  assign powder = section.settings.powder_product
+  assign headband_url = '/products/hairline-headband'
+  assign powder_url = '/products/colored-hairline-powder'
+  if headband != blank
+    assign headband_url = headband.url
+  endif
+  if powder != blank
+    assign powder_url = powder.url
+  endif
+%}
+
+<section id="products" class="sz-section sz-products color-{{ section.settings.color_scheme }}" aria-labelledby="ProductsHeading-{{ section.id }}">
+  <div class="sz-wrap">
+    <header class="sz-section-header sz-section-header--center">
+      {% if section.settings.eyebrow != blank %}<p class="sz-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h2 id="ProductsHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+    </header>
+    <div class="sz-product-grid">
+      <article class="sz-product-card sz-product-card--featured">
+        <div class="sz-product-card__media">
+          {% if section.settings.headband_image != blank %}
+            {{ section.settings.headband_image | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 58vw, 100vw', widths: '440, 700, 900, 1200', alt: section.settings.headband_image_alt }}
+          {% elsif headband.featured_media %}
+            {{ headband.featured_media | image_url: width: 1200 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 58vw, 100vw', widths: '440, 700, 900, 1200' }}
+          {% else %}
+            <div class="sz-media-fallback sz-media-fallback--product" aria-hidden="true"><span></span></div>
+          {% endif %}
+        </div>
+        <div class="sz-product-card__body">
+          <span class="sz-pill sz-pill--sage">{{ section.settings.headband_badge }}</span>
+          <div class="sz-product-card__title-row">
+            <h3>{{ headband.title | default: section.settings.headband_title }}</h3>
+            <span class="sz-price">{% if headband != blank %}{{ headband.price | money }}{% else %}{{ section.settings.headband_price }}{% endif %}</span>
+          </div>
+          <p>{{ section.settings.headband_text }}</p>
+          <ul class="sz-dot-list" role="list">
+            {% for block in section.blocks %}{% if block.type == 'benefit' %}<li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>{% endif %}{% endfor %}
+          </ul>
+          <a class="sz-button sz-button--full" href="{{ headband_url }}">{{ section.settings.headband_button }}</a>
+        </div>
+      </article>
+
+      <article class="sz-product-card sz-product-card--companion">
+        <div class="sz-product-card__media">
+          {% if powder.featured_media %}
+            {{ powder.featured_media | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 38vw, 100vw', widths: '360, 560, 720, 900' }}
+          {% elsif section.settings.powder_image != blank %}
+            {{ section.settings.powder_image | image_url: width: 900 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 38vw, 100vw', widths: '360, 560, 720, 900', alt: section.settings.powder_title }}
+          {% else %}
+            <div class="sz-media-fallback sz-media-fallback--powder" aria-hidden="true"><span></span></div>
+          {% endif %}
+        </div>
+        <div class="sz-product-card__body">
+          <span class="sz-pill sz-pill--dark">{{ section.settings.powder_badge }}</span>
+          <div class="sz-product-card__title-row">
+            <h3>{{ powder.title | default: section.settings.powder_title }}</h3>
+            <span class="sz-price">{% if powder != blank %}{{ powder.price | money }}{% else %}{{ section.settings.powder_price }}{% endif %}</span>
+          </div>
+          <p>{{ section.settings.powder_text }}</p>
+          <div class="sz-shades" aria-label="Available powder shades">
+            {% for block in section.blocks %}{% if block.type == 'shade' %}<span class="sz-shade" style="--shade: {{ block.settings.color }}" title="{{ block.settings.name }}" aria-label="{{ block.settings.name }}" {{ block.shopify_attributes }}></span>{% endif %}{% endfor %}
+          </div>
+          <a class="sz-button sz-button--outline sz-button--full" href="{{ powder_url }}">{{ section.settings.powder_button }}</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal products",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-5" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The system" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Start with the hairline. Keep the finish." },
+    { "type": "product", "id": "headband_product", "label": "Headband product" },
+    { "type": "image_picker", "id": "headband_image", "label": "Headband card image" },
+    { "type": "text", "id": "headband_image_alt", "label": "Headband image alt text", "default": "Hand holding the Hairline Headband hairpiece" },
+    { "type": "text", "id": "headband_badge", "label": "Headband badge", "default": "Hero coverage" },
+    { "type": "text", "id": "headband_title", "label": "Headband fallback title", "default": "The Headband Hairline" },
+    { "type": "text", "id": "headband_price", "label": "Headband fallback price", "default": "$725.92" },
+    { "type": "textarea", "id": "headband_text", "label": "Headband description", "default": "The complete 360-degree system for hairline, temple, and edge coverage. 100% Remy human hair. Wears all day." },
+    { "type": "text", "id": "headband_button", "label": "Headband button", "default": "Choose your shade" },
+    { "type": "product", "id": "powder_product", "label": "Powder product" },
+    { "type": "image_picker", "id": "powder_image", "label": "Powder fallback image" },
+    { "type": "text", "id": "powder_badge", "label": "Powder badge", "default": "Finishing companion" },
+    { "type": "text", "id": "powder_title", "label": "Powder fallback title", "default": "Colored Hairline Powder" },
+    { "type": "text", "id": "powder_price", "label": "Powder fallback price", "default": "$24.93" },
+    { "type": "textarea", "id": "powder_text", "label": "Powder description", "default": "Touch up regrowth lines and blend your hairline seamlessly. The perfect finishing step." },
+    { "type": "text", "id": "powder_button", "label": "Powder button", "default": "Shop the powder" }
+  ],
+  "blocks": [
+    { "type": "benefit", "name": "Headband benefit", "limit": 5, "settings": [{ "type": "text", "id": "text", "label": "Text", "default": "100% Remy human hair" }] },
+    { "type": "shade", "name": "Powder shade", "limit": 10, "settings": [{ "type": "text", "id": "name", "label": "Shade name", "default": "Dark Brown" }, { "type": "color", "id": "color", "label": "Shade color", "default": "#3B2314" }] }
+  ],
+  "presets": [{ "name": "Studio Zeal products", "blocks": [{ "type": "benefit" }, { "type": "benefit" }, { "type": "shade" }, { "type": "shade" }] }]
+}
+{% endschema %}

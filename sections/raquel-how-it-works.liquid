@@ -1,0 +1,46 @@
+{% liquid
+  assign featured_product = section.settings.product
+  assign product_url = '/products/hairline-headband'
+  if featured_product != blank
+    assign product_url = featured_product.url
+  endif
+%}
+
+<section id="how-it-works" class="sz-section sz-how color-{{ section.settings.color_scheme }}" aria-labelledby="HowHeading-{{ section.id }}">
+  <div class="sz-botanical" aria-hidden="true"></div>
+  <div class="sz-wrap">
+    <header class="sz-section-header sz-section-header--center">
+      <h2 id="HowHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+    </header>
+    <div class="sz-step-grid">
+      {% for block in section.blocks %}
+        <article class="sz-step" {{ block.shopify_attributes }}>
+          <span class="sz-step__number">0{{ forloop.index }}</span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+    <div class="sz-actions sz-actions--center"><a class="sz-button sz-button--sage" href="{{ product_url }}">{{ section.settings.button_label }}</a></div>
+  </div>
+  <div class="sz-wave sz-wave--cream" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal how it works",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-4" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Three steps to looking like yourself again." },
+    { "type": "product", "id": "product", "label": "Button product" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Start with the Headband Hairline" }
+  ],
+  "blocks": [
+    { "type": "step", "name": "Step", "limit": 3, "settings": [
+      { "type": "text", "id": "title", "label": "Title", "default": "Find where it shows" },
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Hairline, temples, part line, or crown. For most women it is the front perimeter." }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal how it works", "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }] }]
+}
+{% endschema %}

@@ -1,0 +1,1493 @@
+{% comment %}
+  Studio Zeal - Before / After Results
+  File: sections/studio-zeal-results.liquid
+{% endcomment %}
+
+<section
+  id="studio-zeal-results-{{ section.id }}"
+  class="studio-zeal-results"
+>
+  <div class="page-width studio-zeal-results__container">
+
+    {%- comment -%}
+      SECTION HEADER
+    {%- endcomment -%}
+
+    <div class="studio-zeal-results__header">
+
+      <div class="studio-zeal-results__heading-wrap">
+
+        {% if section.settings.heading != blank %}
+          <h2 class="studio-zeal-results__heading">
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+
+        {% if section.settings.description != blank %}
+          <div class="studio-zeal-results__intro">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+      </div>
+
+
+      {% if section.blocks.size > 0 %}
+        <div class="studio-zeal-results__navigation">
+
+          <span
+            class="studio-zeal-results__counter"
+            data-results-counter
+          >
+            01 / {{ section.blocks.size | prepend: '0' | slice: -2, 2 }}
+          </span>
+
+          <button
+            type="button"
+            class="studio-zeal-results__arrow"
+            data-results-prev
+            aria-label="Previous result"
+          >
+            ←
+          </button>
+
+          <button
+            type="button"
+            class="studio-zeal-results__arrow"
+            data-results-next
+            aria-label="Next result"
+          >
+            →
+          </button>
+
+        </div>
+      {% endif %}
+
+    </div>
+
+
+    {%- comment -%}
+      CLIENT RESULTS
+    {%- endcomment -%}
+
+    {% if section.blocks.size > 0 %}
+
+      <div class="studio-zeal-results__slides">
+
+        {% for block in section.blocks %}
+
+          <article
+            class="studio-zeal-results__slide{% if forloop.first %} is-active{% endif %}"
+            data-results-slide="{{ forloop.index0 }}"
+            {{ block.shopify_attributes }}
+            {% unless forloop.first %}
+              hidden
+            {% endunless %}
+          >
+
+            <div class="studio-zeal-results__grid">
+
+
+              {%- comment -%}
+                BEFORE
+              {%- endcomment -%}
+
+              <figure class="studio-zeal-results__figure">
+
+                <div class="studio-zeal-results__media">
+
+                  {% if block.settings.before_image != blank %}
+
+                    {{
+                      block.settings.before_image
+                      | image_url: width: 1000
+                      | image_tag:
+                        class: 'studio-zeal-results__image',
+                        loading: 'lazy',
+                        widths: '400, 600, 800, 1000',
+                        sizes: '(max-width: 749px) 100vw, (max-width: 990px) 50vw, 33vw'
+                    }}
+
+                  {% else %}
+
+                    <div class="studio-zeal-results__placeholder">
+                      {{ 'image' | placeholder_svg_tag }}
+                    </div>
+
+                  {% endif %}
+
+
+                  <figcaption class="studio-zeal-results__label studio-zeal-results__label--before">
+                    BEFORE
+                  </figcaption>
+
+                </div>
+
+              </figure>
+
+
+              {%- comment -%}
+                AFTER
+              {%- endcomment -%}
+
+              <figure class="studio-zeal-results__figure">
+
+                <div class="studio-zeal-results__media">
+
+                  {% if block.settings.after_image != blank %}
+
+                    {{
+                      block.settings.after_image
+                      | image_url: width: 1000
+                      | image_tag:
+                        class: 'studio-zeal-results__image',
+                        loading: 'lazy',
+                        widths: '400, 600, 800, 1000',
+                        sizes: '(max-width: 749px) 100vw, (max-width: 990px) 50vw, 33vw'
+                    }}
+
+                  {% else %}
+
+                    <div class="studio-zeal-results__placeholder">
+                      {{ 'image' | placeholder_svg_tag }}
+                    </div>
+
+                  {% endif %}
+
+
+                  <figcaption class="studio-zeal-results__label studio-zeal-results__label--after">
+                    AFTER
+                  </figcaption>
+
+                </div>
+
+              </figure>
+
+
+              {%- comment -%}
+                RESULT DETAILS
+              {%- endcomment -%}
+
+              <div class="studio-zeal-results__details">
+
+                <div>
+
+                  {% if block.settings.kicker != blank %}
+                    <div class="studio-zeal-results__kicker">
+                      {{ block.settings.kicker }}
+                    </div>
+                  {% endif %}
+
+
+                  {% if block.settings.title != blank %}
+                    <h3 class="studio-zeal-results__title">
+                      {{ block.settings.title }}
+                    </h3>
+                  {% endif %}
+
+
+                  {% if block.settings.note != blank %}
+                    <div class="studio-zeal-results__note">
+                      {{ block.settings.note }}
+                    </div>
+                  {% endif %}
+
+                </div>
+
+
+                <div class="studio-zeal-results__specs">
+
+                  {% if block.settings.wearing != blank %}
+                    <div class="studio-zeal-results__spec">
+                      <span>Wearing</span>
+
+                      <strong>
+                        {{ block.settings.wearing }}
+                      </strong>
+                    </div>
+                  {% endif %}
+
+
+                  {% if block.settings.chair_time != blank %}
+                    <div class="studio-zeal-results__spec">
+                      <span>Chair time</span>
+
+                      <strong>
+                        {{ block.settings.chair_time }}
+                      </strong>
+                    </div>
+                  {% endif %}
+
+
+                  {% if block.settings.powder_shade != blank %}
+                    <div class="studio-zeal-results__spec">
+                      <span>Powder shade</span>
+
+                      <strong>
+                        {{ block.settings.powder_shade }}
+                      </strong>
+                    </div>
+                  {% endif %}
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </article>
+
+        {% endfor %}
+
+      </div>
+
+
+      {%- comment -%}
+        BOTTOM DOT NAVIGATION
+      {%- endcomment -%}
+
+      {% if section.blocks.size > 1 %}
+
+        <div class="studio-zeal-results__dots">
+
+          {% for block in section.blocks %}
+
+            <button
+              type="button"
+              class="studio-zeal-results__dot{% if forloop.first %} is-active{% endif %}"
+              data-results-dot="{{ forloop.index0 }}"
+              aria-label="Show result {{ forloop.index }}"
+            ></button>
+
+          {% endfor %}
+
+        </div>
+
+      {% endif %}
+
+    {% endif %}
+
+  </div>
+</section>
+
+
+<style>
+
+  /* ========================================
+     SECTION
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }} {
+
+    width: 100%;
+
+    background:
+      {{ section.settings.background_color }};
+
+    color:
+      {{ section.settings.text_color }};
+  }
+
+
+  #studio-zeal-results-{{ section.id }} *,
+  #studio-zeal-results-{{ section.id }} *::before,
+  #studio-zeal-results-{{ section.id }} *::after {
+
+    box-sizing: border-box;
+  }
+
+
+  /* ========================================
+     CONTAINER
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }} {
+
+    padding-top:
+      {{ section.settings.padding_top }}px;
+
+    padding-bottom:
+      {{ section.settings.padding_bottom }}px;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__container {
+
+    padding-top: 0;
+
+    padding-bottom: 0;
+  }
+
+
+  /* ========================================
+     HEADER
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__header {
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+    margin-bottom: 30px;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__heading-wrap {
+
+    max-width: 620px;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__heading {
+
+    margin: 0 0 8px;
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:
+      {{ section.settings.heading_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.01em;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__intro {
+
+    max-width: 520px;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.6;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__intro p {
+
+    margin: 0;
+  }
+
+
+  /* ========================================
+     TOP NAVIGATION
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__navigation {
+
+    flex: none;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__counter {
+
+    margin-right: 4px;
+
+    color:
+      {{ section.settings.accent_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__arrow {
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+
+    place-items: center;
+
+    padding: 0;
+
+    border:
+      1px solid
+      {{ section.settings.arrow_border_color }};
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-size: 16px;
+
+    line-height: 1;
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.25s ease,
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__arrow:hover {
+
+    background:
+      {{ section.settings.text_color }};
+
+    border-color:
+      {{ section.settings.text_color }};
+
+    color:
+      {{ section.settings.background_color }};
+  }
+
+
+  /* ========================================
+     SLIDE
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__slide[hidden] {
+
+    display: none !important;
+  }
+
+
+  /*
+    BEFORE + AFTER + DETAILS
+    Pure CSS Grid
+  */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__grid {
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(300px, 1.08fr);
+
+    overflow: hidden;
+
+    border:
+      1px solid
+      {{ section.settings.border_color }};
+
+    border-radius:
+      {{ section.settings.card_radius }}px;
+
+    background: #ffffff;
+  }
+
+
+  /* ========================================
+     IMAGE FIGURES
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__figure {
+
+    min-width: 0;
+
+    margin: 0;
+
+    border-right:
+      1px solid
+      {{ section.settings.border_color }};
+  }
+
+
+  /*
+    Image + label share the same grid cell.
+    This creates overlay without absolute.
+  */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__media {
+
+    width: 100%;
+
+    aspect-ratio: 3 / 4;
+
+    display: grid;
+
+    overflow: hidden;
+
+    background: #efe7dc;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__image,
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__placeholder,
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__placeholder svg,
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__label {
+
+    grid-area: 1 / 1;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__image {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__placeholder,
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__placeholder svg {
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+  }
+
+
+  /* ========================================
+     BEFORE / AFTER LABEL
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__label {
+
+    align-self: end;
+
+    justify-self: start;
+
+    z-index: 1;
+
+    margin: 16px;
+
+    padding: 7px 13px;
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 9.5px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.16em;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__label--before {
+
+    background:
+      rgba(250, 246, 240, 0.94);
+
+    color: #241c16;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__label--after {
+
+    background: #241c16;
+
+    color: #faf6f0;
+  }
+
+
+  /* ========================================
+     DETAILS PANEL
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__details {
+
+    min-width: 0;
+
+    padding: 38px 34px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    gap: 35px;
+
+    background:
+      {{ section.settings.details_background }};
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__kicker {
+
+    margin-bottom: 18px;
+
+    color:
+      {{ section.settings.accent_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__title {
+
+    margin: 0 0 14px;
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size: 26px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__note {
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.65;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__note p {
+
+    margin: 0;
+  }
+
+
+  /* ========================================
+     RESULT INFO
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__specs {
+    width:100%;
+    display: grid;
+
+    gap: 0;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__spec {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 10px 0;
+
+    border-bottom:
+      1px solid
+      {{ section.settings.border_color }};
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-size: 13.5px;
+
+    line-height: 1.4;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__spec:last-child {
+
+    border-bottom: 0;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__spec span {
+
+    color:
+      {{ section.settings.accent_color }};
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__spec strong {
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-weight: 400;
+
+    text-align: right;
+  }
+
+
+  /* ========================================
+     DOTS
+  ======================================== */
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__dots {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    margin-top: 22px;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__dot {
+
+    width: 64px;
+    height: 3px;
+
+    padding: 0;
+
+    border: 0;
+
+    background:
+      {{ section.settings.inactive_dot_color }};
+
+    cursor: pointer;
+
+    transition:
+      background-color 0.25s ease;
+  }
+
+
+  #studio-zeal-results-{{ section.id }}
+  .studio-zeal-results__dot.is-active {
+
+    background:
+      {{ section.settings.active_dot_color }};
+  }
+
+
+  /* ========================================
+     TABLET
+  ======================================== */
+
+  @media screen and (max-width: 990px) {
+
+   
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__grid {
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__details {
+
+      grid-column: 1 / -1;
+
+      padding: 32px;
+
+      display: grid;
+
+      grid-template-columns:
+        minmax(0, 1fr)
+        minmax(260px, 0.8fr);
+
+      align-items: end;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__figure:nth-child(2) {
+
+      border-right: 0;
+    }
+
+  }
+
+
+  /* ========================================
+     MOBILE
+  ======================================== */
+
+  @media screen and (max-width: 749px) {
+
+    #studio-zeal-results-{{ section.id }} {
+
+      padding-top:
+        {{ section.settings.mobile_padding_top }}px;
+
+      padding-bottom:
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__container {
+
+      padding-top: 0;
+
+      padding-bottom: 0;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__header {
+
+      align-items: flex-start;
+
+      flex-direction: column;
+
+      gap: 22px;
+
+      margin-bottom: 24px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__heading {
+
+      font-size:
+        {{ section.settings.mobile_heading_size }}px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__intro {
+
+      font-size: 14px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__navigation {
+
+      width: 100%;
+
+      justify-content: flex-start;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__counter {
+
+      margin-right: auto;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__grid {
+
+      grid-template-columns: 1fr;
+
+      border-radius:0;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__figure {
+
+      border-right: 0;
+
+      border-bottom: 0;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__media {
+
+      aspect-ratio: 3 / 4;
+
+      min-height: 0;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__image {
+
+      object-fit: cover;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__details {
+
+      grid-column: 1 / -1;
+
+      display: flex;
+
+      padding: 28px 24px;
+
+      gap: 30px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__title {
+
+      font-size: 26px;
+
+      line-height: 1.25;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__spec {
+
+      padding: 12px 0;
+
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__title {
+
+      font-size: 24px;
+    }
+
+
+    #studio-zeal-results-{{ section.id }}
+    .studio-zeal-results__dot {
+
+      flex: 1;
+
+      max-width: 64px;
+    }
+
+  }
+
+</style>
+
+
+<script>
+  (() => {
+
+    const root = document.getElementById(
+      'studio-zeal-results-{{ section.id }}'
+    );
+
+    if (!root || root.dataset.resultsInitialized === 'true') {
+      return;
+    }
+
+    root.dataset.resultsInitialized = 'true';
+
+
+    const slides = Array.from(
+      root.querySelectorAll('[data-results-slide]')
+    );
+
+    const dots = Array.from(
+      root.querySelectorAll('[data-results-dot]')
+    );
+
+    const prevButton =
+      root.querySelector('[data-results-prev]');
+
+    const nextButton =
+      root.querySelector('[data-results-next]');
+
+    const counter =
+      root.querySelector('[data-results-counter]');
+
+
+    if (!slides.length) {
+      return;
+    }
+
+
+    let current = 0;
+
+
+    const formatNumber = (number) => {
+
+      return String(number).padStart(2, '0');
+
+    };
+
+
+    const showSlide = (index) => {
+
+      const total = slides.length;
+
+      current =
+        (index + total) % total;
+
+
+      slides.forEach((slide, slideIndex) => {
+
+        const active =
+          slideIndex === current;
+
+        slide.hidden = !active;
+
+        slide.classList.toggle(
+          'is-active',
+          active
+        );
+
+      });
+
+
+      dots.forEach((dot, dotIndex) => {
+
+        dot.classList.toggle(
+          'is-active',
+          dotIndex === current
+        );
+
+      });
+
+
+      if (counter) {
+
+        counter.textContent =
+          `${formatNumber(current + 1)} / ${formatNumber(total)}`;
+
+      }
+
+    };
+
+
+    if (prevButton) {
+
+      prevButton.addEventListener(
+        'click',
+        () => showSlide(current - 1)
+      );
+
+    }
+
+
+    if (nextButton) {
+
+      nextButton.addEventListener(
+        'click',
+        () => showSlide(current + 1)
+      );
+
+    }
+
+
+    dots.forEach((dot) => {
+
+      dot.addEventListener(
+        'click',
+        () => {
+
+          const index =
+            Number(dot.dataset.resultsDot);
+
+          showSlide(index);
+
+        }
+      );
+
+    });
+
+
+    showSlide(0);
+
+  })();
+</script>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Results",
+  "tag": "section",
+  "class": "studio-zeal-results-section",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Two clients, two hairlines"
+    },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Every set is cut, colored and blended in the chair. Photos shared with client permission.</p>"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card radius",
+      "default": 16
+    },
+
+
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop heading size",
+      "default": 38
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 26,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile heading size",
+      "default": 32
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 84
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 0
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "secondary_text_color",
+      "label": "Secondary text",
+      "default": "#5A4E45"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#8C6357"
+    },
+
+    {
+      "type": "color",
+      "id": "details_background",
+      "label": "Details background",
+      "default": "#F3EDE4"
+    },
+
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#DED5CC"
+    },
+
+    {
+      "type": "color",
+      "id": "arrow_border_color",
+      "label": "Arrow border",
+      "default": "#B9AEA5"
+    },
+
+    {
+      "type": "color",
+      "id": "active_dot_color",
+      "label": "Active slider line",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "inactive_dot_color",
+      "label": "Inactive slider line",
+      "default": "#D8D0C8"
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "client",
+      "name": "Client Result",
+
+      "settings": [
+
+        {
+          "type": "image_picker",
+          "id": "before_image",
+          "label": "Before image"
+        },
+
+        {
+          "type": "image_picker",
+          "id": "after_image",
+          "label": "After image"
+        },
+
+        {
+          "type": "text",
+          "id": "kicker",
+          "label": "Small heading",
+          "default": "CLIENT 01 · BRUNETTE"
+        },
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Density at the part, front to crown"
+        },
+
+        {
+          "type": "richtext",
+          "id": "note",
+          "label": "Description",
+          "default": "<p>She came in hiding a widening part under a middle section. The headband sits behind it, so the part reads full without any tape or glue.</p>"
+        },
+
+        {
+          "type": "text",
+          "id": "wearing",
+          "label": "Wearing",
+          "default": "Headband hairline"
+        },
+
+        {
+          "type": "text",
+          "id": "chair_time",
+          "label": "Chair time",
+          "default": "90 minutes"
+        },
+
+        {
+          "type": "text",
+          "id": "powder_shade",
+          "label": "Powder shade",
+          "default": "Dark brown"
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "presets": [
+
+    {
+      "name": "Studio Zeal Results",
+
+      "blocks": [
+
+        {
+          "type": "client",
+          "settings": {
+            "kicker": "CLIENT 01 · BRUNETTE",
+            "title": "Density at the part, front to crown",
+            "note": "<p>She came in hiding a widening part under a middle section. The headband sits behind it, so the part reads full without any tape or glue.</p>",
+            "wearing": "Headband hairline",
+            "chair_time": "90 minutes",
+            "powder_shade": "Dark brown"
+          }
+        },
+
+        {
+          "type": "client",
+          "settings": {
+            "kicker": "CLIENT 02 · BLONDE",
+            "title": "Fullness around the face",
+            "note": "<p>Fine blonde hair that had thinned at the temples. Cut and blended in the chair, then finished with powder on the lace part.</p>",
+            "wearing": "Headband hairline + powder",
+            "chair_time": "2 hours",
+            "powder_shade": "Light blonde"
+          }
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
+{% endschema %}

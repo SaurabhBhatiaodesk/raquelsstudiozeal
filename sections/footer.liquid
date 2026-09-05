@@ -1,0 +1,1600 @@
+{% comment %}
+  Studio Zeal Custom Footer
+  File: sections/footer.liquid
+{% endcomment %}
+
+<footer
+  id="StudioZealFooter-{{ section.id }}"
+  class="studio-zeal-footer"
+>
+  <div class="studio-zeal-footer__container">
+
+    <div class="studio-zeal-footer__top">
+
+      {%- comment -%}
+        BRAND COLUMN
+      {%- endcomment -%}
+
+      <div class="studio-zeal-footer__brand">
+
+        <a
+          href="{{ routes.root_url }}"
+          class="studio-zeal-footer__logo-link"
+        >
+          {% if section.settings.logo != blank %}
+
+            {{
+              section.settings.logo
+              | image_url: width: 500
+              | image_tag:
+                class: 'studio-zeal-footer__logo-image',
+                loading: 'lazy',
+                widths: '160, 240, 320, 500'
+            }}
+
+          {% else %}
+
+            <span class="studio-zeal-footer__logo-text">
+              {{ section.settings.logo_text }}
+            </span>
+
+          {% endif %}
+        </a>
+
+
+        {% if section.settings.description != blank %}
+          <div class="studio-zeal-footer__description">
+            {{ section.settings.description }}
+          </div>
+        {% endif %}
+
+
+        {% if section.settings.show_social %}
+          <div class="studio-zeal-footer__socials">
+
+            {% if section.settings.instagram_url != blank %}
+              <a
+                href="{{ section.settings.instagram_url }}"
+                target="_blank"
+                rel="noopener"
+              >
+                Instagram
+              </a>
+            {% endif %}
+
+            {% if section.settings.tiktok_url != blank %}
+              <a
+                href="{{ section.settings.tiktok_url }}"
+                target="_blank"
+                rel="noopener"
+              >
+                TikTok
+              </a>
+            {% endif %}
+
+            {% if section.settings.youtube_url != blank %}
+              <a
+                href="{{ section.settings.youtube_url }}"
+                target="_blank"
+                rel="noopener"
+              >
+                YouTube
+              </a>
+            {% endif %}
+
+          </div>
+        {% endif %}
+
+      </div>
+
+
+      {%- comment -%}
+        MENU BLOCKS
+      {%- endcomment -%}
+
+      {% for block in section.blocks %}
+
+        {% case block.type %}
+
+          {% when 'menu' %}
+
+            <div
+              class="studio-zeal-footer__menu"
+              {{ block.shopify_attributes }}
+            >
+
+              {% if block.settings.heading != blank %}
+                <h3 class="studio-zeal-footer__menu-heading">
+                  {{ block.settings.heading }}
+                </h3>
+              {% endif %}
+
+
+              {% if block.settings.menu != blank %}
+                <ul class="studio-zeal-footer__menu-list">
+
+                  {% for link in block.settings.menu.links %}
+
+                    <li>
+                      <a href="{{ link.url }}">
+                        {{ link.title }}
+                      </a>
+                    </li>
+
+                  {% endfor %}
+
+                </ul>
+              {% endif %}
+
+            </div>
+
+
+          {% when 'contact' %}
+
+            <div
+              class="studio-zeal-footer__contact"
+              {{ block.shopify_attributes }}
+            >
+
+              {% if block.settings.heading != blank %}
+                <h3 class="studio-zeal-footer__menu-heading">
+                  {{ block.settings.heading }}
+                </h3>
+              {% endif %}
+
+
+              <div class="studio-zeal-footer__contact-list">
+
+                {% if block.settings.email != blank %}
+                  <a href="mailto:{{ block.settings.email }}">
+                    {{ block.settings.email }}
+                  </a>
+                {% endif %}
+
+
+                {% if block.settings.phone != blank %}
+                  <a href="tel:{{ block.settings.phone | remove: ' ' | remove: '(' | remove: ')' | remove: '-' }}">
+                    {{ block.settings.phone }}
+                  </a>
+                {% endif %}
+
+
+                {% if block.settings.address != blank %}
+                  <div class="studio-zeal-footer__address">
+                    {{ block.settings.address }}
+                  </div>
+                {% endif %}
+
+              </div>
+
+            </div>
+
+        {% endcase %}
+
+      {% endfor %}
+
+    </div>
+
+
+    {%- comment -%}
+      NEWSLETTER
+    {%- endcomment -%}
+
+    {% if section.settings.newsletter_enable %}
+
+      <div class="studio-zeal-footer__newsletter">
+
+        <div class="studio-zeal-footer__newsletter-content">
+
+          {% if section.settings.newsletter_heading != blank %}
+            <h3>
+              {{ section.settings.newsletter_heading }}
+            </h3>
+          {% endif %}
+
+          {% if section.settings.newsletter_text != blank %}
+            <div>
+              {{ section.settings.newsletter_text }}
+            </div>
+          {% endif %}
+
+        </div>
+
+
+        <div class="studio-zeal-footer__newsletter-form">
+
+          {% form 'customer', id: 'StudioZealFooterNewsletter' %}
+
+            <input
+              type="hidden"
+              name="contact[tags]"
+              value="newsletter"
+            >
+
+
+            {% if form.posted_successfully? %}
+
+              <div class="studio-zeal-footer__success">
+                {{ section.settings.success_message }}
+              </div>
+
+            {% else %}
+
+              <div class="studio-zeal-footer__field">
+
+                <input
+                  id="FooterEmail-{{ section.id }}"
+                  type="email"
+                  name="contact[email]"
+                  value="{{ form.email }}"
+                  placeholder="{{ section.settings.email_placeholder }}"
+                  autocomplete="email"
+                  required
+                >
+
+                <button type="submit">
+                  {{ section.settings.newsletter_button }}
+                </button>
+
+              </div>
+
+
+              {% if form.errors %}
+                <div class="studio-zeal-footer__error">
+                  {{ form.errors | default_errors }}
+                </div>
+              {% endif %}
+
+            {% endif %}
+
+          {% endform %}
+
+        </div>
+
+      </div>
+
+    {% endif %}
+
+
+    {%- comment -%}
+      BOTTOM FOOTER
+    {%- endcomment -%}
+
+    <div class="studio-zeal-footer__bottom">
+
+      <div class="studio-zeal-footer__copyright">
+
+        © {{ 'now' | date: '%Y' }}
+
+        <a href="{{ routes.root_url }}">
+          {{ shop.name }}
+        </a>
+
+        {% if section.settings.copyright_text != blank %}
+          <span>
+            · {{ section.settings.copyright_text }}
+          </span>
+        {% endif %}
+
+      </div>
+
+
+      {% if section.settings.show_policies %}
+
+        <div class="studio-zeal-footer__policies">
+
+          {% for policy in shop.policies %}
+
+            {% if policy != blank %}
+
+              <a href="{{ policy.url }}">
+                {{ policy.title }}
+              </a>
+
+            {% endif %}
+
+          {% endfor %}
+
+        </div>
+
+      {% endif %}
+
+
+      {% if section.settings.show_payments %}
+
+        <div class="studio-zeal-footer__payments">
+
+          {% for type in shop.enabled_payment_types %}
+
+            <span class="studio-zeal-footer__payment">
+              {{ type | payment_type_svg_tag }}
+            </span>
+
+          {% endfor %}
+
+        </div>
+
+      {% endif %}
+
+    </div>
+
+  </div>
+</footer>
+
+
+<style>
+
+  /* =========================================
+     ROOT
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }} {
+
+    width: 100%;
+
+    background:
+      {{ section.settings.background_color }};
+
+    color:
+      {{ section.settings.text_color }};
+
+    border-top:
+      1px solid
+      {{ section.settings.border_color }};
+  }
+
+
+  #StudioZealFooter-{{ section.id }} *,
+  #StudioZealFooter-{{ section.id }} *::before,
+  #StudioZealFooter-{{ section.id }} *::after {
+
+    box-sizing: border-box;
+  }
+
+
+  #StudioZealFooter-{{ section.id }} a {
+
+    color: inherit;
+
+    text-decoration: none;
+  }
+
+
+  /* =========================================
+     CONTAINER
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__container {
+
+    width: 100%;
+
+    max-width:
+      {{ section.settings.container_width }}px;
+
+    margin: 0 auto;
+
+    padding:
+      {{ section.settings.padding_top }}px
+      36px
+      {{ section.settings.padding_bottom }}px;
+  }
+
+
+  /* =========================================
+     TOP GRID
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__top {
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(280px, 1.7fr)
+      repeat({{ section.settings.menu_columns }}, minmax(130px, 0.7fr));
+
+    align-items: start;
+
+    gap:
+      {{ section.settings.column_gap }}px;
+  }
+
+
+  /* =========================================
+     BRAND
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__brand {
+
+    max-width: 390px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__logo-link {
+
+    display: inline-block;
+
+    margin-bottom: 22px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__logo-image {
+
+    width:
+      {{ section.settings.logo_width }}px;
+
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__logo-text {
+
+    display: block;
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:
+      {{ section.settings.logo_text_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.02em;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__description {
+
+    max-width: 360px;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.65;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__description p {
+
+    margin: 0;
+  }
+
+
+  /* =========================================
+     SOCIALS
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__socials {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-top: 26px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__socials a {
+
+    padding-bottom: 3px;
+
+    border-bottom:
+      1px solid
+      {{ section.settings.social_border_color }};
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 12px;
+
+    letter-spacing: 0.08em;
+
+    text-transform: uppercase;
+
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__socials a:hover {
+
+    color:
+      {{ section.settings.heading_color }};
+
+    border-color:
+      {{ section.settings.heading_color }};
+  }
+
+
+  /* =========================================
+     MENU
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__menu-heading {
+
+    margin: 0 0 20px;
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font-family:
+      inherit;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__menu-list {
+
+    margin: 0;
+
+    padding: 0;
+
+    display: grid;
+
+    gap: 12px;
+
+    list-style: none;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__menu-list a,
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__contact-list a {
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.45;
+
+    transition:
+      color 0.2s ease;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__menu-list a:hover,
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__contact-list a:hover {
+
+    color:
+      {{ section.settings.heading_color }};
+  }
+
+
+  /* =========================================
+     CONTACT
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__contact-list {
+
+    display: grid;
+
+    gap: 12px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__address {
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+    line-height: 1.55;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__address p {
+
+    margin: 0;
+  }
+
+
+  /* =========================================
+     NEWSLETTER
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__newsletter {
+
+    margin-top:
+      {{ section.settings.newsletter_margin_top }}px;
+
+    padding:
+      {{ section.settings.newsletter_padding }}px
+      0;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(360px, 0.9fr);
+
+    align-items: center;
+
+    gap: 50px;
+
+    border-top:
+      1px solid
+      {{ section.settings.border_color }};
+
+    border-bottom:
+      1px solid
+      {{ section.settings.border_color }};
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__newsletter-content h3 {
+
+    margin: 0 0 8px;
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size: 28px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__newsletter-content div {
+
+    max-width: 440px;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 13px;
+
+    font-weight: 300;
+
+    line-height: 1.55;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__newsletter-content p {
+
+    margin: 0;
+  }
+
+
+  /* =========================================
+     EMAIL FORM
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__field {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+      minmax(0, 1fr)
+      auto;
+
+    border-bottom:
+      1px solid
+      {{ section.settings.input_border_color }};
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__field input {
+
+    width: 100%;
+
+    min-height: 50px;
+
+    margin: 0;
+
+    padding: 10px 10px 10px 0;
+
+    border: 0;
+
+    outline: 0;
+
+    box-shadow: none;
+
+    background: transparent;
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font: inherit;
+
+    font-size: 14px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__field input::placeholder {
+
+    color:
+      {{ section.settings.placeholder_color }};
+
+    opacity: 1;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__field button {
+
+    min-height: 50px;
+
+    margin: 0;
+
+    padding: 10px 0 10px 24px;
+
+    border: 0;
+
+    background: transparent;
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font: inherit;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+
+    cursor: pointer;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__field button:hover {
+
+    color:
+      {{ section.settings.accent_color }};
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__success {
+
+    color:
+      {{ section.settings.heading_color }};
+
+    font-size: 14px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__error {
+
+    margin-top: 10px;
+
+    color: #dca39b;
+
+    font-size: 12px;
+  }
+
+
+  /* =========================================
+     BOTTOM
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__bottom {
+
+    padding-top: 25px;
+
+    display: grid;
+
+    grid-template-columns:
+      auto
+      minmax(0, 1fr)
+      auto;
+
+    align-items: center;
+
+    gap: 24px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__copyright {
+
+    color:
+      {{ section.settings.bottom_text_color }};
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    line-height: 1.5;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__copyright a:hover {
+
+    color:
+      {{ section.settings.heading_color }};
+  }
+
+
+  /* =========================================
+     POLICIES
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__policies {
+
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__policies a {
+
+    color:
+      {{ section.settings.bottom_text_color }};
+
+    font-size: 11px;
+
+    font-weight: 300;
+
+    line-height: 1.4;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__policies a:hover {
+
+    color:
+      {{ section.settings.heading_color }};
+  }
+
+
+  /* =========================================
+     PAYMENT ICONS
+  ========================================= */
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__payments {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    flex-wrap: wrap;
+
+    gap: 6px;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__payment {
+
+    display: flex;
+  }
+
+
+  #StudioZealFooter-{{ section.id }}
+  .studio-zeal-footer__payment svg {
+
+    width: 36px;
+
+    height: auto;
+
+    display: block;
+  }
+
+
+  /* =========================================
+     TABLET
+  ========================================= */
+
+  @media screen and (max-width: 990px) {
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__container {
+
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__top {
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 45px 35px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__brand {
+
+      max-width: 100%;
+
+      grid-column: 1 / -1;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__newsletter {
+
+      grid-template-columns: 1fr;
+
+      gap: 24px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__bottom {
+
+      grid-template-columns: 1fr;
+
+      align-items: start;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__policies {
+
+      justify-content: flex-start;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__payments {
+
+      justify-content: flex-start;
+    }
+
+  }
+
+
+  /* =========================================
+     MOBILE
+  ========================================= */
+
+  @media screen and (max-width: 749px) {
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__container {
+
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        20px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__top {
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+      gap: 38px 20px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__brand {
+
+      grid-column: 1 / -1;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__logo-text {
+
+      font-size:
+        {{ section.settings.mobile_logo_text_size }}px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__newsletter {
+
+      margin-top: 45px;
+
+      padding: 34px 0;
+
+      grid-template-columns: 1fr;
+
+      gap: 24px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__newsletter-content h3 {
+
+      font-size: 25px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__field {
+
+      grid-template-columns: 1fr;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__field input {
+
+      padding-right: 0;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__field button {
+
+      width: fit-content;
+
+      min-height: auto;
+
+      padding:
+        4px
+        0
+        14px;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__bottom {
+
+      padding-top: 24px;
+
+      gap: 18px;
+    }
+
+  }
+
+
+  @media screen and (max-width: 480px) {
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__top {
+
+      grid-template-columns: 1fr;
+    }
+
+
+    #StudioZealFooter-{{ section.id }}
+    .studio-zeal-footer__brand {
+
+      grid-column: auto;
+    }
+
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Footer",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Brand"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+
+    {
+      "type": "text",
+      "id": "logo_text",
+      "label": "Logo text",
+      "default": "Studio Zeal"
+    },
+
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 80,
+      "max": 300,
+      "step": 5,
+      "unit": "px",
+      "label": "Logo image width",
+      "default": 170
+    },
+
+    {
+      "type": "range",
+      "id": "logo_text_size",
+      "min": 24,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Logo text size",
+      "default": 38
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_logo_text_size",
+      "min": 22,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile logo size",
+      "default": 34
+    },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Brand description",
+      "default": "<p>Hair solutions made for the part that frames your face. Matched, fitted and blended by Raquel at Studio Zeal.</p>"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Social media"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social links",
+      "default": true
+    },
+
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram"
+    },
+
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok"
+    },
+
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "newsletter_enable",
+      "label": "Show newsletter",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Heading",
+      "default": "Stay close"
+    },
+
+    {
+      "type": "richtext",
+      "id": "newsletter_text",
+      "label": "Text",
+      "default": "<p>Color tips, new hairlines and studio notes. No inbox overload.</p>"
+    },
+
+    {
+      "type": "text",
+      "id": "email_placeholder",
+      "label": "Email placeholder",
+      "default": "Your email address"
+    },
+
+    {
+      "type": "text",
+      "id": "newsletter_button",
+      "label": "Button",
+      "default": "Join"
+    },
+
+    {
+      "type": "text",
+      "id": "success_message",
+      "label": "Success message",
+      "default": "You're on the list. Thank you."
+    },
+
+
+    {
+      "type": "header",
+      "content": "Bottom footer"
+    },
+
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright extra text",
+      "default": "All rights reserved."
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_policies",
+      "label": "Show Shopify policy links",
+      "default": true
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_payments",
+      "label": "Show payment icons",
+      "default": true
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+
+    {
+      "type": "range",
+      "id": "container_width",
+      "min": 1000,
+      "max": 1600,
+      "step": 20,
+      "unit": "px",
+      "label": "Container width",
+      "default": 1240
+    },
+
+    {
+      "type": "range",
+      "id": "menu_columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Menu columns",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "column_gap",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Column gap",
+      "default": 44
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 30,
+      "max": 120,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 64
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 28
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 30,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 50
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 20,
+      "max": 80,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 26
+    },
+
+    {
+      "type": "range",
+      "id": "newsletter_margin_top",
+      "min": 20,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Newsletter top spacing",
+      "default": 58
+    },
+
+    {
+      "type": "range",
+      "id": "newsletter_padding",
+      "min": 20,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Newsletter vertical padding",
+      "default": 38
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading / Logo",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "secondary_text_color",
+      "label": "Secondary text",
+      "default": "#BFB2A9"
+    },
+
+    {
+      "type": "color",
+      "id": "bottom_text_color",
+      "label": "Bottom text",
+      "default": "#8F8178"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Accent",
+      "default": "#C99B7A"
+    },
+
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Divider",
+      "default": "#493B32"
+    },
+
+    {
+      "type": "color",
+      "id": "social_border_color",
+      "label": "Social underline",
+      "default": "#6A5A50"
+    },
+
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Email underline",
+      "default": "#6A5A50"
+    },
+
+    {
+      "type": "color",
+      "id": "placeholder_color",
+      "label": "Email placeholder",
+      "default": "#8F8178"
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "menu",
+      "name": "Menu",
+
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Shop"
+        },
+
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+
+      ]
+
+    },
+
+
+    {
+      "type": "contact",
+      "name": "Contact",
+
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Studio"
+        },
+
+        {
+          "type": "text",
+          "id": "email",
+          "label": "Email"
+        },
+
+        {
+          "type": "text",
+          "id": "phone",
+          "label": "Phone"
+        },
+
+        {
+          "type": "richtext",
+          "id": "address",
+          "label": "Address"
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "default": {
+
+    "blocks": [
+
+      {
+        "type": "menu",
+        "settings": {
+          "heading": "Shop"
+        }
+      },
+
+      {
+        "type": "menu",
+        "settings": {
+          "heading": "About"
+        }
+      },
+
+      {
+        "type": "contact",
+        "settings": {
+          "heading": "Studio"
+        }
+      }
+
+    ]
+
+  }
+
+}
+{% endschema %}

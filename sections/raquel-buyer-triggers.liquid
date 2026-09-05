@@ -1,0 +1,38 @@
+<section class="sz-section sz-empathy color-{{ section.settings.color_scheme }}" aria-labelledby="EmpathyHeading-{{ section.id }}">
+  <div class="sz-organic-lines" aria-hidden="true"></div>
+  <div class="sz-wrap">
+    {% if section.settings.eyebrow != blank %}<p class="sz-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+    <h2 id="EmpathyHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+    {% if section.settings.text != blank %}<div class="sz-copy sz-copy--narrow">{{ section.settings.text }}</div>{% endif %}
+    <div class="sz-card-grid sz-card-grid--three">
+      {% for block in section.blocks %}
+        <article class="sz-empathy-card" {{ block.shopify_attributes }}>
+          <span class="sz-empathy-card__icon sz-icon--{{ block.settings.icon }}" aria-hidden="true"></span>
+          <h3>{{ block.settings.title }}</h3>
+          <p>{{ block.settings.text }}</p>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+  <div class="sz-wave sz-wave--peach" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal empathy",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "You know the spot." },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Hair loss isn't vanity. It's identity." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>You have tried the powders. The sprays. Maybe even the supplements. And you still check the same spot in every mirror, avoid certain lighting, and style around it every single morning. That is not a vanity problem. That is a confidence problem. And it deserves a real solution.</p>" }
+  ],
+  "blocks": [
+    { "type": "pain", "name": "Pain point", "limit": 3, "settings": [
+      { "type": "select", "id": "icon", "label": "Icon", "options": [{ "value": "sun", "label": "Sun" }, { "value": "camera", "label": "Camera" }, { "value": "mirror", "label": "Mirror" }], "default": "sun" },
+      { "type": "text", "id": "title", "label": "Title", "default": "Bright light betrays you" },
+      { "type": "textarea", "id": "text", "label": "Text", "default": "Part lines, hairline gaps, and thinning temples that show up in photos and overhead lighting." }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal empathy", "blocks": [{ "type": "pain" }, { "type": "pain" }, { "type": "pain" }] }]
+}
+{% endschema %}

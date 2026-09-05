@@ -1,0 +1,81 @@
+{
+  "sections": {
+    "faq": {
+      "type": "raquel-faq",
+      "blocks": {
+        "faq_1": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I know which product is right for me?",
+            "answer": "<p>Start with where thinning shows most. Choose the Headband Hairline for the front perimeter, temples, and edges. Choose Colored Hairline Powder for temporary root touch-ups, sparse areas, and transition blending. If you are unsure, contact Studio Zeal before ordering.</p>"
+          }
+        },
+        "faq_2": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I get shade help before I buy?",
+            "answer": "<p>Yes. You can order directly, but shade guidance is recommended for the Headband Hairline. <a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\">Book a Studio Zeal consultation</a> or email support@raquelsstudiozeal.com before checkout. Guidance helps narrow the choice but cannot guarantee an exact match across every screen or lighting condition.</p>"
+          }
+        },
+        "faq_3": {
+          "type": "faq",
+          "settings": {
+            "question": "What happens after I order?",
+            "answer": "<p>Studio Zeal sources each product on demand, receives it in Phoenix, and inspects the shade, hair, packaging, and included components before customer shipment. Please allow 5–10 business days for processing before carrier transit begins. Tracking is emailed when your order ships.</p>"
+          }
+        },
+        "faq_4": {
+          "type": "faq",
+          "settings": {
+            "question": "How does shipping work?",
+            "answer": "<p>Standard U.S. shipping is free. Optional $15 express service changes carrier transit only and does not shorten the 5–10 business-day processing period. International customers pay the live carrier rate shown at checkout. International orders ship Delivered at Place (DAP), so the customer pays duties, import taxes, brokerage, and destination-country charges.</p>"
+          }
+        },
+        "faq_5": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return or exchange an order?",
+            "answer": "<p>All sales are final. Hairpieces and personal-care products cannot be returned or exchanged for preference, fit, color variation, or change of mind. If an item arrives damaged or defective, email support@raquelsstudiozeal.com within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label.</p>"
+          }
+        },
+        "faq_6": {
+          "type": "faq",
+          "settings": {
+            "question": "How should I care for the Headband Hairline?",
+            "answer": "<p>Handle the piece gently, detangle from the ends upward, use products intended for human-hair pieces, limit excessive heat, and store it clean and dry. Follow the care guidance included with your order. Cutting, coloring, chemical processing, excessive heat, or improper care can permanently change the piece.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_1",
+        "faq_2",
+        "faq_3",
+        "faq_4",
+        "faq_5",
+        "faq_6"
+      ],
+      "settings": {
+        "kicker": "Questions",
+        "heading": "Buying hair coverage should feel clear.",
+        "text": "<p>Clear answers about shade selection, processing, shipping, care, and final-sale terms.</p>"
+      }
+    },
+    "waitlist": {
+      "type": "raquel-waitlist",
+      "settings": {
+        "kicker": "Want first access?",
+        "heading": "Stay close.",
+        "text": "<p>Get availability updates, shade help, care guidance, and Studio Zeal news.</p>",
+        "placeholder": "Email address",
+        "button_label": "Join the waitlist",
+        "tags": "waitlist,email_signup,faq_interest",
+        "success_text": "You are on the list.",
+        "note": "No spam. Just product help."
+      }
+    }
+  },
+  "order": [
+    "faq",
+    "waitlist"
+  ]
+}

@@ -1,0 +1,217 @@
+{% comment %}
+  Studio Zeal FAQ
+  Client design copied from supplied HTML.
+  Only the outer horizontal container uses the theme's existing page-width class.
+{% endcomment %}
+
+
+
+<style>
+  #StudioZealFaq-{{ section.id }} *,
+  #StudioZealFaq-{{ section.id }} *::before,
+  #StudioZealFaq-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+  /* Original client layout: padding-top 84px, 340px + 1fr, 56px gap */
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__grid {
+    padding-top: 84px;
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    gap: 56px;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__heading {
+    margin: 0;
+    color: #241C16;
+    font: 500 38px/1.1 'Cormorant Garamond', serif;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__item {
+    border-top: 1px solid rgba(36, 28, 22, 0.14);
+    padding: 20px 0;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__item:last-child {
+    border-bottom: 1px solid rgba(36, 28, 22, 0.14);
+  }
+
+  /* Exact client summary behaviour */
+  #StudioZealFaq-{{ section.id }} summary::-webkit-details-marker {
+    display: none;
+  }
+
+  #StudioZealFaq-{{ section.id }} summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__summary {
+    font: 400 19px/1.4 Karla, sans-serif;
+    color: #241C16;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__summary-icon {
+    color: #8C6357;
+    font-size: 22px;
+    line-height: 1;
+    flex: 0 0 auto;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__summary-icon::after {
+    content: "+";
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__item[open]
+    .studio-zeal-faq__summary-icon::after {
+    content: "\2212";
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__answer {
+    margin: 14px 0 0;
+    font: 300 16px/1.65 Karla, sans-serif;
+    color: #5A4E45;
+    max-width: 560px;
+  }
+
+  #StudioZealFaq-{{ section.id }} .studio-zeal-faq__answer p {
+    margin: 0;
+    color: inherit;
+    font: inherit;
+  }
+
+  @media screen and (max-width: 749px) {
+    #StudioZealFaq-{{ section.id }} .studio-zeal-faq__grid {
+      padding-top: 56px;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    #StudioZealFaq-{{ section.id }} .studio-zeal-faq__heading {
+      font-size: 34px;
+    }
+
+    #StudioZealFaq-{{ section.id }} .studio-zeal-faq__summary {
+      font-size: 17px;
+    }
+
+    #StudioZealFaq-{{ section.id }} .studio-zeal-faq__answer {
+      font-size: 15px;
+    }
+  }
+</style>
+
+<section id="StudioZealFaq-{{ section.id }}">
+  <div class="page-width studio-zeal-faq__grid">
+
+    <h2 class="studio-zeal-faq__heading">
+      {{ section.settings.heading }}
+    </h2>
+
+    <div class="studio-zeal-faq__list">
+      {% for block in section.blocks %}
+        <details
+          class="studio-zeal-faq__item"
+          {% if block.settings.open_by_default %}open{% endif %}
+          {{ block.shopify_attributes }}
+        >
+          <summary class="studio-zeal-faq__summary">
+            <span>{{ block.settings.question | escape }}</span>
+            <span class="studio-zeal-faq__summary-icon" aria-hidden="true"></span>
+          </summary>
+
+          <div class="studio-zeal-faq__answer">
+            {{ block.settings.answer }}
+          </div>
+        </details>
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal FAQ Dev",
+  "tag": "section",
+  "class": "studio-zeal-faq-section",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Questions we get<br>on every call"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Will it look obvious?"
+        },
+        {
+          "type": "richtext",
+          "id": "answer",
+          "label": "Answer",
+          "default": "<p>The lace is hand-tied and sits flat under a headband, and we blend the part with hairline powder at your fitting, or walk you through it on video if you are ordering from out of state. Most clients wear theirs to work the same day.</p>"
+        },
+        {
+          "type": "checkbox",
+          "id": "open_by_default",
+          "label": "Open by default",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Studio Zeal FAQ Dev",
+      "blocks": [
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Will it look obvious?",
+            "answer": "<p>The lace is hand-tied and sits flat under a headband, and we blend the part with hairline powder at your fitting, or walk you through it on video if you are ordering from out of state. Most clients wear theirs to work the same day.</p>",
+            "open_by_default": true
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Why do I need a consult before buying?",
+            "answer": "<p>Color is the whole game at this price. Fifteen minutes on video saves a return, and it tells us whether a hairline, a topper or just the powder is right for you.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "Does it come in curly or wavy?",
+            "answer": "<p>It arrives straight and can be permed to match your texture. We talk through that on the call.</p>"
+          }
+        },
+        {
+          "type": "faq",
+          "settings": {
+            "question": "How long does a set last?",
+            "answer": "<p>With the aftercare we show you, a Remy set holds its color and shine for months of regular wear and tangles far less than synthetic alternatives.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

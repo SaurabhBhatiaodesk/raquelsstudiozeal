@@ -1,0 +1,59 @@
+<section class="sz-section sz-lineup color-{{ section.settings.color_scheme }}" aria-labelledby="LineupHeading-{{ section.id }}">
+  <div class="sz-wrap">
+    <header class="sz-section-header sz-section-header--center">
+      <h2 id="LineupHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.text != blank %}<div class="sz-copy sz-copy--center">{{ section.settings.text }}</div>{% endif %}
+    </header>
+    <div class="sz-table-wrap">
+      <table class="sz-table">
+        <thead><tr><th>Product</th><th>Coverage area</th><th>Price</th></tr></thead>
+        <tbody>
+          {% for block in section.blocks %}
+            {% liquid
+              assign row_product = block.settings.product
+              assign row_url = block.settings.fallback_link
+              if row_product != blank
+                assign row_url = row_product.url
+              endif
+            %}
+            <tr class="{% if block.settings.highlight %}is-highlighted{% endif %}" {{ block.shopify_attributes }}>
+              <td>
+                {% if row_url != blank %}<a href="{{ row_url }}">{{ row_product.title | default: block.settings.title }}</a>{% else %}<span>{{ block.settings.title }}</span>{% endif %}
+                {% if block.settings.badge != blank %}<span class="sz-table__badge">{{ block.settings.badge }}</span>{% endif %}
+              </td>
+              <td>{{ block.settings.coverage }}</td>
+              <td class="sz-price">{% if row_product != blank %}{{ row_product.price | money }}{% else %}{{ block.settings.price }}{% endif %}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="sz-lineup__note">{{ section.settings.note }} <a href="{{ section.settings.note_link }}" target="_blank" rel="noopener">{{ section.settings.note_link_label }}</a></p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal lineup",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Start where it shows. Add from there." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Every piece is designed to work together. Start with the one that addresses your primary concern.</p>" },
+    { "type": "text", "id": "note", "label": "Note", "default": "Not sure which piece is right for you?" },
+    { "type": "text", "id": "note_link_label", "label": "Note link label", "default": "DM @raquelsstudiozeal" },
+    { "type": "url", "id": "note_link", "label": "Note link" }
+  ],
+  "blocks": [
+    { "type": "product", "name": "Lineup row", "limit": 8, "settings": [
+      { "type": "product", "id": "product", "label": "Shopify product" },
+      { "type": "url", "id": "fallback_link", "label": "Fallback product link" },
+      { "type": "text", "id": "title", "label": "Fallback product name", "default": "Hairline Headband" },
+      { "type": "text", "id": "coverage", "label": "Coverage area", "default": "Full perimeter — hairline and temples" },
+      { "type": "text", "id": "price", "label": "Fallback price", "default": "$725.92" },
+      { "type": "text", "id": "badge", "label": "Badge" },
+      { "type": "checkbox", "id": "highlight", "label": "Highlight row", "default": false }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal lineup", "blocks": [{ "type": "product" }, { "type": "product" }, { "type": "product" }] }]
+}
+{% endschema %}

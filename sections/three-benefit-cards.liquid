@@ -1,0 +1,361 @@
+{% comment %}
+  Three Benefit Cards Section
+{% endcomment %}
+
+<section class="benefit-section-{{ section.id }}">
+  <div class="page-width">
+    <div class="benefit-grid">
+      {% for block in section.blocks %}
+        <div
+          class="benefit-card {% if block.settings.dark_card %}dark-card{% endif %}"
+          {{ block.shopify_attributes }}
+        >
+          {% if block.settings.heading != blank %}
+            <h3>
+              {{ block.settings.heading }}
+            </h3>
+          {% endif %}
+
+          {% if block.settings.text != blank %}
+            <p>
+              {{ block.settings.text }}
+            </p>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefit-section-{{ section.id }}{
+
+    background:{{ section.settings.section_background }};
+
+    padding-top:{{ section.settings.padding_top }}px;
+
+    padding-bottom:{{ section.settings.padding_bottom }}px;
+
+  }
+
+
+
+  .benefit-section-{{ section.id }} .benefit-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:20px;
+
+  }
+
+
+
+  .benefit-section-{{ section.id }} .benefit-card{
+
+    background:{{ section.settings.card_background }};
+
+    border-radius:15px;
+
+    padding:32px 30px;
+
+    min-height:179px;
+
+    transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+
+  }
+
+
+
+  .benefit-section-{{ section.id }} .benefit-card h3{
+    margin:0 0 10px;
+
+    font-family:"Cormorant Garamond",serif;
+
+    font-size:25px;
+
+    line-height:1.2;
+
+    font-weight:500;
+
+    color:{{ section.settings.heading_color }};
+
+    transition:color 0.4s ease;
+
+  }
+
+
+
+  .benefit-section-{{ section.id }} .benefit-card p{
+
+    margin:0;
+
+    font-weight:300;
+
+    line-height:1.5;
+
+    font-size:16px;
+
+    font-family:Karla,sans-serif;
+
+    color:{{ section.settings.text_color }};
+
+    transition:color 0.4s ease;
+
+  }
+
+
+
+  /* Hover Effect */
+
+  .benefit-section-{{ section.id }} .benefit-card:hover{
+
+    background:{{ section.settings.card_hover_background }};
+
+  }
+
+
+  .benefit-section-{{ section.id }} .benefit-card:hover h3{
+
+    color:{{ section.settings.card_hover_heading_color }};
+
+  }
+
+
+  .benefit-section-{{ section.id }} .benefit-card:hover p{
+
+    color:{{ section.settings.card_hover_text_color }};
+
+  }
+
+
+
+  /* Dark Card */
+
+  .benefit-section-{{ section.id }} .dark-card{
+
+    background:{{ section.settings.dark_background }};
+
+  }
+
+
+  .benefit-section-{{ section.id }} .dark-card h3,
+
+  .benefit-section-{{ section.id }} .dark-card p{
+
+    color:{{ section.settings.dark_text_color }};
+
+  }
+
+
+
+  @media(max-width:768px){
+
+
+    .benefit-section-{{ section.id }}{
+      padding-top:{{ section.settings.mobile_padding_top }}px;
+      padding-bottom:{{ section.settings.mobile_padding_bottom }}px;
+
+    }
+    .benefit-section-{{ section.id }} .benefit-card h3{
+        margin: 0 0 5px;
+        font-size: 23px;
+    }
+
+    .benefit-section-{{ section.id }} .benefit-grid{
+        gap: 14px;
+        grid-template-columns:1fr;
+    }
+
+    .benefit-section-{{ section.id }} .benefit-card{
+        border:1px solid  {{ section.settings.text_color }};
+        padding:20px;
+        border-radius: 10px;
+        min-height: auto;
+    }
+
+
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Three Benefit Cards",
+
+  "settings": [
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "#faf8f3"
+    },
+
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#f1ebe2"
+    },
+
+    {
+      "type": "color",
+      "id": "card_hover_background",
+      "label": "Card Hover Background",
+      "default": "#241c16"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_background",
+      "label": "Dark Card Background",
+      "default": "#241c16"
+    },
+
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#241c16"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#806f61"
+    },
+
+    {
+      "type": "color",
+      "id": "card_hover_heading_color",
+      "label": "Card Hover Heading Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "color",
+      "id": "card_hover_text_color",
+      "label": "Card Hover Text Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_text_color",
+      "label": "Dark Card Text Color",
+      "default": "#ffffff"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Desktop Padding Top",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Desktop Padding Bottom",
+      "min": 0,
+      "max": 150,
+      "step": 5,
+      "default": 60
+    },
+
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "default": 40
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Benefit Card",
+
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Natural coverage"
+        },
+
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Description",
+          "default": "Adds fullness where thinning shows most, while still looking like your own hair."
+        },
+
+        {
+          "type": "checkbox",
+          "id": "dark_card",
+          "label": "Make Dark Card",
+          "default": false
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Three Benefit Cards",
+
+      "blocks": [
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Natural coverage",
+            "text": "Adds fullness where thinning shows most, while still looking like your own hair."
+          }
+        },
+
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Made for real days",
+            "text": "For work, photos, errands, events, and the rooms where you do not want to think about your hair."
+          }
+        },
+
+        {
+          "type": "card",
+          "settings": {
+            "heading": "Confidence first",
+            "text": "The goal is not to change who you are. It is to stop making your hair the first thing on your mind.",
+            "dark_card": true
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

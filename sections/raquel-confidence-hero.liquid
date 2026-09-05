@@ -1,0 +1,62 @@
+{% liquid
+  assign featured_product = section.settings.product
+  assign primary_url = '/products/hairline-headband'
+  if featured_product != blank
+    assign primary_url = featured_product.url
+  endif
+%}
+
+<section class="sz-hero color-{{ section.settings.color_scheme }}" aria-labelledby="HeroHeading-{{ section.id }}">
+  <div class="sz-hero__grid">
+    <div class="sz-hero__content">
+      {% if section.settings.eyebrow != blank %}<p class="sz-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h1 id="HeroHeading-{{ section.id }}" class="sz-hero__heading">
+        {{ section.settings.heading }}
+        {% if section.settings.emphasis != blank %}<em>{{ section.settings.emphasis }}</em>{% endif %}
+      </h1>
+      {% if section.settings.text != blank %}<div class="sz-copy sz-hero__copy">{{ section.settings.text }}</div>{% endif %}
+      <div class="sz-actions">
+        <a class="sz-button" href="{{ primary_url }}">{{ section.settings.primary_label }}</a>
+        <a class="sz-button sz-button--outline" href="{{ section.settings.secondary_link | default: '#products' }}">{{ section.settings.secondary_label }}</a>
+      </div>
+      <div class="sz-trust" aria-label="Studio Zeal benefits">
+        {% for block in section.blocks %}
+          <span {{ block.shopify_attributes }}><i aria-hidden="true"></i>{{ block.settings.text }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    <div class="sz-hero__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1800 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '(min-width: 990px) 50vw, 100vw', widths: '480, 750, 1100, 1500, 1800', alt: section.settings.image_alt }}
+      {% else %}
+        <div class="sz-media-fallback sz-media-fallback--hero" aria-hidden="true"><span></span></div>
+      {% endif %}
+    </div>
+  </div>
+  <div class="sz-wave sz-wave--blush" aria-hidden="true"></div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal hero",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-1" },
+    { "type": "image_picker", "id": "image", "label": "Lifestyle image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Woman wearing natural-looking hairline coverage" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Studio Zeal Hair Solutions" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The place you check first." },
+    { "type": "text", "id": "emphasis", "label": "Italic heading line", "default": "Finally covered." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>Natural-looking hairline coverage for women who are done managing the problem and ready to actually solve it.</p>" },
+    { "type": "product", "id": "product", "label": "Featured product" },
+    { "type": "text", "id": "primary_label", "label": "Primary button label", "default": "Shop the Headband Hairline" },
+    { "type": "text", "id": "secondary_label", "label": "Secondary button label", "default": "Browse the system" },
+    { "type": "url", "id": "secondary_link", "label": "Secondary button link" }
+  ],
+  "blocks": [
+    { "type": "badge", "name": "Trust badge", "limit": 3, "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "No surgery" }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal hero", "blocks": [{ "type": "badge" }, { "type": "badge" }, { "type": "badge" }] }]
+}
+{% endschema %}

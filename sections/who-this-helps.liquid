@@ -1,0 +1,422 @@
+{% comment %}
+  Studio Zeal - Who This Helps Section
+{% endcomment %}
+
+<section class="who-helps-section-{{ section.id }}">
+
+  <div class="page-width">
+    <div class="who-helps-grid">
+      <div class="who-helps-intro">
+        {% if section.settings.heading != blank %}
+          <h2>
+            {{ section.settings.heading }}
+          </h2>
+        {% endif %}
+        {% if section.settings.description != blank %}
+          <p>
+            {{ section.settings.description }}
+          </p>
+        {% endif %}
+
+      </div>
+
+
+
+      <div class="who-helps-content">
+
+
+        <div class="shade-card">
+
+          {% if section.settings.card_heading != blank %}
+            <h3>
+              {{ section.settings.card_heading }}
+            </h3>
+          {% endif %}
+
+
+          {% if section.settings.card_text != blank %}
+            <p>
+              {{ section.settings.card_text }}
+            </p>
+          {% endif %}
+
+        </div>
+
+
+
+        <div class="review-card">
+
+          {% if section.settings.review != blank %}
+            <p class="review-text">
+              {{ section.settings.review }}
+            </p>
+          {% endif %}
+
+
+          {% if section.settings.review_author != blank %}
+            <span class="review-author">
+              {{ section.settings.review_author }}
+            </span>
+          {% endif %}
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<style>
+
+.who-helps-section-{{ section.id }} {
+
+  background: {{ section.settings.section_background }};
+
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+
+}
+
+
+
+.who-helps-section-{{ section.id }} .who-helps-grid {
+
+  display:grid;
+  grid-template-columns:340px 1fr;
+  gap:56px;
+  align-items:start;
+
+}
+
+
+
+.who-helps-section-{{ section.id }} h2 {
+  margin:0 0 12px;
+  font-family:"Cormorant Garamond", serif;
+  font-size:38px;
+  line-height:1.1;
+  font-weight:500;
+  color:{{ section.settings.heading_color }};
+}
+
+
+
+.who-helps-section-{{ section.id }} .who-helps-intro p {
+  margin:0;
+  max-width:330px;
+  font-size:16px;
+  font-family:Karla,sans-serif;
+    font-weight: 300;
+  line-height:1.65;
+  color:{{ section.settings.description_color }};
+}
+
+
+
+.who-helps-section-{{ section.id }} .shade-card {
+  background:{{ section.settings.card_background }};
+  border:1px solid {{ section.settings.card_border }};
+  border-radius:14px;
+  padding:26px 28px;
+  margin-bottom:20px;
+}
+
+
+
+.who-helps-section-{{ section.id }} h3 {
+  margin:0 0 8px;
+  font-family:"Cormorant Garamond", serif;
+  font-size:24px;
+  line-height:1.2;
+  font-weight:500;
+  color:{{ section.settings.card_heading_color }};
+}
+
+
+
+.who-helps-section-{{ section.id }} .shade-card p {
+  margin:0;
+  font-size:14px;
+  line-height:1.75;
+  font-weight:300;
+  color:{{ section.settings.card_text_color }};
+}
+
+
+
+.who-helps-section-{{ section.id }} .review-card {
+  background:{{ section.settings.review_background }};
+  border-radius:14px;
+  padding:26px 28px;
+}
+
+
+
+.who-helps-section-{{ section.id }} .review-text {
+  margin:0 0 8px;
+  font-family: "Newsreader", serif;
+  font-size:20px;
+  line-height:1.35;
+  font-weight:400;
+  color:{{ section.settings.review_text_color }};
+
+}
+
+
+
+.who-helps-section-{{ section.id }} .review-author {
+  font-size:10px;
+  font-weight:300;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:{{ section.settings.review_author_color }};
+
+}
+
+
+
+
+@media(max-width:768px){
+    .who-helps-section-{{ section.id }} {
+        padding-top:{{ section.settings.mobile_padding_top }}px;
+        padding-bottom:{{ section.settings.mobile_padding_bottom }}px;
+    }
+
+    .who-helps-section-{{ section.id }} .who-helps-grid {
+        grid-template-columns:1fr;
+        gap:35px;
+    }
+    .who-helps-section-{{ section.id }} h2 {
+        font-size:29px;
+    }
+    .who-helps-section-{{ section.id }} .shade-card,
+    .who-helps-section-{{ section.id }} .review-card {
+        padding:28px 22px;
+    }
+    .who-helps-section-{{ section.id }} h3 {
+        font-size:25px;
+    }
+    .who-helps-section-{{ section.id }} .shade-card p{
+        font-size:13px;
+    }
+    {% comment %} .who-helps-section-{{ section.id }} .review-text {
+        font-size:25px;
+    } {% endcomment %}
+}
+
+</style>
+
+
+
+{% schema %}
+{
+  "name": "Who This Helps",
+
+  "settings": [
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Who this helps"
+    },
+
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Women who want natural-looking fullness, coverage in photos, and less daily worry about visible thinning."
+    },
+
+
+    {
+      "type": "text",
+      "id": "card_heading",
+      "label": "Card Heading",
+      "default": "Shade and fit support"
+    },
+
+
+    {
+      "type": "textarea",
+      "id": "card_text",
+      "label": "Card Text",
+      "default": "Compare the product photos and shade names before ordering. If you are between shades or want a second opinion, book a Studio Zeal consultation before checkout. Shade guidance helps narrow the choice but cannot guarantee an exact match across every screen, lighting condition, or hair color."
+    },
+
+
+    {
+      "type": "textarea",
+      "id": "review",
+      "label": "Review Text",
+      "default": "I love it, you did a great job with the color. The more I play with it the more comfortable it feels"
+    },
+
+
+    {
+      "type": "text",
+      "id": "review_author",
+      "label": "Review Author",
+      "default": "Studio Zeal Client"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+
+    {
+      "type": "color",
+      "id": "section_background",
+      "label": "Section Background",
+      "default": "#faf8f3"
+    },
+
+
+    {
+      "type": "color",
+      "id": "heading_color",
+      "label": "Heading Color",
+      "default": "#241C16"
+    },
+
+
+    {
+      "type": "color",
+      "id": "description_color",
+      "label": "Description Color",
+      "default": "#806f61"
+    },
+
+
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card Background",
+      "default": "#ffffff"
+    },
+
+
+    {
+      "type": "color",
+      "id": "card_border",
+      "label": "Card Border",
+      "default": "#e4ddd3"
+    },
+
+
+    {
+      "type": "color",
+      "id": "card_heading_color",
+      "label": "Card Heading Color",
+      "default": "#241C16"
+    },
+
+
+    {
+      "type": "color",
+      "id": "card_text_color",
+      "label": "Card Text Color",
+      "default": "#806f61"
+    },
+
+
+    {
+      "type": "color",
+      "id": "review_background",
+      "label": "Review Background",
+      "default": "#eee2d2"
+    },
+
+
+    {
+      "type": "color",
+      "id": "review_text_color",
+      "label": "Review Text Color",
+      "default": "#241C16"
+    },
+
+
+    {
+      "type": "color",
+      "id": "review_author_color",
+      "label": "Review Author Color",
+      "default": "#241C16"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Desktop Spacing"
+    },
+
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "min":0,
+      "max":150,
+      "step":5,
+      "default":80
+    },
+
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "min":0,
+      "max":150,
+      "step":5,
+      "default":80
+    },
+
+
+    {
+      "type": "header",
+      "content": "Mobile Spacing"
+    },
+
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "label": "Mobile Padding Top",
+      "min":0,
+      "max":100,
+      "step":5,
+      "default":50
+    },
+
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "label": "Mobile Padding Bottom",
+      "min":0,
+      "max":100,
+      "step":5,
+      "default":50
+    }
+
+  ],
+
+
+  "presets": [
+    {
+      "name": "Who This Helps"
+    }
+  ]
+
+}
+{% endschema %}

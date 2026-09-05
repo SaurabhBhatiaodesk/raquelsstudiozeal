@@ -1,0 +1,300 @@
+{% comment %}
+Studio Zeal Header Section
+Mobile Hamburger + Close Icon + Shopify Native Menu + Logo Image
+{% endcomment %}
+
+<header class="studio-zeal-header">
+
+  <div class="studio-zeal-header__inner">
+
+    <div class="studio-zeal-header__logo">
+      <a href="{{ section.settings.logo_link }}">
+        {% if section.settings.logo_image != blank %}
+          <img src="{{ section.settings.logo_image | image_url: width: 300 }}" alt="{{ section.settings.logo_text }}">
+        {% else %}
+          <span>{{ section.settings.logo_text }}</span>
+        {% endif %}
+      </a>
+    </div>
+
+    <nav class="studio-zeal-header__nav">
+      {% if section.settings.menu != blank %}
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {% endfor %}
+      {% endif %}
+    </nav>
+
+    <div class="studio-zeal-header__actions">
+
+      <a class="shop-link" href="{{ section.settings.shop_link }}">
+        Shop
+      </a>
+
+      <a class="consult-btn" href="{{ section.settings.button_link }}">
+        {{ section.settings.button_text }}
+      </a>
+
+      <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+        <span class="menu-icon">☰</span>
+        <span class="close-icon">✕</span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <div class="mobile-menu">
+
+    {% if section.settings.menu != blank %}
+
+      {% for link in linklists[section.settings.menu].links %}
+
+        <a href="{{ link.url }}">
+          {{ link.title }}
+        </a>
+
+      {% endfor %}
+
+    {% endif %}
+
+  </div>
+
+
+</header>
+
+
+<style>
+
+.studio-zeal-header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  z-index:9999;
+  background:#FAF6F0;
+  border-bottom:1px solid rgba(36,28,22,.1);
+}
+
+
+.studio-zeal-header__inner{
+  max-width:1240px;
+  margin:auto;
+  padding:14px 36px;
+  display:flex;
+  align-items:center;
+  gap:32px;
+}
+
+
+.studio-zeal-header__logo a{
+  display:flex;
+  align-items:center;
+  color:#241C16;
+  text-decoration:none;
+}
+
+
+.studio-zeal-header__logo img{
+  max-width:140px;
+  height:auto;
+}
+
+
+.studio-zeal-header__logo span{
+  font:500 23px/1 "Cormorant Garamond",serif;
+}
+
+
+.studio-zeal-header__nav{
+  display:flex;
+  gap:24px;
+}
+.studio-zeal-header__actions .shop-link {
+    text-decoration: underline;
+    text-underline-offset: 7px;
+}
+
+.studio-zeal-header__nav a,
+.shop-link{
+  color:#4A403A;
+  text-decoration:none;
+  padding:6px 0;
+  font:400 14px/1 Karla,sans-serif;
+}
+
+
+.studio-zeal-header__nav a:hover,
+.shop-link:hover{
+  color:#241C16;
+  text-decoration: underline;
+text-underline-offset: 7px;
+}
+
+
+.studio-zeal-header__actions{
+  margin-left:auto;
+  display:flex;
+  align-items:center;
+  gap:20px;
+}
+
+
+.consult-btn{
+  background:#241C16;
+  color:#FAF6F0;
+  padding:12px 22px;
+  border-radius:999px;
+  text-decoration:none;
+  font:500 13px/1 Karla,sans-serif;
+}
+.consult-btn:hover{
+    background:#3d2e24;
+}
+
+.mobile-menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:26px;
+  cursor:pointer;
+  color:#241C16;
+}
+
+
+.close-icon{
+  display:none;
+}
+
+
+.mobile-menu-btn.active .menu-icon{
+  display:none;
+}
+
+
+.mobile-menu-btn.active .close-icon{
+  display:block;
+}
+
+
+.mobile-menu{
+  display:none;
+}
+
+
+@media(max-width:768px){
+
+  .studio-zeal-header__inner{
+    padding:14px 20px;
+  }
+
+
+  .studio-zeal-header__nav,
+  .shop-link{
+    display:none;
+  }
+
+
+  .mobile-menu-btn{
+    display:block;
+  }
+
+
+  .mobile-menu{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:#FAF6F0;
+    padding:25px;
+    flex-direction:column;
+    gap:22px;
+  }
+    .mobile-menu.active {
+        display: flex;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+        border-top: 1px solid;
+    }
+
+
+  .mobile-menu a{
+    color:#241C16;
+    text-decoration:none;
+    font:400 16px Karla,sans-serif;
+  }
+
+
+  .studio-zeal-header__logo img{
+    max-width:120px;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+function toggleMobileMenu(){
+
+  const menu = document.querySelector('.mobile-menu');
+  const button = document.querySelector('.mobile-menu-btn');
+
+  menu.classList.toggle('active');
+  button.classList.toggle('active');
+
+}
+
+</script>
+
+
+{% schema %}
+{
+  "name":"Studio Zeal Header",
+  "settings":[
+    {
+      "type":"text",
+      "id":"logo_text",
+      "label":"Logo Text",
+      "default":"Studio Zeal"
+    },
+    {
+      "type":"image_picker",
+      "id":"logo_image",
+      "label":"Logo Image"
+    },
+    {
+      "type":"url",
+      "id":"logo_link",
+      "label":"Logo Link"
+    },
+    {
+      "type":"link_list",
+      "id":"menu",
+      "label":"Select Menu"
+    },
+    {
+      "type":"url",
+      "id":"shop_link",
+      "label":"Shop Link"
+    },
+    {
+      "type":"text",
+      "id":"button_text",
+      "label":"Button Text",
+      "default":"Book a consult"
+    },
+    {
+      "type":"url",
+      "id":"button_link",
+      "label":"Button Link"
+    }
+  ],
+  "presets":[
+    {
+      "name":"Studio Zeal Header"
+    }
+  ]
+}
+{% endschema %}

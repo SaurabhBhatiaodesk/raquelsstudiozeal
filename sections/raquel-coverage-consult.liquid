@@ -1,0 +1,50 @@
+{% liquid
+  assign featured_product = section.settings.product
+  assign product_url = '/products/hairline-headband'
+  if featured_product != blank
+    assign product_url = featured_product.url
+  endif
+%}
+
+<section class="sz-section sz-solution color-{{ section.settings.color_scheme }}" aria-labelledby="SolutionHeading-{{ section.id }}">
+  <div class="sz-wrap sz-split">
+    <div class="sz-split__media">
+      {% if section.settings.image != blank %}
+        {{ section.settings.image | image_url: width: 1400 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 44vw, 100vw', widths: '440, 700, 1000, 1400', alt: section.settings.image_alt }}
+      {% else %}
+        <div class="sz-media-fallback sz-media-fallback--portrait" aria-hidden="true"><span></span></div>
+      {% endif %}
+    </div>
+    <div class="sz-split__content">
+      {% if section.settings.eyebrow != blank %}<p class="sz-eyebrow">{{ section.settings.eyebrow }}</p>{% endif %}
+      <h2 id="SolutionHeading-{{ section.id }}" class="sz-heading">{{ section.settings.heading }}</h2>
+      {% if section.settings.text != blank %}<div class="sz-copy">{{ section.settings.text }}</div>{% endif %}
+      <ul class="sz-checklist" role="list">
+        {% for block in section.blocks %}<li {{ block.shopify_attributes }}><span aria-hidden="true">✓</span>{{ block.settings.text }}</li>{% endfor %}
+      </ul>
+      <a class="sz-button" href="{{ product_url }}">{{ section.settings.button_label }}</a>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Studio Zeal solution",
+  "settings": [
+    { "type": "color_scheme", "id": "color_scheme", "label": "Color scheme", "default": "scheme-2" },
+    { "type": "image_picker", "id": "image", "label": "Lifestyle image" },
+    { "type": "text", "id": "image_alt", "label": "Image alt text", "default": "Natural-looking front hairline coverage" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Introducing the solution" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Real hair. Right where yours has thinned." },
+    { "type": "richtext", "id": "text", "label": "Text", "default": "<p>The Headband Hairline is not a wig. It is not a topper. It is a precision-engineered piece designed specifically for the front perimeter — the exact place most women experience thinning first.</p><p>Built on a FlexibleComfortBand with 100% Remy human hair, it sits naturally at your hairline and blends into your existing hair.</p>" },
+    { "type": "product", "id": "product", "label": "Headband Hairline product" },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop the Headband Hairline — $725.92" }
+  ],
+  "blocks": [
+    { "type": "benefit", "name": "Benefit", "limit": 6, "settings": [
+      { "type": "text", "id": "text", "label": "Text", "default": "100% Remy human hair — cuticle-aligned for a natural blend" }
+    ] }
+  ],
+  "presets": [{ "name": "Studio Zeal solution", "blocks": [{ "type": "benefit" }, { "type": "benefit" }, { "type": "benefit" }] }]
+}
+{% endschema %}

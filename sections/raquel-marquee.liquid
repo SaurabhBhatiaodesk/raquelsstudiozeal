@@ -1,0 +1,171 @@
+{% comment %}
+  Studio Zeal Marquee
+  Client design converted to Shopify section
+{% endcomment %}
+
+<style>
+  #StudioZealMarquee-{{ section.id }} {
+    overflow: hidden;
+    border-bottom: 1px solid rgba(36, 28, 22, 0.1);
+    background: {{ section.settings.bg_color }};
+  }
+
+  #StudioZealMarquee-{{ section.id }} .studio-zeal-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: studio-zeal-marquee-{{ section.id }} {{ section.settings.speed }}s linear infinite;
+  }
+
+  #StudioZealMarquee-{{ section.id }} .studio-zeal-marquee__content {
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 19px 28px;
+    white-space: nowrap;
+
+    font-family: Karla, sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    line-height: 1;
+
+    color: {{ section.settings.text_color }};
+  }
+
+  #StudioZealMarquee-{{ section.id }} .studio-zeal-marquee__item {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  #StudioZealMarquee-{{ section.id }} .studio-zeal-marquee__separator {
+    opacity: 0.5;
+  }
+
+
+  @keyframes studio-zeal-marquee-{{ section.id }} {
+
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+
+  }
+
+
+  @media screen and (max-width:749px) {
+
+    #StudioZealMarquee-{{ section.id }} .studio-zeal-marquee__content {
+
+      gap: 32px;
+      padding: 16px 20px;
+
+      font-size: 12px;
+
+    }
+
+  }
+
+</style>
+
+
+<section id="StudioZealMarquee-{{ section.id }}">
+
+  <div class="studio-zeal-marquee__track">
+
+
+    <div class="studio-zeal-marquee__content">
+
+      {% assign items = section.settings.text | split: "|" %}
+
+      {% for item in items %}
+
+        <span class="studio-zeal-marquee__item">
+          {{ item }}
+        </span>
+
+        {% unless forloop.last %}
+          <span class="studio-zeal-marquee__separator">
+            ·
+          </span>
+        {% endunless %}
+
+      {% endfor %}
+
+    </div>
+
+
+    <div class="studio-zeal-marquee__content" aria-hidden="true">
+
+      {% for item in items %}
+
+        <span class="studio-zeal-marquee__item">
+          {{ item }}
+        </span>
+
+        {% unless forloop.last %}
+          <span class="studio-zeal-marquee__separator">
+            ·
+          </span>
+        {% endunless %}
+
+      {% endfor %}
+
+    </div>
+
+
+  </div>
+
+</section>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Marquee",
+  "tag": "section",
+  "class": "studio-zeal-marquee-section",
+
+  "settings": [
+
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Marquee text",
+      "default": "Nearly 20 years behind the chair|100% Remy human hair|Color-matched by Raquel, in person or virtually|2–3 new clients matched every week"
+    },
+
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background color",
+      "default": "#F3EDE4"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text color",
+      "default": "#5A4E45"
+    },
+
+    {
+      "type": "range",
+      "id": "speed",
+      "label": "Animation speed",
+      "min": 10,
+      "max": 80,
+      "step": 5,
+      "default": 40
+    }
+
+  ],
+
+  "presets": [
+    {
+      "name": "Studio Zeal Marquee"
+    }
+  ]
+
+}
+{% endschema %}

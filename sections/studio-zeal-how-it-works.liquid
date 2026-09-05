@@ -1,0 +1,869 @@
+{% comment %}
+  Studio Zeal - How It Works
+  File: sections/studio-zeal-how-it-works.liquid
+{% endcomment %}
+
+<section
+  id="studio-zeal-how-{{ section.id }}"
+  class="studio-zeal-how"
+>
+  <div class="page-width studio-zeal-how__container">
+
+    {% if section.settings.heading != blank %}
+      <h2 class="studio-zeal-how__heading">
+        {{ section.settings.heading }}
+      </h2>
+    {% endif %}
+
+    {% if section.blocks.size > 0 %}
+      <div class="studio-zeal-how__grid">
+
+        {% for block in section.blocks %}
+
+          <div
+            class="
+              studio-zeal-how__card
+              {% if block.settings.card_style == 'dark' %}
+                studio-zeal-how__card--dark
+              {% endif %}
+            "
+            {{ block.shopify_attributes }}
+          >
+
+            {% if block.settings.step_label != blank %}
+              <div class="studio-zeal-how__step">
+                {{ block.settings.step_label }}
+              </div>
+            {% endif %}
+
+            {% if block.settings.title != blank %}
+              <h3 class="studio-zeal-how__title">
+                {{ block.settings.title }}
+              </h3>
+            {% endif %}
+
+            {% if block.settings.description != blank %}
+              <div class="studio-zeal-how__description">
+                {{ block.settings.description }}
+              </div>
+            {% endif %}
+
+          </div>
+
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<style>
+
+  /* ====================================
+     SECTION
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }} {
+    width: 100%;
+
+    background:
+      {{ section.settings.background_color }};
+
+    color:
+      {{ section.settings.text_color }};
+  }
+
+
+  #studio-zeal-how-{{ section.id }} *,
+  #studio-zeal-how-{{ section.id }} *::before,
+  #studio-zeal-how-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ====================================
+     CONTAINER
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__container {
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding-top:
+      {{ section.settings.padding_top }}px;
+
+    padding-bottom:
+      {{ section.settings.padding_bottom }}px;
+  }
+
+
+  /* ====================================
+     HEADING
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__heading {
+
+    margin: 0 0
+      {{ section.settings.heading_spacing }}px;
+
+    color:
+      {{ section.settings.text_color }};
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:
+      {{ section.settings.heading_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1.1;
+
+    letter-spacing: -0.01em;
+  }
+
+
+  /* ====================================
+     GRID
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__grid {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        {{ section.settings.desktop_columns }},
+        minmax(0, 1fr)
+      );
+
+    gap:
+      {{ section.settings.card_gap }}px;
+  }
+
+
+  /* ====================================
+     CARD
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__card {
+
+    min-width: 0;
+
+    padding:
+      {{ section.settings.card_padding_top }}px
+      {{ section.settings.card_padding_horizontal }}px
+      {{ section.settings.card_padding_bottom }}px;
+
+    border:
+      1px solid
+      {{ section.settings.card_border_color }};
+
+    border-radius:
+      {{ section.settings.card_radius }}px;
+
+    background:
+      {{ section.settings.card_background }};
+
+    color:
+      {{ section.settings.text_color }};
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+
+  {% if section.settings.enable_hover or true %}
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__card:hover {
+
+      transform: translateY(-4px);
+
+      background:
+        {{ section.settings.dark_card_background }};
+
+      color:
+        {{ section.settings.dark_card_text }};
+
+      border-color:
+        {{ section.settings.dark_card_background }};
+
+      box-shadow:
+        0 16px 38px
+        rgba(36, 28, 22, 0.08);
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__card:hover
+    .studio-zeal-how__step {
+
+      color:
+        {{ section.settings.dark_accent_color }};
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__card:hover
+    .studio-zeal-how__description {
+
+      color:
+        {{ section.settings.dark_secondary_text }};
+    }
+
+  {% endif %}
+
+
+  /* ====================================
+     DARK CARD
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__card--dark {
+
+    border-color:
+      {{ section.settings.dark_card_background }};
+
+    background:
+      {{ section.settings.dark_card_background }};
+
+    color:
+      {{ section.settings.dark_card_text }};
+  }
+
+
+  /* ====================================
+     STEP LABEL
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__step {
+
+    margin-bottom: 18px;
+
+    color:
+      {{ section.settings.accent_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size:
+      {{ section.settings.step_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: 0.2em;
+
+    text-transform: uppercase;
+  }
+
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__card--dark
+  .studio-zeal-how__step {
+
+    color:
+      {{ section.settings.dark_accent_color }};
+  }
+
+
+  /* ====================================
+     CARD TITLE
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__title {
+
+    margin: 0 0 10px;
+
+    color: inherit;
+
+    font-family:
+      "Cormorant Garamond",
+      Georgia,
+      serif;
+
+    font-size:
+      {{ section.settings.card_title_size }}px;
+
+    font-weight: 500;
+
+    line-height: 1.2;
+
+    letter-spacing: -0.01em;
+  }
+
+
+  /* ====================================
+     CARD DESCRIPTION
+  ==================================== */
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__description {
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size:
+      {{ section.settings.description_size }}px;
+
+    font-weight:400;
+
+    line-height: 1.55;
+  }
+
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__description p {
+
+    margin: 0;
+  }
+
+
+  #studio-zeal-how-{{ section.id }}
+  .studio-zeal-how__card--dark
+  .studio-zeal-how__description {
+
+    color:
+      {{ section.settings.dark_secondary_text }};
+  }
+
+
+  /* ====================================
+     TABLET
+  ==================================== */
+
+  @media screen and (max-width: 990px) {
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__container {
+
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__grid {
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+
+  /* ====================================
+     MOBILE
+  ==================================== */
+
+  @media screen and (max-width: 749px) {
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__container {
+
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        20px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__heading {
+
+      margin-bottom:
+        {{ section.settings.mobile_heading_spacing }}px;
+
+      font-size:
+        {{ section.settings.mobile_heading_size }}px;
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__grid {
+
+      grid-template-columns: 1fr;
+
+      gap:
+        {{ section.settings.mobile_card_gap }}px;
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__card {
+
+      padding:
+        {{ section.settings.card_padding_top }}px
+        {{ section.settings.card_padding_horizontal }}px
+        {{ section.settings.card_padding_bottom }}px;
+    }
+
+
+    #studio-zeal-how-{{ section.id }}
+    .studio-zeal-how__title {
+
+      font-size:
+        {{ section.settings.mobile_card_title_size }}px;
+    }
+
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal How It Works",
+  "tag": "section",
+  "class": "studio-zeal-how-section",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How it works"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop columns",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Desktop card gap",
+      "default": 22
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_card_gap",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile card gap",
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card radius",
+      "default": 14
+    },
+
+
+    {
+      "type": "header",
+      "content": "Card spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "card_padding_top",
+      "min": 15,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Card top padding",
+      "default": 30
+    },
+
+    {
+      "type": "range",
+      "id": "card_padding_horizontal",
+      "min": 15,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Card side padding",
+      "default": 28
+    },
+
+    {
+      "type": "range",
+      "id": "card_padding_bottom",
+      "min": 15,
+      "max": 70,
+      "step": 1,
+      "unit": "px",
+      "label": "Card bottom padding",
+      "default": 34
+    },
+
+
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop heading",
+      "default": 38
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 26,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile heading",
+      "default": 32
+    },
+
+    {
+      "type": "range",
+      "id": "step_size",
+      "min": 8,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Step label size",
+      "default": 10
+    },
+
+    {
+      "type": "range",
+      "id": "card_title_size",
+      "min": 18,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Card title",
+      "default": 24
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_card_title_size",
+      "min": 18,
+      "max": 36,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile card title",
+      "default": 23
+    },
+
+    {
+      "type": "range",
+      "id": "description_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Description",
+      "default": 15
+    },
+
+
+    {
+      "type": "header",
+      "content": "Section spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading bottom spacing",
+      "default": 34
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_spacing",
+      "min": 10,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile heading spacing",
+      "default": 26
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 84
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 0
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "secondary_text_color",
+      "label": "Secondary text",
+      "default": "#5A4E45"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Light card accent",
+      "default": "#8C6357"
+    },
+
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Light card background",
+      "default": "#F3EDE4"
+    },
+
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Light card border",
+      "default": "#E4DCD3"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_card_background",
+      "label": "Dark card background",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_card_text",
+      "label": "Dark card title",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_secondary_text",
+      "label": "Dark card description",
+      "default": "#D8CEC6"
+    },
+
+    {
+      "type": "color",
+      "id": "dark_accent_color",
+      "label": "Dark card accent",
+      "default": "#C99B7A"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "enable_hover",
+      "label": "Enable card hover",
+      "default": false
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "step",
+      "name": "Step",
+
+      "settings": [
+
+        {
+          "type": "text",
+          "id": "step_label",
+          "label": "Step label",
+          "default": "STEP 01"
+        },
+
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Book a 15-minute call"
+        },
+
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>"
+        },
+
+        {
+          "type": "select",
+          "id": "card_style",
+          "label": "Card style",
+          "default": "light",
+          "options": [
+            {
+              "value": "light",
+              "label": "Light"
+            },
+            {
+              "value": "dark",
+              "label": "Dark"
+            }
+          ]
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "presets": [
+
+    {
+      "name": "Studio Zeal How It Works",
+
+      "blocks": [
+
+        {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 01",
+            "title": "Book a 15-minute call",
+            "description": "<p>Free, on video or in the studio. Raquel looks at your hairline, your goals and your color.</p>",
+            "card_style": "light"
+          }
+        },
+
+        {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 02",
+            "title": "Get color matched",
+            "description": "<p>Your set is chosen from the Remy range and can be permed for texture. Toppers available too.</p>",
+            "card_style": "light"
+          }
+        },
+
+        {
+          "type": "step",
+          "settings": {
+            "step_label": "STEP 03",
+            "title": "Wear it out the same day",
+            "description": "<p>Fitted, cut and blended in the chair. You leave knowing exactly how to put it on at home.</p>",
+            "card_style": "dark"
+          }
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
+{% endschema %}

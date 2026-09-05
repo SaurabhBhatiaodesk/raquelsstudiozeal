@@ -1,0 +1,397 @@
+{{ 'raquel-coverage.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign headband_product = all_products[section.settings.headband_handle]
+  assign powder_product = all_products[section.settings.powder_handle]
+  assign headband_url = section.settings.headband_fallback_link
+  assign powder_url = section.settings.powder_fallback_link
+
+  if headband_product != blank
+    assign headband_url = headband_product.url
+  endif
+
+  if powder_product != blank
+    assign powder_url = powder_product.url
+  endif
+%}
+
+<section class="rc-storefront" id="shop-headband">
+  <div class="rc-wrap">
+    <div class="rc-storefront__hero">
+      <div class="rc-storefront__content">
+        {% if section.settings.kicker != blank %}
+          <p class="rc-kicker">{{ section.settings.kicker }}</p>
+        {% endif %}
+        <h1 class="rc-storefront__heading">{{ section.settings.heading }}</h1>
+        {% if section.settings.text != blank %}
+          <div class="rc-copy">{{ section.settings.text }}</div>
+        {% endif %}
+
+        <div class="rc-storefront__actions">
+          <a class="rc-button" href="{{ headband_url }}">{{ section.settings.primary_label }}</a>
+          <a class="rc-button rc-button--secondary" href="{{ powder_url }}">{{ section.settings.secondary_label }}</a>
+        </div>
+
+        <div class="rc-storefront__badges" aria-label="Product benefits">
+          <span>{{ section.settings.badge_one }}</span>
+          <span>{{ section.settings.badge_two }}</span>
+          <span>{{ section.settings.badge_three }}</span>
+        </div>
+      </div>
+
+      <div class="rc-storefront__media">
+        <div class="rc-storefront__image-card rc-storefront__image-card--main">
+          {% if headband_product.featured_media %}
+            {{
+              headband_product.featured_media
+              | image_url: width: 1200
+              | image_tag: loading: 'eager', sizes: '(min-width: 990px) 44vw, 100vw', widths: '500, 800, 1200'
+            }}
+          {% else %}
+            <img
+              src="{{ section.settings.headband_image_url }}"
+              alt="{{ section.settings.headband_image_alt | escape }}"
+              loading="eager"
+              width="900"
+              height="900"
+            >
+          {% endif %}
+        </div>
+        <div class="rc-storefront__mini-card">
+          <span>{{ section.settings.media_note }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rc-storefront__product-grid" aria-label="Featured products">
+      <article class="rc-storefront__product">
+        <div class="rc-storefront__product-media">
+          {% if headband_product.featured_media %}
+            {{
+              headband_product.featured_media
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 35vw, 100vw', widths: '360, 640, 900'
+            }}
+          {% else %}
+            <img
+              src="{{ section.settings.headband_image_url }}"
+              alt="{{ section.settings.headband_image_alt | escape }}"
+              loading="lazy"
+              width="700"
+              height="700"
+            >
+          {% endif %}
+        </div>
+        <div class="rc-storefront__product-body">
+          <p class="rc-storefront__eyebrow">{{ section.settings.headband_eyebrow }}</p>
+          <h2>{{ section.settings.headband_title }}</h2>
+          <p>{{ section.settings.headband_description }}</p>
+          <ul class="rc-storefront__list">
+            <li>Hand-knotted 100% Remy human hair</li>
+            <li>360-degree hairline coverage</li>
+            <li>Flexible ComfortBand fit</li>
+            <li>14-16 inch natural taper</li>
+          </ul>
+          <div class="rc-storefront__buy-row">
+            <span class="rc-storefront__price">
+              {% if headband_product != blank %}
+                {{ headband_product.price | money }}
+              {% else %}
+                {{ section.settings.headband_price }}
+              {% endif %}
+            </span>
+            <a class="rc-button" href="{{ headband_url }}">{{ section.settings.headband_button }}</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="rc-storefront__product rc-storefront__product--powder">
+        <div class="rc-storefront__product-media">
+          {% if powder_product.featured_media %}
+            {{
+              powder_product.featured_media
+              | image_url: width: 900
+              | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 24vw, 100vw', widths: '320, 560, 900'
+            }}
+          {% else %}
+            <img
+              src="{{ section.settings.powder_image_url }}"
+              alt="{{ section.settings.powder_image_alt | escape }}"
+              loading="lazy"
+              width="700"
+              height="700"
+            >
+          {% endif %}
+        </div>
+        <div class="rc-storefront__product-body">
+          <p class="rc-storefront__eyebrow">{{ section.settings.powder_eyebrow }}</p>
+          <h2>{{ section.settings.powder_title }}</h2>
+          <p>{{ section.settings.powder_description }}</p>
+          <div class="rc-storefront__shade-row" aria-label="Available powder shades">
+            <span>Black</span>
+            <span>Dark Brown</span>
+            <span>Brown</span>
+            <span>Light Brown</span>
+            <span>Blonde</span>
+            <span>Auburn</span>
+            <span>Grey</span>
+          </div>
+          <div class="rc-storefront__buy-row">
+            <span class="rc-storefront__price">
+              {% if powder_product != blank %}
+                {{ powder_product.price | money }}
+              {% else %}
+                {{ section.settings.powder_price }}
+              {% endif %}
+            </span>
+            <a class="rc-button" href="{{ powder_url }}">{{ section.settings.powder_button }}</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="rc-storefront__guide">
+      <div>
+        <p class="rc-kicker">{{ section.settings.guide_kicker }}</p>
+        <h2>{{ section.settings.guide_heading }}</h2>
+      </div>
+      <div class="rc-storefront__steps">
+        {% for block in section.blocks %}
+          <article class="rc-storefront__step" {{ block.shopify_attributes }}>
+            <span>{{ forloop.index }}</span>
+            <h3>{{ block.settings.title }}</h3>
+            <p>{{ block.settings.text }}</p>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Raquel headband store",
+  "settings": [
+    {
+      "type": "text",
+      "id": "kicker",
+      "label": "Kicker",
+      "default": "Studio Zeal Hair Loss Solutions"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The Headband Hairline for the place you check first."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Natural-looking hairline coverage from Raquel Viara for women who are tired of seeing more scalp in bright light, photos, and every mirror. Start with the Headband Hairline, then keep the finish polished with Colored Hairline Powder.</p>"
+    },
+    {
+      "type": "text",
+      "id": "primary_label",
+      "label": "Primary button label",
+      "default": "Shop Hairline Headband"
+    },
+    {
+      "type": "text",
+      "id": "secondary_label",
+      "label": "Secondary button label",
+      "default": "Add touch-up powder"
+    },
+    {
+      "type": "text",
+      "id": "badge_one",
+      "label": "Badge 1",
+      "default": "No surgery"
+    },
+    {
+      "type": "text",
+      "id": "badge_two",
+      "label": "Badge 2",
+      "default": "No medication claims"
+    },
+    {
+      "type": "text",
+      "id": "badge_three",
+      "label": "Badge 3",
+      "default": "Salon-guided coverage"
+    },
+    {
+      "type": "text",
+      "id": "media_note",
+      "label": "Media note",
+      "default": "Built for hairline gaps, thinning edges, and face-framing fullness."
+    },
+    {
+      "type": "text",
+      "id": "headband_handle",
+      "label": "Headband product handle",
+      "default": "hairline-headband"
+    },
+    {
+      "type": "url",
+      "id": "headband_fallback_link",
+      "label": "Headband fallback link"
+    },
+    {
+      "type": "text",
+      "id": "headband_image_url",
+      "label": "Headband fallback image URL",
+      "default": "https://hairlosophy.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/y/o/you_hh_v2.jpg"
+    },
+    {
+      "type": "text",
+      "id": "headband_image_alt",
+      "label": "Headband image alt text",
+      "default": "Hairlosophy Hairline Headband"
+    },
+    {
+      "type": "text",
+      "id": "headband_eyebrow",
+      "label": "Headband eyebrow",
+      "default": "Hero coverage"
+    },
+    {
+      "type": "text",
+      "id": "headband_title",
+      "label": "Headband title",
+      "default": "Hairline Headband"
+    },
+    {
+      "type": "textarea",
+      "id": "headband_description",
+      "label": "Headband description",
+      "default": "A fully engineered 360-degree hairline enhancement system that refines the perimeter, adds fullness, and creates a natural transition where traditional extensions cannot safely anchor."
+    },
+    {
+      "type": "text",
+      "id": "headband_price",
+      "label": "Headband fallback price",
+      "default": "$725.92"
+    },
+    {
+      "type": "text",
+      "id": "headband_button",
+      "label": "Headband button",
+      "default": "Choose shade"
+    },
+    {
+      "type": "text",
+      "id": "powder_handle",
+      "label": "Powder product handle",
+      "default": "colored-hairline-powder"
+    },
+    {
+      "type": "url",
+      "id": "powder_fallback_link",
+      "label": "Powder fallback link"
+    },
+    {
+      "type": "text",
+      "id": "powder_image_url",
+      "label": "Powder fallback image URL",
+      "default": "https://hairlosophy.com/media/catalog/product/cache/6517c62f5899ad6aa0ba23ceb3eeff97/h/a/hairlosophy-powder-group.jpg"
+    },
+    {
+      "type": "text",
+      "id": "powder_image_alt",
+      "label": "Powder image alt text",
+      "default": "Hairlosophy Colored Hairline Powder shade range"
+    },
+    {
+      "type": "text",
+      "id": "powder_eyebrow",
+      "label": "Powder eyebrow",
+      "default": "Finishing companion"
+    },
+    {
+      "type": "text",
+      "id": "powder_title",
+      "label": "Powder title",
+      "default": "Colored Hairline Powder"
+    },
+    {
+      "type": "textarea",
+      "id": "powder_description",
+      "label": "Powder description",
+      "default": "Instant root coverage and tonal refinement in a travel-ready compact with ultra-fine, water-resistant, transfer-resistant pigment."
+    },
+    {
+      "type": "text",
+      "id": "powder_price",
+      "label": "Powder fallback price",
+      "default": "$24.93"
+    },
+    {
+      "type": "text",
+      "id": "powder_button",
+      "label": "Powder button",
+      "default": "Shop powder"
+    },
+    {
+      "type": "text",
+      "id": "guide_kicker",
+      "label": "Guide kicker",
+      "default": "How to buy"
+    },
+    {
+      "type": "text",
+      "id": "guide_heading",
+      "label": "Guide heading",
+      "default": "A calmer path from viral reel to checkout."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Guide step",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Pick the concern"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Text",
+          "default": "Start with the hairline if the front, temples, or pulled-back styles are what bother you most."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Raquel headband store",
+      "blocks": [
+        {
+          "type": "step",
+          "settings": {
+            "title": "Start with the hairline",
+            "text": "Choose the Headband Hairline when the front perimeter, temples, or pulled-back styles are where thinning shows most."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Match the shade",
+            "text": "Use product photos, color names, and Studio Zeal guidance before publishing the final shade workflow."
+          }
+        },
+        {
+          "type": "step",
+          "settings": {
+            "title": "Finish the blend",
+            "text": "Use Colored Hairline Powder for root touch-ups, sparse areas, regrowth, and transition lines between biological hair and the system."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

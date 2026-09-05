@@ -1,0 +1,774 @@
+{% comment %}
+  Studio Zeal - Testimonials
+  File: sections/studio-zeal-testimonials.liquid
+{% endcomment %}
+
+<section
+  id="studio-zeal-testimonials-{{ section.id }}"
+  class="studio-zeal-testimonials"
+>
+  <div class="page-width">
+
+    {% if section.settings.heading != blank %}
+      <div class="studio-zeal-testimonials__header">
+        <h2 class="studio-zeal-testimonials__heading">
+          {{ section.settings.heading }}
+        </h2>
+
+        {% if section.settings.subheading != blank %}
+          <div class="studio-zeal-testimonials__subheading">
+            {{ section.settings.subheading }}
+          </div>
+        {% endif %}
+      </div>
+    {% endif %}
+
+
+    {% if section.blocks.size > 0 %}
+      <div class="studio-zeal-testimonials__grid">
+
+        {% for block in section.blocks %}
+
+          <blockquote
+            class="studio-zeal-testimonials__card"
+            {{ block.shopify_attributes }}
+          >
+
+            {% if section.settings.show_quote_mark %}
+              <div class="studio-zeal-testimonials__quote-mark">
+                “
+              </div>
+            {% endif %}
+
+
+            {% if block.settings.quote != blank %}
+              <div class="studio-zeal-testimonials__quote">
+                {{ block.settings.quote }}
+              </div>
+            {% endif %}
+
+
+            {% if block.settings.author != blank %}
+              <footer class="studio-zeal-testimonials__author">
+                {{ block.settings.author }}
+              </footer>
+            {% endif %}
+
+          </blockquote>
+
+        {% endfor %}
+
+      </div>
+    {% endif %}
+
+
+    {% if section.settings.show_note and section.settings.note != blank %}
+      <div class="studio-zeal-testimonials__note">
+        {{ section.settings.note }}
+      </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<style>
+
+  /* ==================================
+     SECTION
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }} {
+    width: 100%;
+
+    background:
+      {{ section.settings.background_color }};
+
+    color:
+      {{ section.settings.text_color }};
+  }
+
+
+  #studio-zeal-testimonials-{{ section.id }} *,
+  #studio-zeal-testimonials-{{ section.id }} *::before,
+  #studio-zeal-testimonials-{{ section.id }} *::after {
+    box-sizing: border-box;
+  }
+
+
+  /* ==================================
+     CONTAINER
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+
+  /* ==================================
+     HEADER
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__header {
+
+    max-width: 650px;
+
+    margin-bottom:
+      {{ section.settings.heading_spacing }}px;
+  }
+
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__heading {
+    margin: 0 0 10px;
+    color:{{ section.settings.text_color }};
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:{{ section.settings.heading_size }}px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__subheading {
+
+    max-width: 520px;
+
+    color:
+      {{ section.settings.secondary_text_color }};
+
+    font-size: 16px;
+
+    font-weight: 300;
+
+    line-height: 1.6;
+  }
+
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__subheading p {
+
+    margin: 0;
+  }
+
+
+  /* ==================================
+     TESTIMONIAL GRID
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__grid {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(
+        {{ section.settings.desktop_columns }},
+        minmax(0, 1fr)
+      );
+
+    gap:
+      {{ section.settings.card_gap }}px;
+  }
+
+
+  /* ==================================
+     CARD
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__card {
+
+    min-width: 0;
+
+    margin: 0;
+
+    padding:
+      {{ section.settings.card_padding }}px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border:
+      1px solid
+      {{ section.settings.card_border_color }};
+
+    border-radius:
+      {{ section.settings.card_radius }}px;
+
+    background:
+      {{ section.settings.card_background }};
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease;
+  }
+
+
+  {% if section.settings.enable_hover %}
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__card:hover {
+
+      transform: translateY(-4px);
+
+      box-shadow:
+        0 18px 45px
+        rgba(36, 28, 22, 0.08);
+    }
+
+  {% endif %}
+
+
+  /* ==================================
+     QUOTE MARK
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__quote-mark {
+    height: 34px;
+    margin-bottom: 10px;
+    color:{{ section.settings.accent_color }};
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size: 58px;
+    font-weight: 400;
+    line-height: 0.9;
+  }
+
+
+  /* ==================================
+     QUOTE
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__quote {
+    margin-bottom: 18px;
+    color:{{ section.settings.text_color }};
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-size:{{ section.settings.quote_size }}px;
+    font-weight: 400;
+    line-height: 1.55;
+    font-style: normal;
+  }
+
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__quote p {
+
+    margin: 0;
+  }
+
+
+  /* ==================================
+     AUTHOR
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__author {
+    font-style: normal;
+    margin-top: auto;
+    color:{{ section.settings.secondary_text_color }};
+    font-size:{{ section.settings.author_size }}px;
+    font-weight: 400;
+    line-height: 1.4;
+  }
+
+
+  /* ==================================
+     SMALL NOTE
+  ================================== */
+
+  #studio-zeal-testimonials-{{ section.id }}
+  .studio-zeal-testimonials__note {
+
+    margin-top: 16px;
+
+    color:
+      {{ section.settings.note_color }};
+
+    font-family:
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace;
+
+    font-size: 9.5px;
+
+    font-weight: 500;
+
+    line-height: 1.4;
+
+    letter-spacing: 0.12em;
+
+    text-transform: uppercase;
+  }
+
+
+  /* ==================================
+     TABLET
+  ================================== */
+
+  @media screen and (max-width: 990px) {
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__container {
+
+      padding-left: 28px;
+      padding-right: 28px;
+    }
+
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__grid {
+
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+  }
+
+
+  /* ==================================
+     MOBILE
+  ================================== */
+
+  @media screen and (max-width: 749px) {
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__container {
+
+      padding:
+        {{ section.settings.mobile_padding_top }}px
+        20px
+        {{ section.settings.mobile_padding_bottom }}px;
+    }
+
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__heading {
+
+      font-size:
+        {{ section.settings.mobile_heading_size }}px;
+    }
+
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__grid {
+
+      grid-template-columns: 1fr;
+
+      gap:
+        {{ section.settings.mobile_card_gap }}px;
+    }
+
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__card {
+
+      padding:
+        {{ section.settings.mobile_card_padding }}px;
+    }
+
+
+    #studio-zeal-testimonials-{{ section.id }}
+    .studio-zeal-testimonials__quote {
+
+      font-size:
+        {{ section.settings.mobile_quote_size }}px;
+    }
+
+  }
+
+</style>
+
+
+{% schema %}
+{
+  "name": "Studio Zeal Testimonials",
+  "tag": "section",
+  "class": "studio-zeal-testimonials-section",
+
+  "settings": [
+
+    {
+      "type": "header",
+      "content": "Heading"
+    },
+
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Description"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Cards"
+    },
+
+    {
+      "type": "range",
+      "id": "desktop_columns",
+      "min": 1,
+      "max": 4,
+      "step": 1,
+      "label": "Desktop columns",
+      "default": 3
+    },
+
+    {
+      "type": "range",
+      "id": "card_gap",
+      "min": 8,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Card gap",
+      "default": 22
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_card_gap",
+      "min": 8,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "label": "Mobile card gap",
+      "default": 16
+    },
+
+    {
+      "type": "range",
+      "id": "card_padding",
+      "min": 20,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop card padding",
+      "default": 30
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_card_padding",
+      "min": 18,
+      "max": 40,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile card padding",
+      "default": 24
+    },
+
+    {
+      "type": "range",
+      "id": "card_radius",
+      "min": 0,
+      "max": 30,
+      "step": 1,
+      "unit": "px",
+      "label": "Card radius",
+      "default": 14
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_quote_mark",
+      "label": "Show quote mark",
+      "default": false
+    },
+
+    {
+      "type": "checkbox",
+      "id": "enable_hover",
+      "label": "Enable hover effect",
+      "default": false
+    },
+
+
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_size",
+      "min": 28,
+      "max": 60,
+      "step": 1,
+      "unit": "px",
+      "label": "Desktop heading size",
+      "default": 38
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_heading_size",
+      "min": 26,
+      "max": 44,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile heading size",
+      "default": 32
+    },
+
+    {
+      "type": "range",
+      "id": "quote_size",
+      "min": 15,
+      "max": 28,
+      "step": 1,
+      "unit": "px",
+      "label": "Quote size",
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_quote_size",
+      "min": 15,
+      "max": 24,
+      "step": 1,
+      "unit": "px",
+      "label": "Mobile quote size",
+      "default": 18
+    },
+
+    {
+      "type": "range",
+      "id": "author_size",
+      "min": 11,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Author size",
+      "default": 13
+    },
+
+
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+
+    {
+      "type": "range",
+      "id": "heading_spacing",
+      "min": 10,
+      "max": 70,
+      "step": 2,
+      "unit": "px",
+      "label": "Heading bottom spacing",
+      "default": 30
+    },
+
+
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop top padding",
+      "default": 84
+    },
+
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 160,
+      "step": 4,
+      "unit": "px",
+      "label": "Desktop bottom padding",
+      "default": 0
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_top",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile top padding",
+      "default": 60
+    },
+
+    {
+      "type": "range",
+      "id": "mobile_padding_bottom",
+      "min": 0,
+      "max": 120,
+      "step": 4,
+      "unit": "px",
+      "label": "Mobile bottom padding",
+      "default": 0
+    },
+
+
+    {
+      "type": "header",
+      "content": "Placeholder note"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "show_note",
+      "label": "Show note",
+      "default": true
+    },
+
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Note",
+      "default": "PLACEHOLDER COPY — REPLACE WITH REAL CLIENT QUOTES BEFORE LAUNCH"
+    },
+
+
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Section background",
+      "default": "#FAF6F0"
+    },
+
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Main text",
+      "default": "#241C16"
+    },
+
+    {
+      "type": "color",
+      "id": "secondary_text_color",
+      "label": "Secondary text",
+      "default": "#5A4E45"
+    },
+
+    {
+      "type": "color",
+      "id": "accent_color",
+      "label": "Quote mark",
+      "default": "#8C6357"
+    },
+
+    {
+      "type": "color",
+      "id": "card_background",
+      "label": "Card background",
+      "default": "#F3EDE4"
+    },
+
+    {
+      "type": "color",
+      "id": "card_border_color",
+      "label": "Card border",
+      "default": "#E3DAD1"
+    },
+
+    {
+      "type": "color",
+      "id": "note_color",
+      "label": "Note color",
+      "default": "#9A8B7E"
+    }
+
+  ],
+
+
+  "blocks": [
+
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+
+      "settings": [
+
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>I stopped parting my hair on the side to hide it. First time in years.</p>"
+        },
+
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Author / Details",
+          "default": "Client, headband hairline"
+        }
+
+      ]
+
+    }
+
+  ],
+
+
+  "presets": [
+
+    {
+      "name": "Studio Zeal Testimonials",
+
+      "blocks": [
+
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>I stopped parting my hair on the side to hide it. First time in years.</p>",
+            "author": "Client, headband hairline"
+          }
+        },
+
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>The call sold me. She told me what would not work for my hair, not just what to buy.</p>",
+            "author": "Consult, then fitting"
+          }
+        },
+
+        {
+          "type": "testimonial",
+          "settings": {
+            "quote": "<p>I use the powder on my roots between color appointments. Did not expect that.</p>",
+            "author": "Powder customer"
+          }
+        }
+
+      ]
+
+    }
+
+  ]
+
+}
+{% endschema %}
