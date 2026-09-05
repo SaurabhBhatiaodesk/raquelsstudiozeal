@@ -124,6 +124,21 @@
     color: {{ section.settings.secondary_button_text }};
   }
 
+
+  #StudioZealCTA-{{ section.id }} .studio-zeal-cta__subheading {
+    margin: 0 0 24px;
+    color: {{ section.settings.sub_heading_color }};
+    font-family: Karla, sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  #StudioZealCTA-{{ section.id }} .studio-zeal-cta__subheading p {
+    margin: 0;
+  }
+
+
   @media screen and (max-width: 749px) {
     #StudioZealCTA-{{ section.id }} {
       margin-top: 56px;
@@ -186,6 +201,12 @@
             </a>
           {% endif %}
 
+        </div>
+      {% endif %}
+
+      {% if section.settings.sub_heading != blank %}
+        <div class="studio-zeal-cta__subheading">
+          {{ section.settings.sub_heading }}
         </div>
       {% endif %}
 
@@ -288,7 +309,19 @@
       "id": "secondary_button_hover_border",
       "label": "Secondary button hover border",
       "default": "#241C16"
-    }
+    },
+    {
+      "type": "richtext",
+      "id": "sub_heading",
+      "label": "Sub Heading",
+      "default": "<p>Book your free consultation today</p>"
+    },
+    {
+      "type": "color",
+      "id": "sub_heading_color",
+      "label": "Sub Heading Color",
+      "default": "#4A403A"
+    },
   ],
   "presets": [
     {
