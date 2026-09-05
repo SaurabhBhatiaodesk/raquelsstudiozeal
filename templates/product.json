@@ -16,17 +16,17 @@
           "type": "vendor_based_product",
           "settings": {}
         },
-        "vendor": {
-          "type": "text",
-          "disabled": true,
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
           "settings": {}
+        },
+        "product_meta_description_9BMDk9": {
+          "type": "product_meta_description",
+          "settings": {
+            "description_color": "#806f61",
+            "font_size": 16,
+            "line_height": 1.8
+          }
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -119,8 +119,8 @@
       },
       "block_order": [
         "vendor_based_product_834RXN",
-        "vendor",
         "title",
+        "product_meta_description_9BMDk9",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
