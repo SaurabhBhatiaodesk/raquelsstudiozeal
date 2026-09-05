@@ -191,6 +191,10 @@ product-info {
 
 .product-form__submit {
   margin-bottom: 1rem;
+  transition:ease-in-out 0.5s;
+}
+.product-form__submit:hover{
+  background:#3d2e24;
 }
 
 .product-form__submit[aria-disabled='true'] + .shopify-payment-button .shopify-payment-button__button[disabled],
