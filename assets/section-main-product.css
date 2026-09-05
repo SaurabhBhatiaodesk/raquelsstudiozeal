@@ -224,6 +224,39 @@ product-info {
 .product__info-container iframe {
   max-width: 100%;
 }
+
+.product__price-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.8rem;
+}
+
+.product__price-main .price--large {
+  margin-bottom: 0;
+}
+
+.product__price-note {
+  color: rgba(var(--color-foreground), 0.86);
+  font-size: 1.4rem;
+  line-height: 1.4;
+  letter-spacing: 0.02rem;
+}
+
+.product__price-note::before {
+  content: '\00b7';
+  margin-right: 0.6rem;
+}
+
+.product__price-note p {
+  display: inline;
+  margin: 0;
+}
+
+.product__price-note a {
+  color: inherit;
+}
+
 .product__description{
   font-size:15px;
   font-weight:300;
