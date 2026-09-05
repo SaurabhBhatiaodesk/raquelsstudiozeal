@@ -324,6 +324,7 @@ product-info {
 }
 .product__description ul li::marker{
   color:rgb(140, 99, 87);
+  font-size: 1.3em;
 }
 .product__info-container .product-form,
 .product__info-container .product__description,
