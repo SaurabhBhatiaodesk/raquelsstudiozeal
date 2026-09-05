@@ -1,7 +1,9 @@
 variant-selects {
   display: block;
 }
-
+variant-selects.variant-selected {
+    border-top: 1px solid rgba(36,28,22,.1);
+}
 .product--no-media .product-form__input--pill,
 .product--no-media .product-form__input--swatch,
 .product--no-media .product-form__input--dropdown {
@@ -152,14 +154,13 @@ variant-selects {
 /* End custom styles for Swatch display type */
 
 .product-form__input--hairline-swatch {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(5.8rem, 1fr));
-  gap: 1.6rem 1.2rem;
-  margin: 2rem 0 2.4rem;
-  padding-top: 2.4rem;
-  border-top:1px solid rgba(36, 28, 22, 0.14);
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(5.8rem,1fr));
+    gap: 1.6rem 0.7rem;
+    margin: 2rem 0 2.4rem;
+    padding-top: 2.4rem;
+    border-top: 1px solid rgba(36,28,22,.14);
 }
-
 .product-form__input--hairline-swatch .form__label {
   grid-column: 1 / -1;
   display: flex;
