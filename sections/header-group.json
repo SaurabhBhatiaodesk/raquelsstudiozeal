@@ -37,9 +37,7 @@
     },
     "studio_zeal_header_7jFP6U": {
       "type": "studio-zeal-header",
-      "custom_css": [
-        ".studio-zeal-header__inner {max-width: 1240px; margin: auto; padding: 14px 36px; display: flex; align-items: center; gap: 15px !important;}"
-      ],
+      "custom_css": [],
       "name": "Studio Zeal Header",
       "settings": {
         "logo_text": "Studio Zeal",
