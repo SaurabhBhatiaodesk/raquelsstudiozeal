@@ -35,6 +35,17 @@ Mobile Hamburger + Close Icon + Shopify Native Menu + Logo Image
         {{ section.settings.button_text }}
       </a>
 
+      <a class="cart-link" href="{{ routes.cart_url }}" aria-label="Cart">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="9" cy="21" r="1"></circle>
+          <circle cx="20" cy="21" r="1"></circle>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+        </svg>
+        {% if cart.item_count > 0 %}
+          <span class="cart-count">{{ cart.item_count }}</span>
+        {% endif %}
+      </a>
+
       <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
         <span class="menu-icon">☰</span>
         <span class="close-icon">✕</span>
@@ -151,6 +162,33 @@ text-underline-offset: 7px;
 }
 .consult-btn:hover{
     background:#3d2e24;
+}
+
+.cart-link{
+  position:relative;
+  display:flex;
+  align-items:center;
+  color:#241C16;
+  text-decoration:none;
+}
+
+.cart-link:hover{
+  color:#4A403A;
+}
+
+.cart-count{
+  position:absolute;
+  top:-8px;
+  right:-10px;
+  background:#241C16;
+  color:#FAF6F0;
+  font:500 10px/1 Karla,sans-serif;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 .mobile-menu-btn{
