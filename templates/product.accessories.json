@@ -254,6 +254,7 @@
         },
         "faq_6tVdMF": {
           "type": "faq",
+          "disabled": true,
           "settings": {
             "question": "How do I care for my piece?",
             "answer": "<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.</p>",
