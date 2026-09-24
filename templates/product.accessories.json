@@ -59,6 +59,7 @@
         },
         "cta_button_TeFcT4": {
           "type": "cta_button",
+          "disabled": true,
           "settings": {
             "text": "Between two shades? Book a 15-minute color match",
             "link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd"
@@ -161,6 +162,7 @@
         "step_Bq3WCC",
         "step_xhFwLi"
       ],
+      "disabled": true,
       "name": "Studio Zeal How It Works",
       "settings": {
         "heading": "Four ways clients use it",
@@ -198,6 +200,7 @@
     },
     "who_this_helps_mnVqQK": {
       "type": "who-this-helps",
+      "disabled": true,
       "name": "Who This Helps",
       "settings": {
         "heading": "Who this helps",
@@ -275,6 +278,7 @@
     },
     "studio_zeal_final_cta_HU8qy8": {
       "type": "studio-zeal-final-cta",
+      "disabled": true,
       "name": "Studio Zeal Hairline CTA",
       "settings": {
         "desktop_margin_top": 84,
