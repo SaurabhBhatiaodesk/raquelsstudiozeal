@@ -1,0 +1,313 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "vendor_based_product_834RXN": {
+          "type": "vendor_based_product",
+          "settings": {}
+        },
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "product_meta_description_9BMDk9": {
+          "type": "product_meta_description",
+          "settings": {
+            "description_color": "#4a403a",
+            "font_size": 17,
+            "line_height": 1.6
+          }
+        },
+        "price_erzJHR": {
+          "type": "price",
+          "settings": {
+            "price_note": "USD · free standard shipping in the US"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button",
+            "swatch_shape": "circle"
+          }
+        },
+        "availability_note_nMtwhp": {
+          "type": "availability_note",
+          "settings": {
+            "text": "<p><strong>Available on demand.</strong> Please allow 5–10 business days for Studio Zeal to receive, inspect, and prepare your order before it ships.</p>",
+            "background_color": "#f4eee6",
+            "border_color": "#ded5cc",
+            "text_color": "#241c16"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": false
+          }
+        },
+        "cta_button_TeFcT4": {
+          "type": "cta_button",
+          "settings": {
+            "text": "Between two shades? Book a 15-minute color match",
+            "link": "https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "vendor_based_product_834RXN",
+        "title",
+        "product_meta_description_9BMDk9",
+        "price_erzJHR",
+        "variant_picker",
+        "availability_note_nMtwhp",
+        "buy_buttons",
+        "cta_button_TeFcT4",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "color_scheme": "",
+        "media_size": "small",
+        "constrain_to_viewport": true,
+        "media_fit": "cover",
+        "gallery_layout": "thumbnail_slider",
+        "mobile_thumbnails": "show",
+        "media_position": "left",
+        "image_zoom": "none",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 100,
+        "padding_bottom": 12
+      }
+    },
+    "related-products": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "heading": "More coverage options",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": true,
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "studio_zeal_how_it_works_xeKwQB": {
+      "type": "studio-zeal-how-it-works",
+      "blocks": {
+        "step_Ug33b7": {
+          "type": "step",
+          "settings": {
+            "step_label": "01",
+            "title": "Refresh root color",
+            "description": "<p>Stretch the weeks between color appointments without touching the rest of your hair.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_BgU7pg": {
+          "type": "step",
+          "settings": {
+            "step_label": "02",
+            "title": "Soften regrowth lines",
+            "description": "<p>Shadow a hard grow-out line so the transition reads as depth, not a stripe.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_Bq3WCC": {
+          "type": "step",
+          "settings": {
+            "step_label": "03",
+            "title": "Fill sparse areas",
+            "description": "<p>Add pigment at the temples and part so the scalp stops catching the light.</p>",
+            "card_style": "light"
+          }
+        },
+        "step_xhFwLi": {
+          "type": "step",
+          "settings": {
+            "step_label": "04",
+            "title": "Blend to a hairpiece",
+            "description": "<p>Where your own hair meets the headband hairline, powder closes the gap at the part.</p>",
+            "card_style": "light"
+          }
+        }
+      },
+      "block_order": [
+        "step_Ug33b7",
+        "step_BgU7pg",
+        "step_Bq3WCC",
+        "step_xhFwLi"
+      ],
+      "name": "Studio Zeal How It Works",
+      "settings": {
+        "heading": "Four ways clients use it",
+        "desktop_columns": 4,
+        "card_gap": 16,
+        "mobile_card_gap": 16,
+        "card_radius": 14,
+        "card_padding_top": 30,
+        "card_padding_horizontal": 28,
+        "card_padding_bottom": 34,
+        "heading_size": 38,
+        "mobile_heading_size": 28,
+        "step_size": 10,
+        "card_title_size": 24,
+        "mobile_card_title_size": 23,
+        "description_size": 15,
+        "heading_spacing": 28,
+        "mobile_heading_spacing": 24,
+        "padding_top": 60,
+        "padding_bottom": 0,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 0,
+        "background_color": "#faf6f0",
+        "text_color": "#241c16",
+        "secondary_text_color": "#4a403a",
+        "accent_color": "#8c6357",
+        "card_background": "#f3ede4",
+        "card_border_color": "#f3ede4",
+        "dark_card_background": "#241c16",
+        "dark_card_text": "#faf6f0",
+        "dark_secondary_text": "#d8cec6",
+        "dark_accent_color": "#c99b7a",
+        "enable_hover": false
+      }
+    },
+    "who_this_helps_mnVqQK": {
+      "type": "who-this-helps",
+      "name": "Who This Helps",
+      "settings": {
+        "heading": "Who this helps",
+        "description": "Women who want natural-looking fullness, coverage in photos, and less daily worry about visible thinning.",
+        "card_heading": "Shade and fit support",
+        "card_text": "Compare the product photos and shade names before ordering. If you are between shades or want a second opinion, book a Studio Zeal consultation before checkout. Shade guidance helps narrow the choice but cannot guarantee an exact match across every screen, lighting condition, or hair color.",
+        "review": "Pick the shade closest to your root",
+        "review_author": "Powder is buildable, so a slightly deeper shade reads as shadow rather than a mismatch. If you are covering grey through the front, match the root you want, not the grey you have.",
+        "section_background": "#faf6f0",
+        "heading_color": "#241c16",
+        "description_color": "#4a403a",
+        "card_background": "#ffffff",
+        "card_border": "#e4ddd3",
+        "card_heading_color": "#241c16",
+        "card_text_color": "#806f61",
+        "review_background": "#f3ede4",
+        "review_text_color": "#241c16",
+        "review_author_color": "#241c16",
+        "padding_top": 70,
+        "padding_bottom": 0,
+        "mobile_padding_top": 50,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "raquel_faq_dycQRR": {
+      "type": "raquel-faq",
+      "blocks": {
+        "faq_3rwLak": {
+          "type": "faq",
+          "settings": {
+            "question": "When will my order ship?",
+            "answer": "<p>Orders are sourced on demand, received and inspected by Studio Zeal, then shipped from Phoenix, Arizona. Please allow 5–10 business days for processing before carrier transit begins.</p>",
+            "open_by_default": true
+          }
+        },
+        "faq_mBPNby": {
+          "type": "faq",
+          "settings": {
+            "question": "What does shipping cost?",
+            "answer": "<p>Standard shipping is free within the United States. Paid express shipping affects carrier transit only and does not shorten the processing period. International customers pay the carrier-calculated shipping rate shown at checkout. International orders are shipped DAP, and the customer is responsible for duties, taxes, brokerage fees, and other import charges collected by the destination country or carrier.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_kr99FD": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I return it?",
+            "answer": "<p>All sales are final. If your order arrives damaged or has a product defect, contact Studio Zeal within 48 hours of delivery with your order number and clear photos of the item, packaging, and shipping label.</p>",
+            "open_by_default": false
+          }
+        },
+        "faq_6tVdMF": {
+          "type": "faq",
+          "settings": {
+            "question": "How do I care for my piece?",
+            "answer": "<p>Handle your piece gently, detangle from the ends upward, and store it clean and dry when it is not being worn. Use products and heat settings intended for human hair, and follow the care instructions included with your order. Contact Studio Zeal before washing, coloring, cutting, or chemically treating the piece if you are unsure.</p>",
+            "open_by_default": false
+          }
+        }
+      },
+      "block_order": [
+        "faq_3rwLak",
+        "faq_mBPNby",
+        "faq_kr99FD",
+        "faq_6tVdMF"
+      ],
+      "name": "Studio Zeal FAQ Dev",
+      "settings": {
+        "heading": "Shipping,<br>returns and care",
+        "padding_top": 84,
+        "padding_bottom": 0,
+        "mobile_padding_top": 56,
+        "mobile_padding_bottom": 0
+      }
+    },
+    "studio_zeal_final_cta_HU8qy8": {
+      "type": "studio-zeal-final-cta",
+      "name": "Studio Zeal Hairline CTA",
+      "settings": {
+        "desktop_margin_top": 84,
+        "desktop_padding_top": 0,
+        "desktop_padding_bottom": 24,
+        "mobile_margin_top": 56,
+        "mobile_padding_top": 0,
+        "mobile_padding_bottom": 12,
+        "heading": "Powder is the first step. The hairline is the next one.",
+        "text": "<p>When powder stops keeping up with the thinning, the Hairline Headband covers the whole perimeter in 100% Remy human hair.</p>",
+        "primary_button_label": "See the Hairline Headband",
+        "primary_button_link": "shopify://products/hairline-headband",
+        "secondary_button_label": "",
+        "secondary_button_link": "",
+        "background_color": "#241c16",
+        "heading_color": "#faf6f0",
+        "text_color": "#f3ede4",
+        "primary_button_bg": "#faf6f0",
+        "primary_button_text": "#241c16",
+        "primary_button_hover_bg": "#f3ede4",
+        "secondary_button_text": "#241c16",
+        "secondary_button_hover_border": "#241c16",
+        "sub_heading": "<p><a href=\"https://raquelviara.glossgenius.com/book?service_token=1000f-0188dc5c-56f6-4b0e-8921-c0ab0dc968fd\" target=\"_blank\">Or book a color match first</a></p>",
+        "sub_heading_color": "#f3ede4"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "related-products",
+    "studio_zeal_how_it_works_xeKwQB",
+    "who_this_helps_mnVqQK",
+    "raquel_faq_dycQRR",
+    "studio_zeal_final_cta_HU8qy8"
+  ]
+}
