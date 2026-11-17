@@ -135,3 +135,139 @@
     </script>
   </variant-selects>
 {%- endunless -%}
+<style>
+  .h2y-shade-image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(54px, 1fr));
+    gap: 12px 8px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    margin-bottom: 20px;
+  }
+
+  .h2y-shade-image-grid > legend.form__label {
+    float: none;
+    width: 100%;
+    padding: 0 0 12px;
+    margin: 0;
+  }
+
+  .h2y-shade-image-grid
+    > legend.form__label
+    [data-selected-value] {
+    float: right;
+    margin-left: 12px;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"].hairline-swatch__input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"]
+    + label.hairline-swatch__label {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 6px;
+    width: 100%;
+    min-width: 0;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    color: inherit;
+    box-shadow: none;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .h2y-shade-image-grid .hairline-swatch__media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 7px;
+    background: transparent;
+    box-sizing: border-box;
+  }
+
+  .h2y-shade-image-grid .hairline-swatch__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .h2y-shade-image-grid .hairline-swatch__media .swatch {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    border: 0;
+    border-radius: 0;
+  }
+
+  .h2y-shade-image-grid .hairline-swatch__name {
+    display: block;
+    font-size: 10px;
+    line-height: 1.3;
+    letter-spacing: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .h2y-shade-image-grid .hairline-swatch__fallback {
+    font-size: 20px;
+    line-height: 1;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"]:checked
+    + label
+    .hairline-swatch__media {
+    border-color: currentColor;
+    box-shadow: inset 0 0 0 2px currentColor;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"]:focus-visible
+    + label {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"].visually-disabled
+    + label
+    .hairline-swatch__media {
+    opacity: 0.45;
+  }
+
+  .h2y-shade-image-grid
+    > input[type="radio"].visually-disabled
+    + label
+    .hairline-swatch__name {
+    text-decoration: line-through;
+  }
+</style>
