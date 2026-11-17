@@ -33,7 +33,7 @@
           assign picker_type = 'hairline_swatch'
         endif
 
-        if block.settings.show_shade_image_grid and option_name_downcase == 'shade'
+        if block.settings.picker_type == 'image_grid'
           assign picker_type = 'hairline_swatch'
           assign use_shade_image_grid = true
         endif
