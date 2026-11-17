@@ -38,7 +38,8 @@
           "type": "variant_picker",
           "settings": {
             "picker_type": "button",
-            "swatch_shape": "circle"
+            "swatch_shape": "circle",
+            "show_shade_image_grid": true
           }
         },
         "availability_note_nMtwhp": {
@@ -151,7 +152,7 @@
             "step_label": "04",
             "title": "Blend to a hairpiece",
             "description": "<p>Where your own hair meets the headband hairline, powder closes the gap at the part.</p>",
-            "card_style": "dark"
+            "card_style": "light"
           }
         }
       },
