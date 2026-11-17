@@ -37,9 +37,8 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle",
-            "show_shade_image_grid": true
+            "picker_type": "image_grid",
+            "swatch_shape": "circle"
           }
         },
         "availability_note_nMtwhp": {
