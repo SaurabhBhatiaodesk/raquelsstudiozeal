@@ -1,22 +1,25 @@
 {% comment %}
-  Renders product variant-picker
+  Renders product variant picker.
 
   Accepts:
-  - product: {Object} product object.
-  - block: {Object} passing the block information.
-  - product_form_id: {String} Id of the product form to which the variant picker is associated.
-  Usage:
-  {% render 'product-variant-picker', product: product, block: block, product_form_id: product_form_id %}
+  - product
+  - block
+  - product_form_id
 {% endcomment %}
+
 {%- unless product.has_only_default_variant -%}
-  <variant-selects class="variant-selected"
+  <variant-selects
+    class="variant-selected"
     id="variant-selects-{{ section.id }}"
     data-section="{{ section.id }}"
-    {{ block.shopify_attributes }}>
+    {{ block.shopify_attributes }}
+  >
     {%- for option in product.options_with_values -%}
       {%- liquid
         assign swatch_count = option.values | map: 'swatch' | compact | size
         assign picker_type = block.settings.picker_type
+        assign option_name_downcase = option.name | downcase
+        assign use_shade_image_grid = false
 
         if swatch_count > 0 and block.settings.swatch_shape != 'none'
           if block.settings.picker_type == 'dropdown'
@@ -26,26 +29,44 @@
           endif
         endif
 
-if option.name == 'Shade' and block.settings.picker_type == 'dropdown'
-  assign picker_type = 'hairline_swatch'
-endif
+        if option.name == 'Shade' and block.settings.picker_type == 'dropdown'
+          assign picker_type = 'hairline_swatch'
+        endif
+
+        if block.settings.show_shade_image_grid and option_name_downcase == 'shade'
+          assign picker_type = 'hairline_swatch'
+          assign use_shade_image_grid = true
+        endif
 
         if product.handle == 'colored-hairline-powder' and option.name == 'Shade'
           assign picker_type = 'powder_swatch'
+          assign use_shade_image_grid = false
         endif
       -%}
-      {%- if picker_type == 'swatch' or picker_type == 'hairline_swatch' or picker_type == 'powder_swatch' -%}
-        <fieldset class="js product-form__input product-form__input--swatch{% if picker_type == 'hairline_swatch' %} product-form__input--hairline-swatch{% endif %}{% if picker_type == 'powder_swatch' %} product-form__input--powder-swatch{% endif %}">
+
+      {%- if picker_type == 'swatch'
+        or picker_type == 'hairline_swatch'
+        or picker_type == 'powder_swatch'
+      -%}
+        <fieldset
+          class="js product-form__input product-form__input--swatch{% if picker_type == 'hairline_swatch' %} product-form__input--hairline-swatch{% endif %}{% if picker_type == 'powder_swatch' %} product-form__input--powder-swatch{% endif %}{% if use_shade_image_grid %} h2y-shade-image-grid{% endif %}"
+        >
           <legend class="form__label">
-            {%- if picker_type == 'hairline_swatch' or picker_type == 'powder_swatch' -%}
-              <span>{{ option.name }} - {{ option.values.size }} options</span>
+            {%- if picker_type == 'hairline_swatch'
+              or picker_type == 'powder_swatch'
+            -%}
+              <span>
+                {{ option.name }} - {{ option.values.size }} options
+              </span>
             {%- else -%}
               {{ option.name }}:
             {%- endif -%}
+
             <span data-selected-value>
               {{- option.selected_value -}}
             </span>
           </legend>
+
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -53,9 +74,13 @@ endif
             picker_type: picker_type
           %}
         </fieldset>
+
       {%- elsif picker_type == 'button' -%}
         <fieldset class="js product-form__input product-form__input--pill">
-          <legend class="form__label">{{ option.name }}</legend>
+          <legend class="form__label">
+            {{ option.name }}
+          </legend>
+
           {% render 'product-variant-options',
             product: product,
             option: option,
@@ -63,20 +88,26 @@ endif
             picker_type: picker_type
           %}
         </fieldset>
+
       {%- else -%}
         <div class="product-form__input product-form__input--dropdown">
-          <label class="form__label" for="Option-{{ section.id }}-{{ forloop.index0 }}">
+          <label
+            class="form__label"
+            for="Option-{{ section.id }}-{{ forloop.index0 }}"
+          >
             {{ option.name }}
           </label>
+
           <div class="select">
             {%- if picker_type == 'swatch_dropdown' -%}
-              <span
-                data-selected-value
-                class="dropdown-swatch"
-              >
-                {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+              <span data-selected-value class="dropdown-swatch">
+                {% render 'swatch',
+                  swatch: option.selected_value.swatch,
+                  shape: block.settings.swatch_shape
+                %}
               </span>
             {%- endif -%}
+
             <select
               id="Option-{{ section.id }}-{{ forloop.index0 }}"
               class="select__select"
@@ -90,6 +121,7 @@ endif
                 picker_type: picker_type
               %}
             </select>
+
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
